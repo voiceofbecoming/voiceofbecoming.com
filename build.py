@@ -200,8 +200,9 @@ def home(posts):
  <div role="listitem"><strong>4</strong><span>pillars of authority</span></div>
 </div>
 
-<section><div class="wrap split">
- <div>
+<section class="feat feat-r"><div class="feat-photo" style="--fp:50% 5%"><img src="assets/img/fathima-desk.jpg" alt="Fathima Samreen writing at her desk" width="640" height="1137" loading="lazy"></div>
+<div class="wrap feat-grid">
+<div class="feat-copy">
   <span class="eyebrow">Who I help</span>
   <h2 class="display">Brilliant inside. <span class="red">Invisible outside.</span></h2>
   <p class="lead">Inside her company, everyone knows what she is worth. Outside, almost nobody can see it. I call that the articulation gap. Closing it is my work.</p>
@@ -214,8 +215,7 @@ def home(posts):
    <li>Want their work to outlive platforms and algorithms</li>
   </ul>
  </div>
- <div class="photo"><img src="assets/img/fathima-desk.jpg" alt="Fathima Samreen writing at her desk" width="640" height="1137" loading="lazy" style="aspect-ratio:4/5"></div>
-</div></section>
+ </div></section>
 
 <section class="sand"><div class="wrap">
  <div class="section-head"><span class="eyebrow">Services</span><h2 class="display">I don't just <span class="red">create content.</span></h2><p class="lead">I help leaders make sense of the road they have walked. Ghostwriting, brand &amp; book strategy and authority strategy. Each one starts with your story.</p></div>
@@ -240,9 +240,9 @@ def home(posts):
 
 {workbook_band("")}
 {latest}
-<section class="sand"><div class="wrap split">
- <div class="photo"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" loading="lazy"></div>
- <div>
+<section class="sand feat feat-l"><div class="feat-photo" style="--fp:50% 8%"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" loading="lazy"></div>
+<div class="wrap feat-grid">
+ <div class="feat-copy">
   <span class="eyebrow">The newsletter</span>
   <h2 class="display">Stories for women who carry <span class="red">many roles.</span></h2>
   <p class="lead">Executive, mother, wife, daughter. None of it is worthless. Every role you carry is part of your story. Get my letters on voice, worth and building a career from where you are.</p>
@@ -255,14 +255,15 @@ def home(posts):
 
 def about():
     body = f"""
-<section class="page-head"><div class="wrap split">
- <div><span class="eyebrow">About us</span><h1 class="display">The writer behind <span class="red">the leaders' words.</span></h1>
+<section class="page-head feat feat-r"><div class="feat-photo" style="--fp:50% 8%"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" fetchpriority="high"></div>
+<div class="wrap feat-grid">
+ <div class="feat-copy"><span class="eyebrow">About us</span><h1 class="display">The writer behind <span class="red">the leaders' words.</span></h1>
  <p class="lead">I'm Fathima Samreen, founder of The Voice of Becoming Studio. A self-taught writer from Warangal, Telangana, running a global studio from home.</p></div>
- <div class="photo"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" fetchpriority="high"></div>
 </div></section>
 
-<section><div class="wrap split rev">
- <div class="prose">
+<section class="feat feat-l"><div class="feat-photo" style="--fp:50% 15%"><img src="assets/img/fathima-award.jpg" alt="Fathima Samreen with her SIWAA 2025 Changemaker award" width="640" height="853" loading="lazy"></div>
+<div class="wrap feat-grid">
+ <div class="prose feat-copy">
   <span class="eyebrow">My story</span>
   <p>Before I wrote for leaders, I trained people to speak. As a soft-skills trainer and a zonal in-charge for a chain of schools in Telangana, I helped young people and teachers speak with confidence.</p>
   <p>Then I started writing. For more than 7 years I have ghostwritten for founders and leaders across 3 countries, and I have been writing books with leaders since 2019. LinkedIn thought leadership, books and personal brands, always in my client's own voice. All of it from my home in Warangal.</p>
@@ -270,7 +271,6 @@ def about():
   <p>I am not a coach. I am a ghostwriter, a brand and book strategist and an authority strategist. You talk, I listen, and I write what only your life could have written. Nothing goes out without your yes.</p>
   <p>And I'm writing my own book, <strong>What's Your Aukaath?</strong> Aukaath, to me, is knowing your worth and owning your place.</p>
  </div>
- <div class="photo"><img src="assets/img/fathima-award.jpg" alt="Fathima Samreen with her SIWAA 2025 Changemaker award" width="640" height="853" loading="lazy"></div>
 </div></section>
 
 <section class="sand"><div class="wrap split">
