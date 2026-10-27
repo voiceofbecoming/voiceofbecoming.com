@@ -339,3 +339,18 @@ details.faq p{margin:12px 0 0;color:var(--muted)}
  .hero-cut{position:absolute;top:clamp(8px,2vh,22px);bottom:calc(var(--wm) * .6);right:max(0px,calc(50% - 640px));width:46%;margin:0;-webkit-mask-image:none;mask-image:none}
  .hero-cut img{width:100%;height:100%;object-fit:contain;object-position:50% 100%}
 }
+
+/* v6: full figure + solid/hollow wordmark; Bricolage headline */
+.hero h1.display{font-family:"Bric",system-ui,sans-serif;font-weight:800;text-transform:none;letter-spacing:-.025em;line-height:1.04;color:var(--cream);font-size:clamp(32px,min(3.7vw,5.6vh),56px)}
+.hero h1.display .red{font-size:1.32em;letter-spacing:-.01em;line-height:.95;margin-top:.1em}
+.hero .wordmark.wm-o{z-index:3}
+.hero .wordmark.wm-o span,.hero .wordmark.wm-o .l{color:transparent!important;-webkit-text-stroke:2px var(--red);text-stroke:2px var(--red)}
+@media(max-width:899px){.hero .wordmark.wm-o{display:none}}
+@media(max-width:760px){.hero h1.display .red{font-size:1.12em}}
+@media(min-width:761px) and (max-width:899px){.hero{--fw:min(100vw - 40px,440px)}}
+@media(min-width:900px){
+ .hero .wordmark.wm-o{position:absolute;left:0;right:0;bottom:0;margin:0}
+ .hero-cut{top:clamp(10px,2.4vh,26px);bottom:0}
+}
+html{color:#F3E9DD}
+.hero .wordmark:not(.wm-o) .l,html:not(.js) .hero .wordmark:not(.wm-o)>span{background:linear-gradient(180deg,#481216 0%,#7a0d14 38%,#B20710 78%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}

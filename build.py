@@ -183,7 +183,7 @@ def workbook_band(rel=""):
 TESTIMONIALS = [
  ("The ideas and experiences in the book were mine, but she helped me shape them into something people could truly connect with … she helped turn the book into a complete authority platform.", "Parvez Siraj", "VP, Lupin · author &amp; speaker", "parvez.jpg"),
  ("We hired Fathima and her team as our marketing manager. She really helped us find our brand voice and set us up for success.", "Negar Farahmand", "CEO, AHX Partners · ex-Accenture MD", "negar.jpg"),
- ("She takes the time to carefully understand the objectives of each piece of content … She has been a true gift to our team, and our growth on social media.", "Founder &amp; CEO", "A leadership development company", None),
+ ("She takes the time to carefully understand the objectives of each piece of content … She has been a true gift to our team, and our growth on social media.", "Bhavna Toor", "Founder &amp; CEO, Shenomics", "bhavna.webp"),
  ("I thank Fathima Samreen, my ghostwriter, who has done an exceptional job of framing the entire story so beautifully and deftly weaving my thoughts into words.", "Akhauri Mritunjay Kumar", "Author, <em>Rekha Dares to Dream Again</em> (from the book's acknowledgements)", None),
  ("Fathima has done a wonderful job of designing and optimizing my LinkedIn profile … I strongly recommend her as a dedicated, professional and capable artist.", "Dr. Sujata Sinha", "LinkedIn profile client", None),
  ("She found the perfect balance between content creation and Art. She possesses a unique way with words and an insatiable passion for writing.", "Shijohn Williams", "Client", None),
@@ -213,6 +213,7 @@ def home(posts):
  <div class="hero-photo hero-cut"><img src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen, founder of The Voice of Becoming Studio" width="872" height="1055" fetchpriority="high"></div>
 </div>
 <div class="wordmark" aria-hidden="true"><span>Voice of Becoming</span></div>
+<div class="wordmark wm-o" aria-hidden="true"><span>Voice of Becoming</span></div>
 </section>
 <div class="stats" role="list">
  <div role="listitem"><strong data-count="7" data-suffix="+">7+</strong><span>years ghostwriting</span></div>
@@ -249,7 +250,7 @@ def home(posts):
  </div>
  <div class="grid g3" style="margin-top:22px">
   <div class="card result"><span class="meta">Lupin</span><span class="big">Director → VP</span><p>A book, a weekly newsletter and a profile that made a leader's expertise visible. 4,500+ newsletter subscribers and 800+ community members.</p></div>
-  <div class="card result"><span class="meta">A leadership development company</span><span class="big">36K → 105K</span><p>LinkedIn followers for the founder, over 14 to 18 months of partnership, with the profile updated each time her offer evolved.</p></div>
+  <div class="card result"><span class="meta">Shenomics · Bhavna Toor</span><span class="big">36K → 105K</span><p>LinkedIn followers for Bhavna, over 14 to 18 months of partnership, with the profile updated each time her offer evolved.</p></div>
   <div class="card result"><span class="meta">AHX Partners</span><span class="big">+100</span><p>Paid members added to a founder-led community, through strategy, content, design and positioning.</p></div>
  </div>
  <div class="btns"><a class="btn" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Start with a free Clarity Call</a><a class="btn ghost" href="about.html">How I work</a></div>
