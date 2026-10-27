@@ -354,3 +354,20 @@ details.faq p{margin:12px 0 0;color:var(--muted)}
 }
 html{color:#F3E9DD}
 .hero .wordmark:not(.wm-o) .l,html:not(.js) .hero .wordmark:not(.wm-o)>span{background:linear-gradient(180deg,#481216 0%,#7a0d14 38%,#B20710 78%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+
+/* v7 motion */
+.mo main{position:relative;z-index:0;background:#0B0A0A}
+.mo :where(main > section){background-color:var(--bg)}
+.mo .hero{transform-origin:50% 100%;will-change:transform}
+.mo .stats{background:linear-gradient(var(--line),var(--line)),var(--bg)}
+.mo-dim{position:absolute;inset:0;z-index:40;background:#0A0909;opacity:0;pointer-events:none;border-radius:inherit}
+.mo .statement-text{will-change:transform;transform-origin:50% 60%}
+.glide{scroll-behavior:auto}
+@media(min-width:900px){
+ .mo-panels .hero{position:sticky;z-index:1}
+ .mo-panels main > :not(section){position:relative;z-index:2}
+ .mo-panels main > section:not(.hero){position:sticky;will-change:transform}
+ .mo-panels .stats,.mo-panels main > section:not(.hero){border-radius:32px 32px 0 0;box-shadow:0 -28px 60px -12px rgba(0,0,0,.6)}
+ .mo-panels .stats{overflow:hidden}
+}
+@media(prefers-reduced-motion:reduce){.mo-dim{display:none}}
