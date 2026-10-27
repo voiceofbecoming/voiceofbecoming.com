@@ -72,8 +72,8 @@ function onScroll(){var y=window.scrollY||0,H=root.scrollHeight-innerHeight;
     }
     if(st){var r=st.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0){
       var p=(innerHeight*0.88-r.top)/(innerHeight*0.55+r.height*0.5);p=Math.max(0,Math.min(1,p));
-      var n=Math.round(p*stWords.length*1.0);stWords.forEach(function(w,k){w.classList.toggle("on",k<n);});
-      if(pill)pill.classList.toggle("on",p>=0.97||n>=stWords.length);
+      var n=Math.round(Math.min(1,p/0.72)*stWords.length);stWords.forEach(function(w,k){w.classList.toggle("on",k<n);});
+      if(pill)pill.classList.toggle("on",n>=stWords.length);
       if(bq){var rr=bq.parentElement.getBoundingClientRect();bq.style.transform="translate3d(0,"+(-rr.top*0.25).toFixed(1)+"px,0)";}
     }}
     if(cards.length){cards.forEach(function(c,k){var nx=cards[k+1];if(!nx){c.style.transform="";return;}
