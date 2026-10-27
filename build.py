@@ -210,7 +210,7 @@ def home(posts):
   <div class="btns"><a class="btn" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a><a class="btn ghost" href="freebies.html">Get the free workbook</a></div>
   <div class="award-chip"><b>SIWAA 2025</b> Changemaker Award · South India Women Achievers</div>
  </div>
- <div class="hero-photo"><img src="assets/img/fathima-hero.jpg" alt="Fathima Samreen, founder of The Voice of Becoming Studio" width="1024" height="1366" fetchpriority="high"></div>
+ <div class="hero-photo hero-cut"><img src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen, founder of The Voice of Becoming Studio" width="872" height="1071" fetchpriority="high"></div>
 </div>
 <div class="wordmark" aria-hidden="true"><span>Voice of Becoming</span></div>
 </section>
