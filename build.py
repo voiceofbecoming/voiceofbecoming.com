@@ -222,15 +222,13 @@ def home(posts):
  <div role="listitem"><strong data-count="4">4</strong><span>pillars of authority</span></div>
 </div>
 <div class="marquee" aria-hidden="true"><div class="mq-row mq-co"><div class="mq-track"><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i></div></div><div class="mq-row rev"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div></div>
-<section class="am4" id="four-am" aria-labelledby="am4-t"><span class="am4-dawn" aria-hidden="true"></span><span class="am4-line" aria-hidden="true"></span>
-<div class="wrap am4-grid">
+<section class="am4" id="four-am" aria-labelledby="am4-t"><span class="am4-glow" aria-hidden="true"></span>
+<span class="am4-eb">The letter · Free workbook</span>
+<div class="am4-stage">
  <h2 class="am4-word" id="am4-t"><span class="am4-n">4</span><span class="am4-am">AM</span><span class="sr"> , the newsletter</span></h2>
- <div class="am4-copy">
-  <span class="eyebrow">The letter · Free workbook</span>
-  <p class="am4-tag">For women who build in the quiet.</p>
-  <p class="am4-text">Join 4 AM and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.</p>
-  <div class="btns"><a class="btn btn-xl" href="{KIT}">Join 4 AM, get the workbook <span aria-hidden="true">&rarr;</span></a></div>
- </div>
+ <img class="am4-cut" src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen" width="872" height="1055" loading="lazy">
+ <div class="am4-copy"><div class="l"><p class="am4-tag">For women who build in the quiet.</p><p class="am4-text">Join 4 AM and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.</p></div>
+ <div class="r"><a class="btn btn-xl" href="{KIT}">Join 4 AM, get the workbook <span aria-hidden="true">&rarr;</span></a></div></div>
 </div></section>
 <section class="statement"><span class="big-q" aria-hidden="true">&ldquo;</span><div class="wrap"><p class="statement-text">Helping Muslim women executives turn their expertise into <span class="pill">a voice people follow.</span></p></div></section>
 
@@ -456,9 +454,15 @@ def freebies():
 
 def newsletter():
     body = f"""
+<section class="am4 am4-nl" aria-label="4 AM, the newsletter"><span class="am4-glow" aria-hidden="true"></span>
+<span class="am4-eb">The letter · Free workbook</span>
+<div class="am4-stage">
+ <p class="am4-word"><span class="am4-n">4</span><span class="am4-am">AM</span></p>
+ <img class="am4-cut" src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen" width="872" height="1055" fetchpriority="high">
+ <div class="am4-copy"><div class="l"><p class="am4-tag">For women who build in the quiet.</p></div></div>
+</div></section>
 <section class="hero"><div class="wrap hero-grid">
  <div class="hero-copy">
-  <p class="nl-name"><span class="am4-word am4-sm"><span class="am4-n">4</span><span class="am4-am">AM</span></span><span class="am4-tag">For women who build in the quiet.</span></p>
   <span class="eyebrow">The newsletter · Free workbook</span>
   <h1 class="display">Get the free Articulation Gap <span class="red">workbook.</span></h1>
   <p class="lead">5 signature stories you already own, 30 LinkedIn post ideas and a profile checklist, so the brilliance in your head becomes words people trust.</p>
