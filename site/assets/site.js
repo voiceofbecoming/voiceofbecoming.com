@@ -133,7 +133,7 @@ function layout(){
 function frame(){
   var ih=innerHeight;
   if(hero){var e=0;
-    if(on){if(first){var ft=first.getBoundingClientRect().top;e=clamp(1-(ft-heroTop)/Math.max(1,ih-heroTop));}}
+    if(on){if(first){var ft=first.getBoundingClientRect().top,base=Math.min(ih,ft+scrollY);e=clamp((base-ft)/Math.max(1,base-heroTop));}}
     else{var hr=hero.getBoundingClientRect();e=clamp((hH-hr.top)/Math.max(1,hr.height*0.9));}
     var k=eo(e),sc=on?1-0.1*k:1-0.07*k;
     hero.style.transform=e>0?"scale("+sc.toFixed(4)+")":"";
