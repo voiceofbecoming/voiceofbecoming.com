@@ -29,4 +29,4 @@ When I wrote the book for a Chief of Staff at a global pharma company, we starte
 
 Do this a few times and "Director at ___" starts to read like a person with a point of view.
 
-I made a free workbook for exactly this. [Get the Articulation Gap workbook](../freebies.html) and start with your first story today.
+I made a free workbook for exactly this. [Get the Articulation Gap workbook](https://becoming-her-again-4.kit.com/042d6cefac) and start with your first story today.

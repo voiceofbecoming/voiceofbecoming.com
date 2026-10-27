@@ -96,7 +96,7 @@ def page(title, desc, body, current, rel="", path="index.html"):
     <p class="foot-cta-line">Stories, prompts and strategy for women who carry <span class="serif">many roles at once.</span></p>
     <p class="small">Subscribe and get the free Articulation Gap workbook.</p>
    </div>
-   <a class="btn" href="{KIT}" target="_blank" rel="noopener">Subscribe free</a>
+   <a class="btn" href="{KIT}">Subscribe free</a>
   </div>
   <div class="foot-grid">
    <div class="foot-brand">
@@ -116,7 +116,7 @@ def page(title, desc, body, current, rel="", path="index.html"):
     <ul class="foot-links">
      <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
      <li><a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></li>
-     <li><a href="{KIT}" target="_blank" rel="noopener">Join the newsletter</a></li>
+     <li><a href="{KIT}">Join the newsletter</a></li>
     </ul>
     <p class="small foot-loc">Warangal, India · working worldwide</p>
    </div>
@@ -176,7 +176,7 @@ def workbook_band(rel=""):
  <div><span class="eyebrow">Free workbook</span>
  <h2 class="display">Close your<br>articulation gap.</h2>
  <p class="lead">Five stories you already own, turned into post ideas and a profile that speaks for you while you do your job.</p>
- <div class="btns"><a class="btn" href="{KIT}" target="_blank" rel="noopener">Get the free workbook</a><a class="btn ghost" href="{rel}freebies.html">What's inside</a></div></div>
+ <div class="btns"><a class="btn" href="{KIT}">Get the free workbook</a><a class="btn ghost" href="{rel}freebies.html">What's inside</a></div></div>
  <img src="{rel}assets/img/workbook.webp" alt="Cover of The Articulation Gap workbook" width="600" height="848" loading="lazy">
 </div></div></section>"""
 
@@ -207,7 +207,7 @@ def home(posts):
   <span class="eyebrow">Ghostwriter for Muslim women executives</span>
   <h1 class="display">Your title belongs to your company. <span class="red">Your voice belongs to you.</span></h1>
   <p class="lead">I'm Fathima Samreen. I turn what you know into words people trust, so your name opens doors your title can't.</p>
-  <div class="btns"><a class="btn" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a><a class="btn ghost" href="freebies.html">Get the free workbook</a></div>
+  <div class="btns"><a class="btn" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a><a class="btn ghost" href="{KIT}">Get the free workbook</a></div>
   <div class="award-chip"><b>SIWAA 2025</b> Changemaker Award · South India Women Achievers</div>
  </div>
  <div class="hero-photo hero-cut"><img src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen, founder of The Voice of Becoming Studio" width="872" height="1055" fetchpriority="high"></div>
@@ -270,7 +270,7 @@ def home(posts):
   <span class="eyebrow">The newsletter</span>
   <h2 class="display">Stories for women who carry <span class="red">many roles.</span></h2>
   <p class="lead">Executive, mother, wife, daughter. None of it is worthless. Every role you carry is part of your story. Get my letters on voice, worth and building a career from where you are.</p>
-  <div class="btns"><a class="btn" href="{KIT}" target="_blank" rel="noopener">Subscribe free</a><a class="btn ghost" href="newsletter.html">About the newsletter</a></div>
+  <div class="btns"><a class="btn" href="{KIT}">Subscribe free</a><a class="btn ghost" href="newsletter.html">About the newsletter</a></div>
  </div>
 </div></section>
 """
@@ -368,7 +368,7 @@ def article(p, posts):
  <div class="card" style="display:flex;gap:18px;align-items:center;margin-top:44px;flex-wrap:wrap">
   <img src="../assets/img/fathima-avatar.jpg" alt="" width="72" height="72" style="width:72px;height:72px;border-radius:50%;object-fit:cover">
   <div style="flex:1;min-width:220px"><strong>Fathima Samreen</strong><br><span class="small">Ghostwriter, brand &amp; book strategist and authority strategist. Founder, The Voice of Becoming Studio.</span></div>
-  <a class="btn" href="{KIT}" target="_blank" rel="noopener">Get my letters</a>
+  <a class="btn" href="{KIT}">Get my letters</a>
  </div>
 </div></section></article>
 {more}
@@ -429,7 +429,7 @@ def freebies():
     <li>A profile that speaks for you while you do your job</li>
     <li>Start with Story 01 in 20 minutes</li>
    </ul>
-   <a class="btn" href="{KIT}" target="_blank" rel="noopener">Get the free workbook</a>
+   <a class="btn" href="{KIT}">Send me the workbook</a>
    <p class="small" style="margin-top:14px">Enter your email on the next page and the workbook comes straight to your inbox. You'll also get my newsletter. Unsubscribe any time.</p>
   </div>
  </div>
@@ -448,11 +448,11 @@ def newsletter():
     body = f"""
 <section class="hero"><div class="wrap hero-grid">
  <div class="hero-copy">
-  <span class="eyebrow">The Voice of Becoming newsletter</span>
-  <h1 class="display">Every role you carry is part of <span class="red">your story.</span></h1>
-  <p class="lead">Letters for women who lead at work and hold everything together at home. On voice, self-worth, faith and building a career from exactly where you are.</p>
-  <div class="btns"><a class="btn" href="{KIT}" target="_blank" rel="noopener">Subscribe free</a></div>
-  <p class="small" style="margin-top:14px">Free. Your email stays private. Unsubscribe any time.</p>
+  <span class="eyebrow">Free workbook · The Voice of Becoming newsletter</span>
+  <h1 class="display">Get the free Articulation Gap <span class="red">workbook.</span></h1>
+  <p class="lead">5 signature stories you already own, 30 LinkedIn post ideas and a profile checklist, so the brilliance in your head becomes words people trust.</p>
+  <div class="btns"><a class="btn btn-xl" href="{KIT}">Send me the workbook <span aria-hidden="true">→</span></a></div>
+  <p class="small" style="margin-top:14px">Free. Add your email on the next page and it lands in your inbox, with my newsletter. Unsubscribe any time.</p>
  </div>
  <div class="hero-photo"><img src="assets/img/fathima-hero.jpg" alt="Fathima Samreen" width="1024" height="1366" fetchpriority="high"></div>
 </div></section>
@@ -467,11 +467,11 @@ def newsletter():
 <section class="sand"><div class="wrap"><div class="signup">
  <img class="cover" src="assets/img/workbook.webp" alt="Cover of The Articulation Gap workbook" width="600" height="848" loading="lazy">
  <div><span class="eyebrow">Welcome gift</span><h2 class="display">Subscribe and get the <span class="red">workbook.</span></h2>
- <p class="lead">Join the newsletter and the free Articulation Gap workbook comes with your welcome email.</p>
- <a class="btn" href="{KIT}" target="_blank" rel="noopener">Join the newsletter</a></div>
+ <p class="lead">5 signature stories, 30 LinkedIn post ideas and a profile checklist. It comes with your welcome email, free.</p>
+ <a class="btn" href="{KIT}">Send me the workbook</a></div>
 </div></div></section>
 """
-    return page("Newsletter", "Subscribe to The Voice of Becoming newsletter by Fathima Samreen and get the free Articulation Gap workbook.", body, "newsletter.html", "", "newsletter.html")
+    return page("Newsletter: free Articulation Gap workbook", "Get the free Articulation Gap workbook by Fathima Samreen: 5 signature stories, 30 LinkedIn post ideas and a profile checklist, plus The Voice of Becoming newsletter.", body, "newsletter.html", "", "newsletter.html")
 
 def main():
     posts = load_posts()

@@ -386,3 +386,7 @@ html{color:#F3E9DD}
 .mq-row.mq-co span em{font-style:normal;color:var(--sand);opacity:.6}
 .mq-row.mq-co span b{font-weight:400;color:var(--red)}
 .mq-row.mq-co span b.ar{font-family:"Bric",system-ui,sans-serif;font-weight:700;font-size:.8em;vertical-align:.06em}
+
+/* v10: big workbook button (newsletter) */
+.btn.btn-xl{font-size:clamp(18px,1.5vw,21px);padding:20px 38px;box-shadow:0 14px 36px rgba(178,7,16,.32)}
+@media(max-width:520px){.btn.btn-xl{width:100%;padding:19px 24px}}
