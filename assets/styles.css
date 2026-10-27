@@ -380,3 +380,9 @@ html{color:#F3E9DD}
  .hero .lead{max-width:min(46ch,100%)}
  .hero-cut{left:calc(50% + 32px);right:max(0px,calc(50% - 760px));width:auto}
 }
+
+/* v9: big marquee row = companies + results (her 4:55 PM IST ask) */
+.mq-row.mq-co .mq-track{animation-duration:74s}
+.mq-row.mq-co span em{font-style:normal;color:var(--sand);opacity:.6}
+.mq-row.mq-co span b{font-weight:400;color:var(--red)}
+.mq-row.mq-co span b.ar{font-family:"Bric",system-ui,sans-serif;font-weight:700;font-size:.8em;vertical-align:.06em}
