@@ -423,3 +423,31 @@ html.js .am4 .am4-copy>*{transform:translateY(28px);opacity:0;transition:transfo
 html.js .am4 .am4-copy>*:nth-child(2){transition-delay:.18s}
 html.js .am4.on .am4-n,html.js .am4.on .am4-am,html.js .am4.on .am4-copy>*{transform:none;opacity:1}
 @media (prefers-reduced-motion:reduce){html.js .am4 .am4-n,html.js .am4 .am4-am,html.js .am4 .am4-copy>*{transform:none;opacity:1;transition:none}}
+
+/* v13: newsletter laptop mockup (replaces the 2nd photo of her on newsletter.html) */
+.nl-mock{position:relative;width:100%;max-width:600px;margin:30px auto 8px;padding:0 4px;z-index:1}
+.nl-glow{position:absolute;left:50%;top:46%;width:120%;height:90%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(178,7,16,.38),rgba(72,18,22,.22) 55%,transparent 100%);filter:blur(10px);pointer-events:none;z-index:-1}
+.lap{position:relative}
+.lap-lid{position:relative;margin:0 7%;padding:2.6% 2.4% 3%;background:linear-gradient(160deg,#2A2222,#0D0B0B 60%);border-radius:18px 18px 6px 6px;border:1px solid rgba(243,233,221,.16);box-shadow:0 30px 60px -20px rgba(0,0,0,.7),inset 0 0 0 2px rgba(0,0,0,.6)}
+.lap-cam{position:absolute;top:1.1%;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3A3030}
+.lap-screen{container-type:inline-size;aspect-ratio:16/10;overflow:hidden;border-radius:4px;background:#141414}
+.mail{height:100%;display:flex;flex-direction:column;background:linear-gradient(180deg,#1C1515,#141414);color:#F3E9DD;font-family:"Bric",sans-serif}
+.mail-bar{display:flex;align-items:center;gap:1.2cqw;padding:1.6cqw 2.6cqw;background:#0F0C0C;border-bottom:1px solid rgba(243,233,221,.1);font-size:2.1cqw;color:#EAD7C4;letter-spacing:.04em}
+.mail-bar i{width:1.5cqw;height:1.5cqw;border-radius:50%;background:#481216}.mail-bar i:first-child{background:#B20710}
+.mail-bar span{margin-left:1.4cqw;opacity:.75}
+.mail-head{display:flex;align-items:center;gap:2cqw;padding:2.4cqw 4cqw 0}
+.mail-av{flex:none;width:5.6cqw;height:5.6cqw;border-radius:50%;background:#B20710;color:#F3E9DD;display:grid;place-items:center;font-family:"Anton",sans-serif;font-size:3cqw;line-height:1}
+.mail-from b{display:block;font-weight:700;font-size:2.5cqw;line-height:1.2}
+.mail-from small{display:block;font-size:1.9cqw;color:#EAD7C4;opacity:.7;line-height:1.3}
+.mail-subj{margin:1.8cqw 4cqw 1.6cqw;font-weight:700;font-size:3.1cqw;line-height:1.2;color:#F3E9DD}
+.mail-body{flex:1;margin:0 4cqw;padding:3.2cqw 4.4cqw 0;border-radius:1.6cqw 1.6cqw 0 0;background:radial-gradient(120% 90% at 85% 0%,rgba(178,7,16,.45),transparent 60%),#481216;overflow:hidden}
+.mail-mark{margin:0;font-family:"Anton",sans-serif;font-size:9.5cqw;line-height:.9;color:#EAD7C4;letter-spacing:.01em}
+.mail-h{margin:1.6cqw 0 1.4cqw;font-family:"Inst",serif;font-style:italic;font-size:4.4cqw;line-height:1.05;color:#F3E9DD}
+.mail-p{margin:0 0 1.2cqw;font-size:2.35cqw;line-height:1.45;color:#EAD7C4;max-width:62cqw}
+.mail-sign{margin:1.6cqw 0 0;font-family:"Inst",serif;font-style:italic;font-size:3cqw;color:#F3E9DD}
+.lap-base{position:relative;height:0;padding-top:3.4%;background:linear-gradient(180deg,#3A3030,#1A1414 55%,#0D0B0B);border-radius:2px 2px 16px 16px/2px 2px 60% 60%;border:1px solid rgba(243,233,221,.12);border-top-color:rgba(243,233,221,.22)}
+.lap-base span{position:absolute;top:0;left:50%;width:16%;height:38%;transform:translateX(-50%);background:#0D0B0B;border-radius:0 0 8px 8px}
+@media (min-width:900px){.hero .nl-mock{align-self:center;margin:0 0 0 auto;max-width:640px;padding:30px 0}}
+@media (prefers-reduced-motion:no-preference){.nl-mock .lap{animation:nlFloat 7s ease-in-out infinite}@keyframes nlFloat{50%{transform:translateY(-8px)}}}
+@media (max-width:899px){.nl-mock{margin:34px -8px 4px;width:auto;padding:0}.nl-mock .lap-lid{margin:0 3%;border-radius:14px 14px 5px 5px}.mail-p{font-size:2.6cqw}.mail-from small{font-size:2.1cqw}}
+@media (min-width:900px){main>.am4.am4-nl{z-index:1!important}main>.am4-nl+.hero{z-index:2!important}}
