@@ -1,0 +1,4 @@
+{
+  "_how_to_edit": "Add one object per talk or event to the 'events' list, then run: python3 build.py. Fields: date (YYYY-MM-DD), time (optional, e.g. '11:00 AM IST'), title, place, format (e.g. 'Talk', 'Workshop', 'Online'), description (optional), link (optional, https URL for registration or details), link_label (optional). Events whose date has passed move to 'Past talks' automatically on the next build, and are hidden from 'Upcoming' in the browser on the day after.",
+  "events": []
+}
