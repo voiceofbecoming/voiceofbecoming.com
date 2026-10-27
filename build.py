@@ -57,7 +57,7 @@ def page(title, desc, body, current, rel="", path="index.html"):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
-<meta name="theme-color" content="#F3E9DD">
+<meta name="theme-color" content="#141414">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Voice of Becoming Studio">
 <meta property="og:title" content="{esc(full_title)}">
@@ -241,7 +241,7 @@ def home(posts):
 {workbook_band("")}
 {latest}
 <section class="sand"><div class="wrap split">
- <div class="photo"><img src="assets/img/fathima-portrait.jpg" alt="Portrait of Fathima Samreen" width="720" height="720" loading="lazy"></div>
+ <div class="photo"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" loading="lazy"></div>
  <div>
   <span class="eyebrow">The newsletter</span>
   <h2 class="display">Stories for women who carry <span class="red">many roles.</span></h2>
@@ -258,7 +258,7 @@ def about():
 <section class="page-head"><div class="wrap split">
  <div><span class="eyebrow">About us</span><h1 class="display">The writer behind <span class="red">the leaders' words.</span></h1>
  <p class="lead">I'm Fathima Samreen, founder of The Voice of Becoming Studio. A self-taught writer from Warangal, Telangana, running a global studio from home.</p></div>
- <div class="photo"><img src="assets/img/fathima-portrait.jpg" alt="Portrait of Fathima Samreen" width="720" height="720" fetchpriority="high"></div>
+ <div class="photo"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" fetchpriority="high"></div>
 </div></section>
 
 <section><div class="wrap split rev">
@@ -342,7 +342,7 @@ def article(p, posts):
  <p class="lead" style="margin-bottom:34px">{esc(p["summary"])}</p>
  <div class="prose">{md(p["body"])}</div>
  <div class="card" style="display:flex;gap:18px;align-items:center;margin-top:44px;flex-wrap:wrap">
-  <img src="../assets/img/fathima-portrait.jpg" alt="" width="72" height="72" style="width:72px;height:72px;border-radius:50%;object-fit:cover">
+  <img src="../assets/img/fathima-avatar.jpg" alt="" width="72" height="72" style="width:72px;height:72px;border-radius:50%;object-fit:cover">
   <div style="flex:1;min-width:220px"><strong>Fathima Samreen</strong><br><span class="small">Ghostwriter, brand &amp; book strategist and authority strategist. Founder, The Voice of Becoming Studio.</span></div>
   <a class="btn" href="{KIT}" target="_blank" rel="noopener">Get my letters</a>
  </div>
