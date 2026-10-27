@@ -371,3 +371,12 @@ html{color:#F3E9DD}
  .mo-panels .stats{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){.mo-dim{display:none}}
+
+/* v8: text column always clear of her figure (laptop/tablet) */
+@media(min-width:900px){
+ .hero .hero-grid{grid-template-columns:50% 1fr}
+ .hero .hero-copy{position:relative;z-index:5;max-width:100%;min-width:0}
+ .hero h1.display .red{font-size:min(1.32em,calc(min(100vw - 40px,1160px) / 22.5))}
+ .hero .lead{max-width:min(46ch,100%)}
+ .hero-cut{left:calc(50% + 32px);right:max(0px,calc(50% - 760px));width:auto}
+}
