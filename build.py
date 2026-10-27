@@ -222,14 +222,6 @@ def home(posts):
  <div role="listitem"><strong data-count="4">4</strong><span>pillars of authority</span></div>
 </div>
 <div class="marquee" aria-hidden="true"><div class="mq-row mq-co"><div class="mq-track"><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i></div></div><div class="mq-row rev"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div></div>
-<section class="am4" id="four-am" aria-labelledby="am4-t"><span class="am4-glow" aria-hidden="true"></span>
-<span class="am4-eb">The letter · Free workbook</span>
-<div class="am4-stage">
- <h2 class="am4-word" id="am4-t"><span class="am4-n">4</span><span class="am4-am">AM</span><span class="sr"> , the newsletter</span></h2>
- <img class="am4-cut" src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen" width="872" height="1055" loading="lazy">
- <div class="am4-copy"><div class="l"><p class="am4-tag">For women who build in the quiet.</p><p class="am4-text">Join 4 AM and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.</p></div>
- <div class="r"><a class="btn btn-xl" href="{KIT}">Join 4 AM, get the workbook <span aria-hidden="true">&rarr;</span></a></div></div>
-</div></section>
 <section class="statement"><span class="big-q" aria-hidden="true">&ldquo;</span><div class="wrap"><p class="statement-text">Helping Muslim women executives turn their expertise into <span class="pill">a voice people follow.</span></p></div></section>
 
 <section class="feat feat-r"><div class="feat-photo" style="--fp:50% 5%"><img src="assets/img/fathima-desk.jpg" alt="Fathima Samreen writing at her desk" width="640" height="1137" loading="lazy"></div>
@@ -469,7 +461,22 @@ def newsletter():
   <div class="btns"><a class="btn btn-xl" href="{KIT}">Send me the workbook <span aria-hidden="true">→</span></a></div>
   <p class="small" style="margin-top:14px">Free. Add your email on the next page and it lands in your inbox, with 4 AM. Unsubscribe any time.</p>
  </div>
- <div class="hero-photo"><img src="assets/img/fathima-hero.jpg" alt="Fathima Samreen" width="1024" height="1366" fetchpriority="high"></div>
+ <div class="nl-mock" role="img" aria-label="A laptop screen showing a 4 AM letter from Fathima">
+  <span class="nl-glow" aria-hidden="true"></span>
+  <div class="lap"><div class="lap-lid"><span class="lap-cam" aria-hidden="true"></span><div class="lap-screen"><div class="mail">
+   <div class="mail-bar"><i></i><i></i><i></i><span>Inbox</span></div>
+   <div class="mail-head"><span class="mail-av">F</span><div class="mail-from"><b>Fathima Samreen</b><small>to you · 4:00 AM</small></div></div>
+   <p class="mail-subj">4 AM · For women who build in the quiet</p>
+   <div class="mail-body">
+    <p class="mail-mark">4 AM</p>
+    <p class="mail-h">The story you almost skipped.</p>
+    <p class="mail-p">It's 4 AM. The house is asleep, the chai is still hot, and this is the hour I write to you.</p>
+    <p class="mail-p">This week: the moment you think is too small to share is usually the one people remember.</p>
+    <p class="mail-sign">With love, Fathima</p>
+   </div>
+  </div></div></div>
+  <div class="lap-base"><span></span></div></div>
+ </div>
 </div></section>
 <section><div class="wrap">
  <div class="section-head"><span class="eyebrow">What you'll get</span><h2 class="display">In your <span class="red">inbox.</span></h2></div>
