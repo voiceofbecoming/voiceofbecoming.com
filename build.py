@@ -9,8 +9,10 @@ HOW TO UPDATE (no other tools needed, plain Python 3):
 Markdown supported in posts: paragraphs, ## headings, 1. / - lists, **bold**, *italic*, [text](url).
 """
 import html, json, os, re, datetime, glob
+import hashlib as _hl
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+ASSET_V = _hl.md5(b"".join(open(os.path.join(ROOT, "site", "assets", f), "rb").read() for f in ("styles.css", "site.js"))).hexdigest()[:8]
 SITE = os.path.join(ROOT, "site")
 TODAY = datetime.date.today()
 
@@ -70,7 +72,7 @@ def page(title, desc, body, current, rel="", path="index.html"):
 <link rel="preload" href="{rel}assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{rel}assets/fonts/bric-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{rel}assets/fonts/inst-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{rel}assets/styles.css">
+<link rel="stylesheet" href="{rel}assets/styles.css?v={ASSET_V}">
 <script>document.documentElement.classList.add("js");setTimeout(function(){{if(!window.__vob)document.documentElement.classList.remove("js")}},4000)</script>
 </head>
 <body>
@@ -122,7 +124,7 @@ def page(title, desc, body, current, rel="", path="index.html"):
  </div>
  <div class="foot-bottom"><div class="wrap foot-bottom-in"><span>© {TODAY.year} The Voice of Becoming Studio. All rights reserved.</span><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></div></div>
 </footer>
-<script src="{rel}assets/site.js" defer></script>
+<script src="{rel}assets/site.js?v={ASSET_V}" defer></script>
 </body>
 </html>
 """
