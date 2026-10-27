@@ -69,10 +69,13 @@ def page(title, desc, body, current, rel="", path="index.html"):
 <link rel="icon" href="{rel}assets/img/favicon.png">
 <link rel="preload" href="{rel}assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{rel}assets/fonts/bric-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{rel}assets/fonts/inst-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{rel}assets/styles.css">
+<script>document.documentElement.classList.add("js");setTimeout(function(){{if(!window.__vob)document.documentElement.classList.remove("js")}},4000)</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
 <header class="site-header">
  <div class="wrap bar">
   <a class="brand" href="{rel}index.html" aria-label="The Voice of Becoming Studio, home"><span class="brand-mark">VOB</span><span>The Voice of Becoming<small>Studio · Fathima Samreen</small></span></a>
@@ -85,25 +88,39 @@ def page(title, desc, body, current, rel="", path="index.html"):
 </main>
 <footer class="site-footer">
  <div class="wrap">
+  <div class="foot-cta">
+   <div class="foot-cta-copy">
+    <span class="eyebrow">Newsletter</span>
+    <p class="foot-cta-line">Stories, prompts and strategy for women who carry <span class="serif">many roles at once.</span></p>
+    <p class="small">Subscribe and get the free Articulation Gap workbook.</p>
+   </div>
+   <a class="btn" href="{KIT}" target="_blank" rel="noopener">Subscribe free</a>
+  </div>
   <div class="foot-grid">
-   <div>
+   <div class="foot-brand">
     <a class="brand" href="{rel}index.html"><span class="brand-mark">VOB</span><span>The Voice of Becoming Studio<small>Fathima Samreen · Ghostwriter, brand &amp; book strategist</small></span></a>
-    <p style="margin-top:18px;max-width:38ch;color:var(--muted)">Helping Muslim women executives turn their expertise into a voice people follow. From Warangal, for leaders everywhere.</p>
-    <h2 style="margin-top:26px">Find me</h2>
+    <p class="foot-mission">Helping Muslim women executives turn their expertise into a voice people follow. From Warangal, for leaders everywhere.</p>
+   </div>
+   <div class="foot-col">
+    <h2>Pages</h2>
+    <ul class="foot-links">{links}</ul>
+   </div>
+   <div class="foot-col">
+    <h2>Connect</h2>
     <ul class="socials">{socials}</ul>
    </div>
-   <div>
-    <h2>Explore</h2>
-    <ul class="foot-links">{links}<li><a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></li></ul>
-   </div>
-   <div class="foot-news">
-    <h2>Newsletter</h2>
-    <p>Stories, prompts and strategy for women who carry many roles at once. Subscribe and get the free Articulation Gap workbook.</p>
-    <a class="btn" href="{KIT}" target="_blank" rel="noopener">Subscribe free</a>
+   <div class="foot-col">
+    <h2>Contact</h2>
+    <ul class="foot-links">
+     <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
+     <li><a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></li>
+     <li><a href="{KIT}" target="_blank" rel="noopener">Join the newsletter</a></li>
+    </ul>
+    <p class="small foot-loc">Warangal, India · working worldwide</p>
    </div>
   </div>
-  <div class="foot-bottom"><span>© {TODAY.year} The Voice of Becoming Studio. All rights reserved.</span><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></div>
  </div>
+ <div class="foot-bottom"><div class="wrap foot-bottom-in"><span>© {TODAY.year} The Voice of Becoming Studio. All rights reserved.</span><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></div></div>
 </footer>
 <script src="{rel}assets/site.js" defer></script>
 </body>
@@ -192,13 +209,17 @@ def home(posts):
   <div class="award-chip"><b>SIWAA 2025</b> Changemaker Award · South India Women Achievers</div>
  </div>
  <div class="hero-photo"><img src="assets/img/fathima-hero.jpg" alt="Fathima Samreen, founder of The Voice of Becoming Studio" width="1024" height="1366" fetchpriority="high"></div>
-</div></section>
-<div class="stats" role="list">
- <div role="listitem"><strong>7+</strong><span>years ghostwriting</span></div>
- <div role="listitem"><strong>3</strong><span>countries</span></div>
- <div role="listitem"><strong>2019</strong><span>writing books since</span></div>
- <div role="listitem"><strong>4</strong><span>pillars of authority</span></div>
 </div>
+<div class="wordmark" aria-hidden="true"><span>Voice of Becoming</span></div>
+</section>
+<div class="stats" role="list">
+ <div role="listitem"><strong data-count="7" data-suffix="+">7+</strong><span>years ghostwriting</span></div>
+ <div role="listitem"><strong data-count="3">3</strong><span>countries</span></div>
+ <div role="listitem"><strong data-count="2019" data-from="2000">2019</strong><span>writing books since</span></div>
+ <div role="listitem"><strong data-count="4">4</strong><span>pillars of authority</span></div>
+</div>
+<div class="marquee" aria-hidden="true"><div class="mq-row"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div><div class="mq-row rev"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div></div>
+<section class="statement"><span class="big-q" aria-hidden="true">&ldquo;</span><div class="wrap"><p class="statement-text">Helping Muslim women executives turn their expertise into <span class="pill">a voice people follow.</span></p></div></section>
 
 <section class="feat feat-r"><div class="feat-photo" style="--fp:50% 5%"><img src="assets/img/fathima-desk.jpg" alt="Fathima Samreen writing at her desk" width="640" height="1137" loading="lazy"></div>
 <div class="wrap feat-grid">
@@ -219,7 +240,7 @@ def home(posts):
 
 <section class="sand"><div class="wrap">
  <div class="section-head"><span class="eyebrow">Services</span><h2 class="display">I don't just <span class="red">create content.</span></h2><p class="lead">I help leaders make sense of the road they have walked. Ghostwriting, brand &amp; book strategy and authority strategy. Each one starts with your story.</p></div>
- <div class="grid g3">
+ <div class="grid g3 stack">
   <div class="card"><span class="num">01</span><h3>Books &amp; book strategy</h3><p>Books you don't rush to finish. Books you return to. I ghostwrite transformation and leadership books that feel honest and grounded, planned with you first: the idea, the structure and the audience it is for.</p></div>
   <div class="card"><span class="num">02</span><h3>Ghostwriting &amp; personal brand</h3><p>LinkedIn thought leadership, newsletters, long-form essays and visual assets, all rooted in one clear story. A brand that sounds like you, stays consistent and never feels performative.</p></div>
   <div class="card"><span class="num">03</span><h3>Authority strategy</h3><p>Authority comes from being understood, wherever you show up. The goal is simple: when people hear your name, they know what you stand for.</p></div>
