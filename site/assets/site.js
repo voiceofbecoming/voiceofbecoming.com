@@ -180,3 +180,10 @@ if(fine){
 }
 }catch(err){root.classList.remove("mo","mo-panels","glide");}
 })();
+
+/* v11: 4 AM banner reveal */
+(function(){try{var b=[].slice.call(document.querySelectorAll(".am4"));if(!b.length)return;
+var on=function(el){el.classList.add("on");};
+if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){b.forEach(on);return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){on(e.target);io.unobserve(e.target);}});},{threshold:0.2});
+b.forEach(function(el){io.observe(el);});setTimeout(function(){b.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)on(el);});},1500);}catch(e){document.querySelectorAll(".am4").forEach(function(el){el.classList.add("on");});}})();

@@ -92,11 +92,11 @@ def page(title, desc, body, current, rel="", path="index.html"):
  <div class="wrap">
   <div class="foot-cta">
    <div class="foot-cta-copy">
-    <span class="eyebrow">Newsletter</span>
+    <span class="eyebrow">4 AM · The letter</span>
     <p class="foot-cta-line">Stories, prompts and strategy for women who carry <span class="serif">many roles at once.</span></p>
-    <p class="small">Subscribe and get the free Articulation Gap workbook.</p>
+    <p class="small">For women who build in the quiet. Join 4 AM and get the free Articulation Gap workbook.</p>
    </div>
-   <a class="btn" href="{KIT}">Subscribe free</a>
+   <a class="btn" href="{KIT}">Join 4 AM</a>
   </div>
   <div class="foot-grid">
    <div class="foot-brand">
@@ -116,7 +116,7 @@ def page(title, desc, body, current, rel="", path="index.html"):
     <ul class="foot-links">
      <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
      <li><a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></li>
-     <li><a href="{KIT}">Join the newsletter</a></li>
+     <li><a href="{KIT}">Join 4 AM</a></li>
     </ul>
     <p class="small foot-loc">Warangal, India · working worldwide</p>
    </div>
@@ -222,6 +222,16 @@ def home(posts):
  <div role="listitem"><strong data-count="4">4</strong><span>pillars of authority</span></div>
 </div>
 <div class="marquee" aria-hidden="true"><div class="mq-row mq-co"><div class="mq-track"><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i></div></div><div class="mq-row rev"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div></div>
+<section class="am4" id="four-am" aria-labelledby="am4-t"><span class="am4-dawn" aria-hidden="true"></span><span class="am4-line" aria-hidden="true"></span>
+<div class="wrap am4-grid">
+ <h2 class="am4-word" id="am4-t"><span class="am4-n">4</span><span class="am4-am">AM</span><span class="sr"> , the newsletter</span></h2>
+ <div class="am4-copy">
+  <span class="eyebrow">The letter · Free workbook</span>
+  <p class="am4-tag">For women who build in the quiet.</p>
+  <p class="am4-text">Join 4 AM and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.</p>
+  <div class="btns"><a class="btn btn-xl" href="{KIT}">Join 4 AM, get the workbook <span aria-hidden="true">&rarr;</span></a></div>
+ </div>
+</div></section>
 <section class="statement"><span class="big-q" aria-hidden="true">&ldquo;</span><div class="wrap"><p class="statement-text">Helping Muslim women executives turn their expertise into <span class="pill">a voice people follow.</span></p></div></section>
 
 <section class="feat feat-r"><div class="feat-photo" style="--fp:50% 5%"><img src="assets/img/fathima-desk.jpg" alt="Fathima Samreen writing at her desk" width="640" height="1137" loading="lazy"></div>
@@ -267,10 +277,10 @@ def home(posts):
 <section class="sand feat feat-l"><div class="feat-photo" style="--fp:50% 8%"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" loading="lazy"></div>
 <div class="wrap feat-grid">
  <div class="feat-copy">
-  <span class="eyebrow">The newsletter</span>
+  <span class="eyebrow">4 AM · The newsletter</span>
   <h2 class="display">Stories for women who carry <span class="red">many roles.</span></h2>
-  <p class="lead">Executive, mother, wife, daughter. None of it is worthless. Every role you carry is part of your story. Get my letters on voice, worth and building a career from where you are.</p>
-  <div class="btns"><a class="btn" href="{KIT}">Subscribe free</a><a class="btn ghost" href="newsletter.html">About the newsletter</a></div>
+  <p class="lead">Executive, mother, wife, daughter. None of it is worthless. Every role you carry is part of your story. Get 4 AM, my letter on voice, worth and building a career from where you are.</p>
+  <div class="btns"><a class="btn" href="{KIT}">Join 4 AM</a><a class="btn ghost" href="newsletter.html">About 4 AM</a></div>
  </div>
 </div></section>
 """
@@ -343,7 +353,7 @@ def blog_index(posts):
         items = "".join(f'<a class="post-card" href="blog/{p["slug"]}.html"><span class="meta"><span class="tag">{esc(p.get("tag","Article"))}</span> · {nice(p["d"])} · {read_mins(p["body"])} min read</span><h2>{esc(p["title"])}</h2><p>{esc(p["summary"])}</p><span class="more red">Read the article →</span></a>' for p in posts)
         content = f'<div class="post-list">{items}</div>'
     else:
-        content = '<div class="empty"><h2>First articles coming soon</h2><p>Subscribe to the newsletter and you will get them first.</p></div>'
+        content = '<div class="empty"><h2>First articles coming soon</h2><p>Join 4 AM and you will get them first.</p></div>'
     body = f"""
 <section class="page-head"><div class="wrap"><span class="eyebrow">Articles</span><h1 class="display">Notes from the <span class="red">ghostwriting desk.</span></h1>
 <p class="lead">On voice, authority, books and the stories women keep for later. Written for leaders who think deeply.</p></div></section>
@@ -368,7 +378,7 @@ def article(p, posts):
  <div class="card" style="display:flex;gap:18px;align-items:center;margin-top:44px;flex-wrap:wrap">
   <img src="../assets/img/fathima-avatar.jpg" alt="" width="72" height="72" style="width:72px;height:72px;border-radius:50%;object-fit:cover">
   <div style="flex:1;min-width:220px"><strong>Fathima Samreen</strong><br><span class="small">Ghostwriter, brand &amp; book strategist and authority strategist. Founder, The Voice of Becoming Studio.</span></div>
-  <a class="btn" href="{KIT}">Get my letters</a>
+  <a class="btn" href="{KIT}">Join 4 AM</a>
  </div>
 </div></section></article>
 {more}
@@ -430,7 +440,7 @@ def freebies():
     <li>Start with Story 01 in 20 minutes</li>
    </ul>
    <a class="btn" href="{KIT}">Send me the workbook</a>
-   <p class="small" style="margin-top:14px">Enter your email on the next page and the workbook comes straight to your inbox. You'll also get my newsletter. Unsubscribe any time.</p>
+   <p class="small" style="margin-top:14px">Enter your email on the next page and the workbook comes straight to your inbox. You'll also get 4 AM, my letter for women who build in the quiet. Unsubscribe any time.</p>
   </div>
  </div>
 </div></section>
@@ -448,11 +458,12 @@ def newsletter():
     body = f"""
 <section class="hero"><div class="wrap hero-grid">
  <div class="hero-copy">
-  <span class="eyebrow">Free workbook · The Voice of Becoming newsletter</span>
+  <p class="nl-name"><span class="am4-word am4-sm"><span class="am4-n">4</span><span class="am4-am">AM</span></span><span class="am4-tag">For women who build in the quiet.</span></p>
+  <span class="eyebrow">The newsletter · Free workbook</span>
   <h1 class="display">Get the free Articulation Gap <span class="red">workbook.</span></h1>
   <p class="lead">5 signature stories you already own, 30 LinkedIn post ideas and a profile checklist, so the brilliance in your head becomes words people trust.</p>
   <div class="btns"><a class="btn btn-xl" href="{KIT}">Send me the workbook <span aria-hidden="true">→</span></a></div>
-  <p class="small" style="margin-top:14px">Free. Add your email on the next page and it lands in your inbox, with my newsletter. Unsubscribe any time.</p>
+  <p class="small" style="margin-top:14px">Free. Add your email on the next page and it lands in your inbox, with 4 AM. Unsubscribe any time.</p>
  </div>
  <div class="hero-photo"><img src="assets/img/fathima-hero.jpg" alt="Fathima Samreen" width="1024" height="1366" fetchpriority="high"></div>
 </div></section>
@@ -466,12 +477,12 @@ def newsletter():
 </div></section>
 <section class="sand"><div class="wrap"><div class="signup">
  <img class="cover" src="assets/img/workbook.webp" alt="Cover of The Articulation Gap workbook" width="600" height="848" loading="lazy">
- <div><span class="eyebrow">Welcome gift</span><h2 class="display">Subscribe and get the <span class="red">workbook.</span></h2>
+ <div><span class="eyebrow">Welcome gift</span><h2 class="display">Join 4 AM and get the <span class="red">workbook.</span></h2>
  <p class="lead">5 signature stories, 30 LinkedIn post ideas and a profile checklist. It comes with your welcome email, free.</p>
  <a class="btn" href="{KIT}">Send me the workbook</a></div>
 </div></div></section>
 """
-    return page("Newsletter: free Articulation Gap workbook", "Get the free Articulation Gap workbook by Fathima Samreen: 5 signature stories, 30 LinkedIn post ideas and a profile checklist, plus The Voice of Becoming newsletter.", body, "newsletter.html", "", "newsletter.html")
+    return page("4 AM newsletter: free Articulation Gap workbook", "4 AM, the letter for women who build in the quiet, by Fathima Samreen. Join and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.", body, "newsletter.html", "", "newsletter.html")
 
 def main():
     posts = load_posts()
