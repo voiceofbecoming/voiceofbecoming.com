@@ -417,10 +417,10 @@ def authority():
   </article>
   <article class="card ax-rc">
    <div class="ax-who"><img src="{rel}assets/img/negar.jpg" alt="Negar Farahmand" width="56" height="56" loading="lazy"><div><strong>Negar Farahmand</strong><span>Ex-Accenture Managing Director · CEO, AHX Partners · Founder, The Portfolio Career Collective</span></div></div>
-   <ol class="ax-eco" aria-label="Steps used: Voice, Community"><li class="on">Voice</li><li>Book</li><li>List</li><li class="on">Community</li><li>Stage</li></ol>
+   <ol class="ax-eco" aria-label="Steps used: Voice"><li class="on">Voice</li><li>Book</li><li>List</li><li>Community</li><li>Stage</li></ol>
    <div class="ax-nums"><div><span class="big">+<span class="ax-cn" data-count="100">100</span></span><p>paid members added to her community</p></div></div>
    <h3 class="ax-did">What we did</h3>
-   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>Her brand voice and positioning, for senior professionals made redundant or at risk</li><li><span class="ax-tag-s">Voice</span>Content strategy, design and profile optimisation</li><li><span class="ax-tag-s">Community</span>Growing her paid membership community</li></ul>
+   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>Voice strategy: her brand voice and positioning for senior professionals made redundant or at risk</li><li><span class="ax-tag-s">Voice</span>Content: strategy and LinkedIn content in her voice</li></ul>
    <blockquote class="ax-rq">“She really helped us find our brand voice and set us up for success.”</blockquote>
   </article>
  </div>
