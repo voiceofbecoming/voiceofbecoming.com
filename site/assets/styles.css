@@ -496,3 +496,36 @@ html.js .am4.on .am4-n,html.js .am4.on .am4-am,html.js .am4.on .am4-copy>*{trans
 .nav a{white-space:nowrap}
 main:has(.ax-head) h2.display{text-wrap:balance}
 .ax-band .btns .btn.ghost{font-size:clamp(18px,1.5vw,21px);padding:18px 34px}
+
+/* v15: authority hero photo + motion */
+.ax-hero{position:relative;display:grid}
+.ax-copy{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start}
+.ax-copy .btns{align-self:stretch}
+.ax-copy .lead{margin-top:20px}
+.ax-photo{position:relative;z-index:0;justify-self:end;width:min(64%,290px);height:clamp(270px,40svh,340px);margin:0 -6px -78px 0;pointer-events:none}
+.ax-photo::before{content:"";position:absolute;left:-12%;right:-12%;top:8%;bottom:0;background:radial-gradient(closest-side,rgba(178,7,16,.42),rgba(72,18,22,.22) 55%,transparent 80%);z-index:-1}
+.ax-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0;-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 97%);mask-image:linear-gradient(to bottom,#000 62%,transparent 97%)}
+.ax-head{padding-top:18px;overflow:hidden}
+.ax-head .eyebrow{max-width:46%}
+@media(min-width:600px){.ax-head .eyebrow{max-width:none}.ax-photo{width:min(48%,320px);height:380px;margin-bottom:-120px}}
+@media(min-width:900px){
+ .ax-head{padding-top:clamp(40px,5vw,70px);padding-bottom:0}
+ .ax-hero{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);align-items:end;column-gap:clamp(20px,3vw,48px)}
+ .ax-copy{order:0;padding-bottom:clamp(40px,6vw,70px);align-self:center}
+ .ax-copy .lead{order:1;margin-top:0}.ax-copy .btns{order:2;align-self:flex-start}.ax-copy .ax-note{order:3}
+ .ax-photo{order:1;justify-self:center;width:100%;max-width:440px;height:min(76svh,660px);margin:0}
+ .ax-photo img{object-fit:contain;object-position:50% 100%;-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
+ .ax-photo::before{top:14%}
+}
+/* hero photo intro */
+.js .ax-photo img{opacity:0;transform:translateY(28px) scale(1.03);transition:opacity 1.5s ease .2s,transform 1.8s var(--ease-o) .2s}
+.js .ax-photo::before{opacity:0;transition:opacity 2s ease .5s}
+.js .page-head.is-in .ax-photo img{opacity:1;transform:none}
+.js .page-head.is-in .ax-photo::before{opacity:1;animation:ax-breathe 7s ease-in-out 2.5s infinite}
+@keyframes ax-breathe{0%,100%{opacity:1}50%{opacity:.6}}
+/* path steps: arrows draw in after each step */
+.js .ax-step.rv::after{opacity:0;transition:opacity .6s ease;transition-delay:calc(var(--d,0s) + .45s)}
+.js .ax-step.rv.in::after{opacity:1}
+.js .ax-get>li.rv{transform:translateX(-18px)}
+.js .ax-get>li.rv.in{transform:none}
+@media(prefers-reduced-motion:reduce){.js .ax-photo img,.js .ax-photo::before,.js .ax-step.rv::after,.js .ax-get>li.rv{opacity:1!important;transform:none!important;animation:none!important}}

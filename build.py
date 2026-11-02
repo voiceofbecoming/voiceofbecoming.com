@@ -363,13 +363,16 @@ def authority():
             ("Grow", "Your book, your WhatsApp community and speaking, each when you are ready.")]
     get = "".join(f'<li><span class="ax-gn">{i}</span><strong>{w}</strong><p>{t}</p></li>' for i, (w, t) in enumerate(gets, 1))
     body = f"""
-<section class="page-head ax-head"><div class="wrap">
+<section class="page-head ax-head"><div class="wrap ax-hero">
+ <div class="ax-photo"><img src="{rel}assets/img/fathima-arms-folded.webp" alt="Fathima Samreen in a maroon coat, arms folded" width="723" height="1146" fetchpriority="high" decoding="async"></div>
+ <div class="ax-copy">
  <span class="eyebrow">A private, boutique program</span>
  <h1 class="display">The Becoming Authority <span class="red">Ecosystem.</span></h1>
  <p class="ax-tag serif">For women who've arrived. The next becoming is being known for it.</p>
- <p class="lead">I help women leaders get known beyond their job title. Through their words, their book and their community, the right opportunities find them.</p>
  <div class="btns">{cta}</div>
  <p class="small ax-note">Free, 20 minutes, on Topmate.</p>
+ <p class="lead">I help women leaders get known beyond their job title. Through their words, their book and their community, the right opportunities find them.</p>
+ </div>
 </div></section>
 
 <section class="sand"><div class="wrap split">
@@ -406,9 +409,8 @@ def authority():
  <div><span class="eyebrow">How we work</span><h2 class="display">Boutique, <span class="red">on purpose.</span></h2>
  <p class="lead">An honest note: I don't promise a set number of clients or a full waitlist. Your offer and follow-up matter too. I build the trust that brings the right people to you.</p></div>
  <dl class="ax-how">
-  <div><dt>3</dt><dd>clients at most. This is boutique work.</dd></div>
-  <div><dt>1 day</dt><dd>every week, set aside only for you.</dd></div>
-  <div><dt>6 mo</dt><dd>minimum, because being known takes time.</dd></div>
+  <div><dt>3</dt><dd>Only 3 clients at a time.</dd></div>
+  <div><dt>6 mo</dt><dd>We work together for at least 6 months, because being known takes time.</dd></div>
   <div><dt>Me</dt><dd>Strategy, ideas and voice come from me.</dd></div>
  </dl>
 </div></section>
