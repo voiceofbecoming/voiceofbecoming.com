@@ -188,3 +188,15 @@ var on=function(el){el.classList.add("on");};
 if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){b.forEach(on);return;}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){on(e.target);io.unobserve(e.target);}});},{threshold:0.2});
 b.forEach(function(el){io.observe(el);});setTimeout(function(){b.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)on(el);});},1500);}catch(e){document.querySelectorAll(".am4").forEach(function(el){el.classList.add("on");});}})();
+
+/* v17: count-up on the authority results cards */
+(function(){try{var ns=[].slice.call(document.querySelectorAll(".ax-res .ax-cn[data-count]"));if(!ns.length)return;
+var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;if(reduce||!("IntersectionObserver" in window))return;
+function fmt(n){return Math.round(n).toLocaleString("en-US");}
+function run(el){var to=+el.dataset.count,from=+(el.dataset.from||0),dur=1500,t0=null;el.textContent=fmt(from);
+ function st(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur),e=p>=1?1:1-Math.pow(2,-10*p);el.textContent=fmt(from+(to-from)*e);if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}
+ns.forEach(function(el){el.textContent=fmt(+(el.dataset.from||0));});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);setTimeout(function(){run(e.target);},250);});},{threshold:0.6});
+ns.forEach(function(el){io.observe(el);});
+setTimeout(function(){ns.forEach(function(el){var r=el.getBoundingClientRect();if(r.bottom<0){io.unobserve(el);el.textContent=fmt(+el.dataset.count);}});},1500);
+}catch(e){document.querySelectorAll(".ax-res .ax-cn[data-count]").forEach(function(el){el.textContent=(+el.dataset.count).toLocaleString("en-US");});}})();
