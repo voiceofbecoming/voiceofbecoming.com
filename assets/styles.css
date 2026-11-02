@@ -43,7 +43,7 @@ p{margin:0 0 1em}
 .nav a.btn{color:var(--cream);background:var(--red);margin-left:6px}
 .nav a.btn:hover{color:var(--cream)}
 .menu{display:none}
-@media (max-width:920px){
+@media (max-width:1080px){
  .nav{display:none}
  .menu{display:block;position:relative}
  .menu summary{list-style:none;cursor:pointer;font-weight:800;font-size:15px;padding:9px 16px;border:1.5px solid var(--fg);border-radius:999px}
@@ -451,3 +451,48 @@ html.js .am4.on .am4-n,html.js .am4.on .am4-am,html.js .am4.on .am4-copy>*{trans
 @media (prefers-reduced-motion:no-preference){.nl-mock .lap{animation:nlFloat 7s ease-in-out infinite}@keyframes nlFloat{50%{transform:translateY(-8px)}}}
 @media (max-width:899px){.nl-mock{margin:34px -8px 4px;width:auto;padding:0}.nl-mock .lap-lid{margin:0 3%;border-radius:14px 14px 5px 5px}.mail-p{font-size:2.6cqw}.mail-from small{font-size:2.1cqw}}
 @media (min-width:900px){main>.am4.am4-nl{z-index:1!important}main>.am4-nl+.hero{z-index:2!important}}
+
+/* v14: authority page */
+.ax-head .ax-tag{font-size:clamp(24px,3.6vw,36px);line-height:1.2;color:var(--cream);margin:6px 0 18px;max-width:28ch}
+.ax-head .ax-note{margin-top:14px}
+.ax-head .btns .btn{flex:1 1 auto}
+@media(min-width:600px){.ax-head .btns .btn{flex:0 0 auto}}
+.ax-checks{margin-top:22px}
+.ax-path{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:none}
+.ax-step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px 20px 22px;display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:baseline}
+.ax-step:last-child{background:var(--red);border-color:var(--red)}
+.ax-n{font-family:"Anton";font-size:15px;color:var(--sand);letter-spacing:.08em}
+.ax-w{font-family:"Anton";font-size:clamp(30px,7vw,40px);line-height:1;text-transform:uppercase;color:var(--cream)}
+.ax-step p{grid-column:2;margin:6px 0 0;color:var(--muted);font-size:16px}
+.ax-step:last-child p,.ax-step:last-child .ax-n{color:var(--cream)}
+.ax-step:not(:last-child)::after{content:"\2193";position:absolute;left:28px;bottom:-15px;z-index:1;font-family:"Bric";font-weight:800;color:var(--red);font-size:18px;line-height:1}
+@media(min-width:900px){
+ .ax-path{grid-template-columns:repeat(5,1fr);gap:18px}
+ .ax-step{display:block;padding:24px 20px}
+ .ax-n{display:block;margin-bottom:10px}
+ .ax-w{font-size:clamp(26px,2.4vw,34px)}
+ .ax-step p{margin-top:12px}
+ .ax-step:not(:last-child)::after{content:"\2192";left:auto;right:-15px;bottom:auto;top:30px}
+}
+.ax-get{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.ax-get li{display:grid;grid-template-columns:44px 1fr;column-gap:12px;padding:20px 0;border-bottom:1px solid var(--line)}
+.ax-gn{font-family:"Anton";font-size:30px;line-height:1;color:var(--cream);opacity:.55}
+.ax-get strong{font-family:"Anton";font-weight:400;font-size:clamp(24px,5vw,30px);line-height:1.05;text-transform:uppercase;color:var(--cream);letter-spacing:.01em}
+.ax-get p{grid-column:2;margin:6px 0 0;color:var(--muted);font-size:17px}
+@media(min-width:760px){.ax-get li{grid-template-columns:64px 240px 1fr;align-items:baseline}.ax-get p{grid-column:3;margin:0}}
+.ax-proof .big{font-size:clamp(30px,4vw,40px)}
+.ax-how{margin:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.ax-how div{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.ax-how dt{font-family:"Anton";font-size:clamp(30px,5vw,40px);line-height:1;color:var(--cream)}
+.ax-how dd{margin:0;font-size:17px}
+.ax-quote{margin:26px 0 0;padding:0 0 0 18px;border-left:3px solid var(--red)}
+.ax-quote .serif{font-size:clamp(22px,3vw,28px);line-height:1.25;color:var(--cream);margin:0 0 8px}
+.ax-quote p:last-child{margin:0;color:var(--muted)}
+.ax-band > a{justify-self:center;display:block}
+.ax-band h2.display{font-size:clamp(30px,4.6vw,52px)}
+.ax-head .ax-tag,.ax-band h2.display,.ax-head h1{text-wrap:balance}
+.ax-head .btns .btn.ghost{font-size:clamp(18px,1.5vw,21px);padding:18px 34px}
+@media(max-width:759px){.ax-proof{grid-template-columns:1fr 1fr;gap:12px}.ax-proof .card{padding:18px 16px}.ax-proof .big{font-size:24px}.ax-proof p{font-size:15px}.ax-how div{grid-template-columns:84px 1fr}}
+.nav a{white-space:nowrap}
+main:has(.ax-head) h2.display{text-wrap:balance}
+.ax-band .btns .btn.ghost{font-size:clamp(18px,1.5vw,21px);padding:18px 34px}
