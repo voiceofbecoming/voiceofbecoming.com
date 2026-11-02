@@ -395,13 +395,33 @@ def authority():
  <ol class="ax-get">{get}</ol>
 </div></section>
 
-<section><div class="wrap">
- <div class="section-head"><span class="eyebrow">What this looks like</span><h2 class="display">One author, from his first book to <span class="red">a name people seek out.</span></h2></div>
- <div class="grid g4 ax-proof">
-  <div class="card result"><span class="big">4,000+</span><p>readers on his newsletter in 2 to 3 months</p></div>
-  <div class="card result"><span class="big">800 to 1,000</span><p>members in his community</p></div>
-  <div class="card result"><span class="big">IITs &amp; IIMs</span><p>talks at India's top institutes</p></div>
-  <div class="card result"><span class="big">Book two</span><p>his second book, launched to a ready audience</p></div>
+<section id="results"><div class="wrap">
+ <div class="section-head"><span class="eyebrow">Results</span><h2 class="display">Real leaders. <span class="red">Real results.</span></h2><p class="lead">Every leader starts at a different step. Here is what we built for three of them, and what it did.</p></div>
+ <div class="grid g3 ax-res">
+  <article class="card ax-rc">
+   <div class="ax-who"><img src="{rel}assets/img/parvez.jpg" alt="Parvez Siraj" width="56" height="56" loading="lazy"><div><strong>Parvez Siraj</strong><span>VP, Lupin · author &amp; speaker</span></div></div>
+   <ol class="ax-eco" aria-label="Steps used: Voice, Book, List, Community, Stage"><li class="on">Voice</li><li class="on">Book</li><li class="on">List</li><li class="on">Community</li><li class="on">Stage</li></ol>
+   <div class="ax-nums"><div><span class="big">Director → VP</span><p>at Lupin, via Chief of Staff</p></div><div><span class="big"><span class="ax-cn" data-count="4500">4,500</span>+</span><p>subscribers to his ASCEND newsletter</p></div><div><span class="big"><span class="ax-cn" data-count="800">800</span>+</span><p>members in his WhatsApp community</p></div></div><p class="ax-extra">And his second book launched to a ready audience.</p>
+   <h3 class="ax-did">What we did</h3>
+   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>LinkedIn content and profile optimisation</li><li><span class="ax-tag-s">Book</span>His first book, written together</li><li><span class="ax-tag-s">List</span>The weekly ASCEND newsletter, written and designed</li><li><span class="ax-tag-s">Community</span>Starting his WhatsApp community</li><li><span class="ax-tag-s">Stage</span>Talks at IITs and IIMs, and paid speaking</li></ul>
+   <blockquote class="ax-rq">“She helped turn the book into a complete authority platform.”</blockquote>
+  </article>
+  <article class="card ax-rc">
+   <div class="ax-who"><img src="{rel}assets/img/bhavna.webp" alt="Bhavna Toor" width="56" height="56" loading="lazy"><div><strong>Bhavna Toor</strong><span>Founder &amp; CEO, Shenomics</span></div></div>
+   <ol class="ax-eco" aria-label="Steps used: Voice"><li class="on">Voice</li><li>Book</li><li>List</li><li>Community</li><li>Stage</li></ol>
+   <div class="ax-nums"><div><span class="big">36K → <span class="ax-cn" data-count="105" data-from="36">105</span>K</span><p>LinkedIn followers, over 14 to 18 months together</p></div></div>
+   <h3 class="ax-did">What we did</h3>
+   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>LinkedIn profile optimisation, updated each time her offer evolved</li><li><span class="ax-tag-s">Voice</span>Content strategy and design, as her partner for over a year</li></ul>
+   <blockquote class="ax-rq">“She has been a true gift to our team, and our growth on social media.”</blockquote>
+  </article>
+  <article class="card ax-rc">
+   <div class="ax-who"><img src="{rel}assets/img/negar.jpg" alt="Negar Farahmand" width="56" height="56" loading="lazy"><div><strong>Negar Farahmand</strong><span>Ex-Accenture Managing Director · CEO, AHX Partners · Founder, The Portfolio Career Collective</span></div></div>
+   <ol class="ax-eco" aria-label="Steps used: Voice, Community"><li class="on">Voice</li><li>Book</li><li>List</li><li class="on">Community</li><li>Stage</li></ol>
+   <div class="ax-nums"><div><span class="big">+<span class="ax-cn" data-count="100">100</span></span><p>paid members added to her community</p></div></div>
+   <h3 class="ax-did">What we did</h3>
+   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>Her brand voice and positioning, for senior professionals made redundant or at risk</li><li><span class="ax-tag-s">Voice</span>Content strategy, design and profile optimisation</li><li><span class="ax-tag-s">Community</span>Growing her paid membership community</li></ul>
+   <blockquote class="ax-rq">“She really helped us find our brand voice and set us up for success.”</blockquote>
+  </article>
  </div>
 </div></section>
 
