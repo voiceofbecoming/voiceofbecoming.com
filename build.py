@@ -261,7 +261,7 @@ def home(posts):
   <div><span class="eyebrow">A private, boutique program</span><h2 class="display">The Becoming Authority Ecosystem.</h2>
   <p class="lead">For women who've arrived. The next becoming is being known for it. Voice, book, list, community, stage, one step at a time.</p>
   <div class="btns"><a class="btn" href="authority/">See the program</a><a class="btn ghost" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></div></div>
-  <a href="authority/" aria-label="See the program"><img src="assets/img/authority-onepager.jpg" alt="The Becoming Authority Ecosystem one-pager" width="640" height="905" loading="lazy"></a>
+  <a href="authority/" aria-label="See the program"><img src="assets/img/authority-onepager.jpg?v=2" alt="The Becoming Authority Ecosystem one-pager" width="640" height="905" loading="lazy"></a>
  </div>
 </div></section>
 
@@ -347,7 +347,7 @@ def about():
 """
     return page("About us", "Fathima Samreen: ghostwriter, brand & book strategist and authority strategist from Warangal. 7+ years, 3 countries, SIWAA 2025 Changemaker.", body, "about.html", "", "about.html")
 
-ONEPAGER = "assets/docs/Becoming-Authority-Ecosystem.pdf"
+ONEPAGER = "assets/docs/Becoming-Authority-Ecosystem.pdf?v=2"
 
 def authority():
     rel = "../"
@@ -430,7 +430,7 @@ def authority():
   <div><span class="eyebrow">Book a private call</span><h2 class="display">More of the right people know you, trust you and ask how to work with you.</h2>
   <p class="lead">Start with a free 20 minute Clarity Call. Your network is your net worth.</p>
   <div class="btns">{cta}</div></div>
-  <a href="{rel}{ONEPAGER}" target="_blank" rel="noopener" aria-label="Download the one-pager (PDF)"><img src="{rel}assets/img/authority-onepager.jpg" alt="The Becoming Authority Ecosystem one-pager" width="640" height="905" loading="lazy"></a>
+  <a href="{rel}{ONEPAGER}" target="_blank" rel="noopener" aria-label="Download the one-pager (PDF)"><img src="{rel}assets/img/authority-onepager.jpg?v=2" alt="The Becoming Authority Ecosystem one-pager" width="640" height="905" loading="lazy"></a>
  </div>
 </div></section>
 """
