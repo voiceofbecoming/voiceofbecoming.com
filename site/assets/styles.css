@@ -561,3 +561,26 @@ main:has(.ax-head) h2.display{text-wrap:balance}
 .js .ax-rc.rv.in .ax-eco li:nth-child(5){transition-delay:calc(var(--d,0s) + .95s)}
 @media(prefers-reduced-motion:reduce){.js .ax-rc .ax-eco li.on{background:var(--red)!important;border-color:var(--red)!important;color:var(--cream)!important;transition:none!important}}
 .ax-nums .big .ax-cn{font:inherit;color:inherit}
+
+/* v18: authority page set entirely in Bricolage Grotesque (Fathima's font, 2 Nov) */
+body.pg-auth,body.pg-auth *{font-family:"Bric",system-ui,-apple-system,"Segoe UI",sans-serif!important}
+body.pg-auth .serif,body.pg-auth .display .red,body.pg-auth .ax-rq,body.pg-auth .brand-mark{font-style:normal}
+body.pg-auth .display{font-weight:800;text-transform:none;letter-spacing:-.025em;line-height:1.06}
+body.pg-auth h1.display{font-size:clamp(38px,6.4vw,76px)}
+body.pg-auth .page-head h1.display{font-size:clamp(38px,6.4vw,76px)}
+body.pg-auth h2.display{font-size:clamp(30px,4.4vw,54px)}
+body.pg-auth .ax-band h2.display{font-size:clamp(28px,3.8vw,46px)}
+body.pg-auth .display .red{font-weight:800;font-size:1em;letter-spacing:inherit;line-height:inherit;text-transform:none}
+body.pg-auth .brand-mark{font-weight:800;font-size:13px;letter-spacing:-.01em}
+body.pg-auth .ax-head .ax-tag{font-weight:700;font-size:clamp(21px,2.8vw,30px);line-height:1.25;letter-spacing:-.01em}
+body.pg-auth .ax-quote .serif{font-weight:700;font-size:clamp(21px,2.6vw,26px);letter-spacing:-.01em}
+body.pg-auth .foot-cta-line .serif{font-weight:800;color:var(--redt)}
+body.pg-auth .ax-n{font-weight:800;font-size:13px;letter-spacing:.12em}
+body.pg-auth .ax-w{font-weight:800;font-size:clamp(26px,6.4vw,34px);letter-spacing:-.01em;line-height:1.05}
+body.pg-auth .ax-gn{font-weight:800;font-size:26px}
+body.pg-auth .ax-get strong{font-weight:800;font-size:clamp(20px,4.4vw,26px);letter-spacing:-.005em;line-height:1.1}
+body.pg-auth .ax-how dt{font-weight:800;font-size:clamp(28px,4.4vw,36px);letter-spacing:-.02em}
+body.pg-auth .ax-nums .big{font-weight:800;font-size:clamp(30px,3.6vw,38px);letter-spacing:-.025em}
+body.pg-auth .ax-rq{font-weight:400;font-size:18px;line-height:1.45}
+@media(min-width:900px){body.pg-auth .ax-w{font-size:clamp(19px,1.65vw,24px)}}
+@media(min-width:1024px){body.pg-auth .ax-nums>div:first-child .big{font-size:36px}}

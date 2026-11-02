@@ -45,7 +45,10 @@ NAV = [("Home", "index.html"), ("About us", "about.html"), ("Authority", "author
 
 def esc(s): return html.escape(s, quote=True)
 
-def page(title, desc, body, current, rel="", path="index.html"):
+def page(title, desc, body, current, rel="", path="index.html", bodycls=""):
+    bodyattr = ' class="%s"' % bodycls if bodycls else ""
+    _pf = ("bric-800", "bric-400") if bodycls == "pg-auth" else ("anton", "bric-400", "inst-italic")
+    preloads = "\n".join('<link rel="preload" href="%sassets/fonts/%s.woff2" as="font" type="font/woff2" crossorigin>' % (rel, f) for f in _pf)
     nav = "".join('<a href="%s%s"%s>%s</a>' % (rel, h, ' aria-current="page"' if h == current else "", n) for n, h in NAV)
     cta = '<a class="btn" href="%s" target="_blank" rel="noopener">Book a free call</a>' % TOPMATE_CALL
     socials = "".join('<li><a href="%s" target="_blank" rel="noopener">%s<span>%s</span></a></li>' % (u, icon(k), esc(n)) for n, u, k in SOCIALS)
@@ -69,13 +72,11 @@ def page(title, desc, body, current, rel="", path="index.html"):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{SITE_URL}/{path}">
 <link rel="icon" href="{rel}assets/img/favicon.png">
-<link rel="preload" href="{rel}assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{rel}assets/fonts/bric-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{rel}assets/fonts/inst-italic.woff2" as="font" type="font/woff2" crossorigin>
+{preloads}
 <link rel="stylesheet" href="{rel}assets/styles.css?v={ASSET_V}">
 <script>document.documentElement.classList.add("js");setTimeout(function(){{if(!window.__vob)document.documentElement.classList.remove("js")}},4000)</script>
 </head>
-<body>
+<body{bodyattr}>
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"></div>
 <header class="site-header">
@@ -454,7 +455,7 @@ def authority():
  </div>
 </div></section>
 """
-    return page("The Becoming Authority Ecosystem", "A private, boutique program for women leaders who want to be known beyond their job title. Voice, book, list, community, stage. Book a free Clarity Call.", body, "authority/", rel, "authority/")
+    return page("The Becoming Authority Ecosystem", "A private, boutique program for women leaders who want to be known beyond their job title. Voice, book, list, community, stage. Book a free Clarity Call.", body, "authority/", rel, "authority/", bodycls="pg-auth")
 
 def blog_index(posts):
     if posts:
