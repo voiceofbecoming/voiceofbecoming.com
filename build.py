@@ -47,7 +47,7 @@ def esc(s): return html.escape(s, quote=True)
 
 def page(title, desc, body, current, rel="", path="index.html", bodycls=""):
     bodyattr = ' class="%s"' % bodycls if bodycls else ""
-    _pf = ("bric-800", "bric-400") if bodycls == "pg-auth" else ("anton", "bric-400", "inst-italic")
+    _pf = ("anton", "bric-400", "inst-italic")
     preloads = "\n".join('<link rel="preload" href="%sassets/fonts/%s.woff2" as="font" type="font/woff2" crossorigin>' % (rel, f) for f in _pf)
     nav = "".join('<a href="%s%s"%s>%s</a>' % (rel, h, ' aria-current="page"' if h == current else "", n) for n, h in NAV)
     cta = '<a class="btn" href="%s" target="_blank" rel="noopener">Book a free call</a>' % TOPMATE_CALL
@@ -455,7 +455,7 @@ def authority():
  </div>
 </div></section>
 """
-    return page("The Becoming Authority Ecosystem", "A private, boutique program for women leaders who want to be known beyond their job title. Voice, book, list, community, stage. Book a free Clarity Call.", body, "authority/", rel, "authority/", bodycls="pg-auth")
+    return page("The Becoming Authority Ecosystem", "A private, boutique program for women leaders who want to be known beyond their job title. Voice, book, list, community, stage. Book a free Clarity Call.", body, "authority/", rel, "authority/")
 
 def blog_index(posts):
     if posts:
