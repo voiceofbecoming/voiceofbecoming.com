@@ -40,7 +40,7 @@ ICONS = {
 }
 def icon(k): return '<svg viewBox="0 0 24 24" aria-hidden="true">%s</svg>' % ICONS[k]
 
-NAV = [("Home", "index.html"), ("About us", "about.html"), ("Articles", "blog.html"),
+NAV = [("Home", "index.html"), ("About us", "about.html"), ("Authority", "authority/"), ("Articles", "blog.html"),
        ("Calendar", "calendar.html"), ("Freebies", "freebies.html"), ("Newsletter", "newsletter.html")]
 
 def esc(s): return html.escape(s, quote=True)
@@ -257,6 +257,15 @@ def home(posts):
 </div></section>
 
 <section><div class="wrap">
+ <div class="cta-band ax-band">
+  <div><span class="eyebrow">A private, boutique program</span><h2 class="display">The Becoming Authority Ecosystem.</h2>
+  <p class="lead">For women who've arrived. The next becoming is being known for it. Voice, book, list, community, stage, one step at a time.</p>
+  <div class="btns"><a class="btn" href="authority/">See the program</a><a class="btn ghost" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></div></div>
+  <a href="authority/" aria-label="See the program"><img src="assets/img/authority-onepager.jpg" alt="The Becoming Authority Ecosystem one-pager" width="640" height="905" loading="lazy"></a>
+ </div>
+</div></section>
+
+<section><div class="wrap">
  <div class="section-head"><span class="eyebrow">What people say</span><h2 class="display">In their <span class="red">words.</span></h2></div>
  {testimonials("", 6)}
  <p class="swipe-hint">Swipe for more →</p>
@@ -337,6 +346,93 @@ def about():
 </div></section>
 """
     return page("About us", "Fathima Samreen: ghostwriter, brand & book strategist and authority strategist from Warangal. 7+ years, 3 countries, SIWAA 2025 Changemaker.", body, "about.html", "", "about.html")
+
+ONEPAGER = "assets/docs/Becoming-Authority-Ecosystem.pdf"
+
+def authority():
+    rel = "../"
+    cta = f'<a class="btn btn-xl" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a><a class="btn ghost" href="{rel}{ONEPAGER}" target="_blank" rel="noopener">Download the one-pager</a>'
+    steps = [("01", "Voice", "Your expertise, in your own words."), ("02", "Book", "Your story, as proof no CV can give."),
+             ("03", "List", "Readers who stay, on a list you own."), ("04", "Community", "A place where your people gather."),
+             ("05", "Stage", "The invitations start finding you.")]
+    path = "".join(f'<li class="ax-step"><span class="ax-n">{n}</span><span class="ax-w">{w}</span><p>{t}</p></li>' for n, w, t in steps)
+    gets = [("Extract", "Two voice interviews a month. I pull out your stories and expertise."),
+            ("Position", "One clear line about who you are, plus three topics you own."),
+            ("Publish", "LinkedIn posts and a newsletter, written in your voice."),
+            ("Convert", "One free guide, and a simple path from post to message to call."),
+            ("Grow", "Your book, your WhatsApp community and speaking, each when you are ready.")]
+    get = "".join(f'<li><span class="ax-gn">{i}</span><strong>{w}</strong><p>{t}</p></li>' for i, (w, t) in enumerate(gets, 1))
+    body = f"""
+<section class="page-head ax-head"><div class="wrap">
+ <span class="eyebrow">A private, boutique program</span>
+ <h1 class="display">The Becoming Authority <span class="red">Ecosystem.</span></h1>
+ <p class="ax-tag serif">For women who've arrived. The next becoming is being known for it.</p>
+ <p class="lead">I help women leaders get known beyond their job title. Through their words, their book and their community, the right opportunities find them.</p>
+ <div class="btns">{cta}</div>
+ <p class="small ax-note">Free, 20 minutes, on Topmate.</p>
+</div></section>
+
+<section class="sand"><div class="wrap split">
+ <div><span class="eyebrow">Who it's for</span><h2 class="display">Women who lead, <span class="red">and want to be known for it.</span></h2></div>
+ <div><p class="lead">Muslim women founders, leaders and executives, and every woman leader building a portfolio career beyond one employer.</p>
+ <ul class="checks ax-checks">
+  <li>Inside your company, everyone knows what you are worth. Outside, almost nobody can see it.</li>
+  <li>You want the right doors to open: clients, talks, a book, a seat at bigger tables.</li>
+  <li>You would rather be understood than be loud.</li>
+ </ul></div>
+</div></section>
+
+<section><div class="wrap">
+ <div class="section-head"><span class="eyebrow">The path</span><h2 class="display">One step at a time, <span class="red">as you are ready.</span></h2></div>
+ <ol class="ax-path">{path}</ol>
+</div></section>
+
+<section class="sand"><div class="wrap">
+ <div class="section-head"><span class="eyebrow">What you get</span><h2 class="display">Five things, <span class="red">built with you.</span></h2></div>
+ <ol class="ax-get">{get}</ol>
+</div></section>
+
+<section><div class="wrap">
+ <div class="section-head"><span class="eyebrow">What this looks like</span><h2 class="display">One author, from his first book to <span class="red">a name people seek out.</span></h2></div>
+ <div class="grid g4 ax-proof">
+  <div class="card result"><span class="big">4,000+</span><p>readers on his newsletter in 2 to 3 months</p></div>
+  <div class="card result"><span class="big">800 to 1,000</span><p>members in his community</p></div>
+  <div class="card result"><span class="big">IITs &amp; IIMs</span><p>talks at India's top institutes</p></div>
+  <div class="card result"><span class="big">Book two</span><p>his second book, launched to a ready audience</p></div>
+ </div>
+</div></section>
+
+<section class="sand"><div class="wrap split">
+ <div><span class="eyebrow">How we work</span><h2 class="display">Boutique, <span class="red">on purpose.</span></h2>
+ <p class="lead">An honest note: I don't promise a set number of clients or a full waitlist. Your offer and follow-up matter too. I build the trust that brings the right people to you.</p></div>
+ <dl class="ax-how">
+  <div><dt>3</dt><dd>clients at most. This is boutique work.</dd></div>
+  <div><dt>1 day</dt><dd>every week, set aside only for you.</dd></div>
+  <div><dt>6 mo</dt><dd>minimum, because being known takes time.</dd></div>
+  <div><dt>Me</dt><dd>Strategy, ideas and voice come from me.</dd></div>
+ </dl>
+</div></section>
+
+<section class="feat feat-l"><div class="feat-photo" style="--fp:50% 15%"><img src="{rel}assets/img/fathima-award.jpg" alt="Fathima Samreen with her SIWAA 2025 Changemaker award" width="640" height="853" loading="lazy"></div>
+<div class="wrap feat-grid">
+ <div class="feat-copy">
+  <span class="eyebrow">Who you work with</span>
+  <h2 class="display">I see your next door <span class="red">before you do.</span></h2>
+  <p class="lead">And I walk you through it. I'm Fathima Samreen: 7+ years writing for leaders in 3 countries, books since 2019, SIWAA Award 2025, Changemaker.</p>
+  <blockquote class="ax-quote"><p class="serif">I tell you the truth, even when it is hard.</p><p>One client left upset at my honest feedback. Three months later she came back, ready to build.</p></blockquote>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <div class="cta-band ax-band">
+  <div><span class="eyebrow">Book a private call</span><h2 class="display">More of the right people know you, trust you and ask how to work with you.</h2>
+  <p class="lead">Start with a free 20 minute Clarity Call. Your network is your net worth.</p>
+  <div class="btns">{cta}</div></div>
+  <a href="{rel}{ONEPAGER}" target="_blank" rel="noopener" aria-label="Download the one-pager (PDF)"><img src="{rel}assets/img/authority-onepager.jpg" alt="The Becoming Authority Ecosystem one-pager" width="640" height="905" loading="lazy"></a>
+ </div>
+</div></section>
+"""
+    return page("The Becoming Authority Ecosystem", "A private, boutique program for women leaders who want to be known beyond their job title. Voice, book, list, community, stage. Book a free Clarity Call.", body, "authority/", rel, "authority/")
 
 def blog_index(posts):
     if posts:
@@ -499,7 +595,8 @@ def main():
     posts = load_posts()
     events = json.load(open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8")).get("events", [])
     out = {"index.html": home(posts), "about.html": about(), "blog.html": blog_index(posts),
-           "calendar.html": calendar(events), "freebies.html": freebies(), "newsletter.html": newsletter()}
+           "calendar.html": calendar(events), "freebies.html": freebies(), "newsletter.html": newsletter(), "authority/index.html": authority()}
+    os.makedirs(os.path.join(SITE, "authority"), exist_ok=True)
     os.makedirs(os.path.join(SITE, "blog"), exist_ok=True)
     for old in glob.glob(os.path.join(SITE, "blog", "*.html")): os.remove(old)
     for p in posts: out["blog/%s.html" % p["slug"]] = article(p, posts)
