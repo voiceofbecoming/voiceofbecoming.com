@@ -16,7 +16,7 @@ ASSET_V = _hl.md5(b"".join(open(os.path.join(ROOT, "site", "assets", f), "rb").r
 SITE = os.path.join(ROOT, "site")
 TODAY = datetime.date.today()
 
-KIT = "/letter/"  # v22: own signup page; the old Kit URL showed the old brand
+KIT = "/newsletter.html#join"  # v23: signup form lives on newsletter.html (#join); /letter/ redirects there
 KIT_ACTION = "https://app.kit.com/forms/10090058/subscriptions"  # Kit form uid 042d6cefac (4 AM / Articulation Gap workbook)
 TOPMATE_CALL = "https://topmate.io/fathima_samreen/504857"
 TOPMATE = "https://topmate.io/fathima_samreen"
@@ -615,8 +615,24 @@ def newsletter():
   <span class="eyebrow">The newsletter · Free workbook</span>
   <h1 class="display">Get the free Articulation Gap <span class="red">workbook.</span></h1>
   <p class="lead">5 signature stories you already own, 30 LinkedIn post ideas and a profile checklist, so the brilliance in your head becomes words people trust.</p>
-  <div class="btns"><a class="btn btn-xl" href="{KIT}">Send me the workbook <span aria-hidden="true">→</span></a></div>
-  <p class="small" style="margin-top:14px">Free. Add your email on the next page and it lands in your inbox, with 4 AM. Unsubscribe any time.</p>
+  <div class="lt-card nl-join" id="join">
+  <form id="lt-form" class="lt-form" method="POST" action="{KIT_ACTION}" data-kit="{KIT_ACTION}" novalidate>
+   <label class="ap-f"><span>First name</span><input name="fields[first_name]" type="text" autocomplete="given-name" required placeholder="Your first name"></label>
+   <label class="ap-f"><span>Email</span><input name="email_address" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></label>
+   <p class="ap-err lt-err" hidden>Please add your first name and a valid email.</p>
+   <button class="btn btn-xl lt-send" type="submit">Send me the workbook →</button>
+   <p class="small nl-fine">Free. Add your email and it lands in your inbox, with 4 AM. Unsubscribe any time.</p>
+   <p class="ap-fail lt-fail" hidden>That did not go through. Please try again in a moment.</p>
+   <div class="lt-guard" hidden><p class="small">One quick check to confirm you are human:</p><iframe title="Quick check" loading="eager"></iframe></div>
+  </form>
+  <div id="lt-done" class="lt-done" tabindex="-1" hidden>
+   <span class="ap-tick" aria-hidden="true"></span>
+   <h2 class="lt-ch">You're <span class="serif">in.</span></h2>
+   <p class="lt-thanks">Check your inbox now. Your Articulation Gap workbook is on its way. Tap the button in that email to download it.</p>
+   <p class="small">Can't see it? Look in Promotions or Updates, and move it to Primary so the letters find you.</p>
+   <p class="serif ap-sign">Fathima</p>
+  </div>
+  </div>
  </div>
  <div class="nl-mock" role="img" aria-label="A laptop screen showing a 4 AM letter from Fathima">
   <span class="nl-glow" aria-hidden="true"></span>
@@ -647,53 +663,27 @@ def newsletter():
  <img class="cover" src="assets/img/workbook.webp" alt="Cover of The Articulation Gap workbook" width="600" height="848" loading="lazy">
  <div><span class="eyebrow">Welcome gift</span><h2 class="display">Join 4 AM and get the <span class="red">workbook.</span></h2>
  <p class="lead">5 signature stories, 30 LinkedIn post ideas and a profile checklist. It comes with your welcome email, free.</p>
- <a class="btn" href="{KIT}">Send me the workbook</a></div>
+ <a class="btn" href="#join" data-join>Send me the workbook</a></div>
 </div></div></section>
 """
     return page("4 AM newsletter: free Articulation Gap workbook", "4 AM, the letter for women who build in the quiet, by Fathima Samreen. Join and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.", body, "newsletter.html", "", "newsletter.html")
 
 def letter():
-    body = f"""
-<section class="lt-sec"><div class="wrap lt-grid">
- <div class="lt-intro">
-  <span class="eyebrow">Weekly · Free</span>
-  <h1 class="display lt-h1">The 4 AM <span class="lt-acc">Letter</span></h1>
-  <p class="lt-promise">One honest note a week on voice, visibility and building in public, for women leaders. <span class="serif lt-s">Written before the world wakes up.</span></p>
-  <ul class="lt-get">
-   <li><b>Voice.</b> How to say what you know in words that sound like you.</li>
-   <li><b>Visibility.</b> How to be seen for your thinking, on your own terms.</li>
-   <li><b>Building in public.</b> What I am building, the book, the work, the wins and the mess, as it happens.</li>
-  </ul>
- </div>
- <div class="lt-card" id="join">
-  <form id="lt-form" class="lt-form" method="POST" action="{KIT_ACTION}" data-kit="{KIT_ACTION}" novalidate>
-   <h2 class="lt-ch">Get the next <span class="serif">letter.</span></h2>
-   <label class="ap-f"><span>First name</span><input name="fields[first_name]" type="text" autocomplete="given-name" required placeholder="Your first name"></label>
-   <label class="ap-f"><span>Email</span><input name="email_address" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></label>
-   <p class="ap-err lt-err" hidden>Please add your first name and a valid email.</p>
-   <button class="btn btn-xl lt-send" type="submit">Join free</button>
-   <p class="small lt-fine">Free. Unsubscribe anytime.</p>
-   <p class="small lt-gift">Welcome gift: the Articulation Gap workbook comes with your first email.</p>
-   <p class="ap-fail lt-fail" hidden>That did not go through. Please try again in a moment.</p>
-   <div class="lt-guard" hidden><p class="small">One quick check to confirm you are human:</p><iframe title="Quick check" loading="eager"></iframe></div>
-  </form>
-  <div id="lt-done" class="lt-done" tabindex="-1" hidden>
-   <span class="ap-tick" aria-hidden="true"></span>
-   <h2 class="lt-ch">You're <span class="serif">in.</span></h2>
-   <p class="lt-thanks">Check your inbox now. Your Articulation Gap workbook is on its way. Tap the button in that email to download it.</p>
-   <p class="small">Can't see it? Look in Promotions or Updates, and move it to Primary so the letters find you.</p>
-   <p class="serif ap-sign">Fathima</p>
-  </div>
- </div>
-</div></section>
+    # v23: /letter/ merged into newsletter.html; kept as a redirect so old links work
+    t = SITE_URL + "/newsletter.html#join"
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>The 4 AM Letter | Fathima Samreen</title>
+<meta name="robots" content="noindex"><link rel="canonical" href="{SITE_URL}/newsletter.html">
+<meta http-equiv="refresh" content="0; url={t}"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>location.replace("{SITE_URL}/newsletter.html"+(location.search||"")+"#join");</script>
+<style>body{{background:#141414;color:#F3E9DD;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0}}a{{color:#F3E9DD}}</style></head>
+<body><p>Taking you to <a href="{t}">the 4 AM newsletter</a>.</p></body></html>
 """
-    return page("The 4 AM Letter", "The 4 AM Letter by Fathima Samreen: one honest note a week on voice, visibility and building in public, for women leaders. Written before the world wakes up. Free.", body, "letter/", "../", "letter/")
 
 def main():
     posts = load_posts()
     events = json.load(open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8")).get("events", [])
     out = {"index.html": home(posts), "about.html": about(), "blog.html": blog_index(posts),
-           "calendar.html": calendar(events), "freebies.html": freebies(), "newsletter.html": newsletter(), "authority/index.html": authority(), "letter/index.html": letter()}
+           "calendar.html": calendar(events), "freebies.html": freebies(), "newsletter.html": newsletter(), "authority/index.html": authority()}
     os.makedirs(os.path.join(SITE, "authority"), exist_ok=True)
     os.makedirs(os.path.join(SITE, "letter"), exist_ok=True)
     os.makedirs(os.path.join(SITE, "blog"), exist_ok=True)
@@ -701,6 +691,7 @@ def main():
     for p in posts: out["blog/%s.html" % p["slug"]] = article(p, posts)
     for name, h in out.items():
         open(os.path.join(SITE, name), "w", encoding="utf-8").write(h)
+    open(os.path.join(SITE, "letter", "index.html"), "w", encoding="utf-8").write(letter())
     urls = "".join("<url><loc>%s/%s</loc></url>" % (SITE_URL, n.replace("index.html", "")) for n in out)
     open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">%s</urlset>' % urls)
     open(os.path.join(SITE, "robots.txt"), "w").write("User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % SITE_URL)
