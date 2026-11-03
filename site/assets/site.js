@@ -219,3 +219,28 @@ f.addEventListener("submit",function(ev){
  .then(function(){showDone();})
  .catch(function(){btn.disabled=false;btn.textContent=lbl;fail.hidden=false;});
 });})();
+
+/* v22: /letter/ native signup posting to Kit */
+(function(){var f=document.getElementById("lt-form");if(!f)return;var done=document.getElementById("lt-done"),btn=f.querySelector(".lt-send"),err=f.querySelector(".lt-err"),fail=f.querySelector(".lt-fail"),gd=f.querySelector(".lt-guard"),lbl=btn.textContent;
+function showDone(){f.hidden=true;done.hidden=false;try{done.focus({preventScroll:true});}catch(e){}var c=document.getElementById("join");if(c&&c.getBoundingClientRect().top<0)c.scrollIntoView({behavior:"smooth",block:"start"});}
+function reset(){btn.disabled=false;btn.textContent=lbl;}
+function uid(){try{var k="vob_ck_user",v=localStorage.getItem(k);if(!v){v=(Date.now().toString(16)+Math.random().toString(16).slice(2));localStorage.setItem(k,v);}return v;}catch(e){return "";}}
+window.addEventListener("message",function(e){var d=e.data;if(!d||typeof d!=="object"||!/kit\.com|convertkit\.com/.test(e.origin||""))return;
+ if(d.name==="ckjs:guard:size"&&d.height){gd.querySelector("iframe").style.height=d.height+"px";}
+ if(d.name==="ckjs:guard:confirmed"){gd.hidden=true;showDone();}});
+f.addEventListener("submit",function(ev){
+ var n=f.elements["fields[first_name]"],m=f.elements["email_address"];
+ var ok=n.value.trim()&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.value.trim());
+ if(!ok){ev.preventDefault();err.hidden=false;(n.value.trim()?m:n).focus();return;}
+ err.hidden=true;
+ if(!window.fetch||!window.FormData)return;
+ ev.preventDefault();if(btn.disabled)return;fail.hidden=true;btn.disabled=true;btn.textContent="Joining...";
+ var fd=new FormData();fd.append("email_address",m.value.trim());fd.append("fields[first_name]",n.value.trim());fd.append("referrer",document.referrer||"");fd.append("host",location.href);fd.append("search",location.search||"");fd.append("user",uid());fd.append("ckjs_version","6");
+ fetch(f.getAttribute("data-kit"),{method:"POST",body:fd,headers:{"Accept":"application/json","X-CKJS-Version":"6"}})
+ .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+ .then(function(j){
+  if(j.status==="success"){showDone();return;}
+  if(j.status==="quarantined"&&j.url){gd.hidden=false;gd.querySelector("iframe").src=j.url;btn.hidden=true;return;}
+  throw new Error("kit");})
+ .catch(function(){reset();fail.hidden=false;});
+});})();

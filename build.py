@@ -16,7 +16,8 @@ ASSET_V = _hl.md5(b"".join(open(os.path.join(ROOT, "site", "assets", f), "rb").r
 SITE = os.path.join(ROOT, "site")
 TODAY = datetime.date.today()
 
-KIT = "https://becoming-her-again-4.kit.com/042d6cefac"
+KIT = "/letter/"  # v22: own signup page; the old Kit URL showed the old brand
+KIT_ACTION = "https://app.kit.com/forms/10090058/subscriptions"  # Kit form uid 042d6cefac (4 AM / Articulation Gap workbook)
 TOPMATE_CALL = "https://topmate.io/fathima_samreen/504857"
 TOPMATE = "https://topmate.io/fathima_samreen"
 EMAIL = "fathima@voiceofbecoming.com"
@@ -651,12 +652,50 @@ def newsletter():
 """
     return page("4 AM newsletter: free Articulation Gap workbook", "4 AM, the letter for women who build in the quiet, by Fathima Samreen. Join and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.", body, "newsletter.html", "", "newsletter.html")
 
+def letter():
+    body = f"""
+<section class="lt-sec"><div class="wrap lt-grid">
+ <div class="lt-intro">
+  <span class="eyebrow">Weekly · Free</span>
+  <h1 class="display lt-h1">The 4 AM <span class="lt-acc">Letter</span></h1>
+  <p class="lt-promise">One honest note a week on voice, visibility and building in public, for women leaders. <span class="serif lt-s">Written before the world wakes up.</span></p>
+  <ul class="lt-get">
+   <li><b>Voice.</b> How to say what you know in words that sound like you.</li>
+   <li><b>Visibility.</b> How to be seen for your thinking, on your own terms.</li>
+   <li><b>Building in public.</b> What I am building, the book, the work, the wins and the mess, as it happens.</li>
+  </ul>
+ </div>
+ <div class="lt-card" id="join">
+  <form id="lt-form" class="lt-form" method="POST" action="{KIT_ACTION}" data-kit="{KIT_ACTION}" novalidate>
+   <h2 class="lt-ch">Get the next <span class="serif">letter.</span></h2>
+   <label class="ap-f"><span>First name</span><input name="fields[first_name]" type="text" autocomplete="given-name" required placeholder="Your first name"></label>
+   <label class="ap-f"><span>Email</span><input name="email_address" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></label>
+   <p class="ap-err lt-err" hidden>Please add your first name and a valid email.</p>
+   <button class="btn btn-xl lt-send" type="submit">Join free</button>
+   <p class="small lt-fine">Free. Unsubscribe anytime.</p>
+   <p class="small lt-gift">Welcome gift: the Articulation Gap workbook comes with your first email.</p>
+   <p class="ap-fail lt-fail" hidden>That did not go through. Please try again in a moment.</p>
+   <div class="lt-guard" hidden><p class="small">One quick check to confirm you are human:</p><iframe title="Quick check" loading="eager"></iframe></div>
+  </form>
+  <div id="lt-done" class="lt-done" tabindex="-1" hidden>
+   <span class="ap-tick" aria-hidden="true"></span>
+   <h2 class="lt-ch">You're <span class="serif">in.</span></h2>
+   <p class="lt-thanks">Check your inbox now. Your Articulation Gap workbook is on its way. Tap the button in that email to download it.</p>
+   <p class="small">Can't see it? Look in Promotions or Updates, and move it to Primary so the letters find you.</p>
+   <p class="serif ap-sign">Fathima</p>
+  </div>
+ </div>
+</div></section>
+"""
+    return page("The 4 AM Letter", "The 4 AM Letter by Fathima Samreen: one honest note a week on voice, visibility and building in public, for women leaders. Written before the world wakes up. Free.", body, "letter/", "../", "letter/")
+
 def main():
     posts = load_posts()
     events = json.load(open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8")).get("events", [])
     out = {"index.html": home(posts), "about.html": about(), "blog.html": blog_index(posts),
-           "calendar.html": calendar(events), "freebies.html": freebies(), "newsletter.html": newsletter(), "authority/index.html": authority()}
+           "calendar.html": calendar(events), "freebies.html": freebies(), "newsletter.html": newsletter(), "authority/index.html": authority(), "letter/index.html": letter()}
     os.makedirs(os.path.join(SITE, "authority"), exist_ok=True)
+    os.makedirs(os.path.join(SITE, "letter"), exist_ok=True)
     os.makedirs(os.path.join(SITE, "blog"), exist_ok=True)
     for old in glob.glob(os.path.join(SITE, "blog", "*.html")): os.remove(old)
     for p in posts: out["blog/%s.html" % p["slug"]] = article(p, posts)
