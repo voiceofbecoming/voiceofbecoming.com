@@ -46,7 +46,21 @@ NAV = [("Home", "index.html"), ("About us", "about.html"), ("Authority", "author
 
 def esc(s): return html.escape(s, quote=True)
 
-def page(title, desc, body, current, rel="", path="index.html", bodycls=""):
+NL_OG = "/assets/og-newsletter-4am.jpg"  # v25: newsletter link preview = the 4 AM hero (1200x630 jpg); og.png stays for every other page
+
+def og_tags(img=None):
+    if not img:
+        return '<meta property="og:image" content="%s/og.png">' % SITE_URL
+    u = SITE_URL + img
+    return ('<meta property="og:image" content="{u}">\n<meta property="og:image:secure_url" content="{u}">\n'
+            '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+            '<meta property="og:image:type" content="image/jpeg">\n<meta property="og:image:alt" content="4 AM. For Muslim women who build in the quiet.">').format(u=u)
+
+def tw_tags(img=None):
+    t = '<meta name="twitter:card" content="summary_large_image">'
+    return t + ('\n<meta name="twitter:image" content="%s%s">' % (SITE_URL, img) if img else "")
+
+def page(title, desc, body, current, rel="", path="index.html", bodycls="", og_img=None):
     bodyattr = ' class="%s"' % bodycls if bodycls else ""
     _pf = ("anton", "bric-400", "inst-italic")
     preloads = "\n".join('<link rel="preload" href="%sassets/fonts/%s.woff2" as="font" type="font/woff2" crossorigin>' % (rel, f) for f in _pf)
@@ -68,9 +82,9 @@ def page(title, desc, body, current, rel="", path="index.html", bodycls=""):
 <meta property="og:site_name" content="The Voice of Becoming Studio">
 <meta property="og:title" content="{esc(full_title)}">
 <meta property="og:description" content="{esc(desc)}">
-<meta property="og:image" content="{SITE_URL}/og.png">
+{og_tags(og_img)}
 <meta property="og:url" content="{SITE_URL}/{path}">
-<meta name="twitter:card" content="summary_large_image">
+{tw_tags(og_img)}
 <link rel="canonical" href="{SITE_URL}/{path}">
 <link rel="icon" href="{rel}assets/img/favicon.png">
 {preloads}
@@ -666,13 +680,20 @@ def newsletter():
  <a class="btn" href="#join" data-join>Send me the workbook</a></div>
 </div></div></section>
 """
-    return page("4 AM: the newsletter for Muslim women who build in the quiet", "4 AM, a weekly letter by Fathima Samreen for Muslim women leaders and founders who know a lot and stay unseen. Join and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.", body, "newsletter.html", "", "newsletter.html")
+    return page("4 AM: the newsletter for Muslim women who build in the quiet", "4 AM, a weekly letter by Fathima Samreen for Muslim women leaders and founders who know a lot and stay unseen. Join and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.", body, "newsletter.html", "", "newsletter.html", og_img=NL_OG)
 
 def letter():
     # v23: /letter/ merged into newsletter.html; kept as a redirect so old links work
     t = SITE_URL + "/newsletter.html#join"
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>The 4 AM Letter | Fathima Samreen</title>
 <meta name="robots" content="noindex"><link rel="canonical" href="{SITE_URL}/newsletter.html">
+<meta name="description" content="4 AM, a weekly letter by Fathima Samreen for Muslim women who build in the quiet.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="The Voice of Becoming Studio">
+<meta property="og:title" content="4 AM: the newsletter for Muslim women who build in the quiet">
+<meta property="og:description" content="A weekly letter by Fathima Samreen. Join and get the free Articulation Gap workbook.">
+<meta property="og:url" content="{SITE_URL}/newsletter.html">
+{og_tags(NL_OG)}
+{tw_tags(NL_OG)}
 <meta http-equiv="refresh" content="0; url={t}"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>location.replace("{SITE_URL}/newsletter.html"+(location.search||"")+"#join");</script>
 <style>body{{background:#141414;color:#F3E9DD;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0}}a{{color:#F3E9DD}}</style></head>
