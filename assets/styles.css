@@ -615,3 +615,31 @@ main:has(.ax-head) h2.display{text-wrap:balance}
 .ap-send{font-family:inherit}.ap-pill input[type=checkbox]+span::before{border-radius:3px}
 .ap-next li::before{align-self:start}
 .ap-form[hidden]{display:none}
+
+/* v22: /letter/ The 4 AM Letter signup (native form posting to Kit) */
+.lt-sec{position:relative;padding-top:clamp(28px,6vw,72px)}
+.lt-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 45% at 10% 10%,rgba(178,7,16,.24),transparent 70%),radial-gradient(60% 40% at 90% 90%,rgba(72,18,22,.5),transparent 70%);pointer-events:none}
+.lt-grid{position:relative;display:grid;gap:clamp(26px,5vw,64px);align-items:center}
+@media(min-width:960px){.lt-grid{grid-template-columns:1.05fr .95fr}}
+.lt-h1{font-size:clamp(58px,15vw,128px);margin:.15em 0 .22em;line-height:.92}
+.lt-acc{color:var(--red);display:block}
+.lt-promise{font-size:clamp(19px,2.6vw,24px);line-height:1.45;color:var(--cream);max-width:34ch;margin:0 0 22px}
+.lt-s{display:block;color:var(--sand);font-size:1.12em;margin-top:4px}
+.lt-get{list-style:none;padding:0;margin:0;display:grid;gap:12px;max-width:44ch}
+.lt-get li{position:relative;padding-left:26px;color:var(--muted);font-size:16.5px;line-height:1.5}
+.lt-get li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;background:var(--red)}
+.lt-get b{color:var(--cream)}
+.lt-card{background:var(--maroon);border:1px solid rgba(243,233,221,.16);border-radius:28px;padding:clamp(22px,4vw,40px);box-shadow:0 30px 60px rgba(0,0,0,.35);scroll-margin-top:90px}
+.lt-ch{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(30px,5vw,40px);line-height:1;margin:0 0 4px}
+.lt-ch .serif{text-transform:none;color:var(--sand);font-size:1.12em}
+.lt-form{display:grid;gap:16px}
+.lt-form[hidden],.lt-done[hidden],.lt-guard[hidden],.lt-err[hidden],.lt-fail[hidden]{display:none}
+.lt-send{width:100%;margin-top:4px;font-family:inherit;--fill:var(--ink)}
+.lt-send[disabled]{opacity:.7;cursor:progress}
+.lt-fine{margin:-4px 0 0;text-align:center;color:var(--cream);font-weight:700}
+.lt-gift{margin:-8px 0 0;text-align:center;opacity:.85}
+.lt-err{justify-self:start;margin:0}
+.lt-guard iframe{width:100%;min-height:120px;border:0;border-radius:14px;background:var(--cream)}
+.lt-done{outline:none}
+.lt-thanks{font-size:clamp(18px,2.3vw,21px);line-height:1.5;color:var(--cream);margin:10px 0 12px}
+@media(max-width:520px){.lt-card{border-radius:22px;margin-inline:-6px}.lt-get li{font-size:16px}}
