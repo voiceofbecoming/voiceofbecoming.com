@@ -604,7 +604,7 @@ def freebies():
 def newsletter():
     body = f"""
 <section class="am4 am4-nl" aria-label="4 AM, the newsletter"><span class="am4-glow" aria-hidden="true"></span>
-<span class="am4-eb">The letter for Muslim women · Free workbook</span>
+<span class="am4-eb">The letter · Free workbook</span>
 <div class="am4-stage">
  <p class="am4-word"><span class="am4-n">4</span><span class="am4-am">AM</span></p>
  <img class="am4-cut" src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen" width="872" height="1055" fetchpriority="high">
@@ -612,7 +612,7 @@ def newsletter():
 </div></section>
 <section class="hero"><div class="wrap hero-grid">
  <div class="hero-copy">
-  <span class="eyebrow">For Muslim women · Free workbook</span>
+  <span class="eyebrow">The newsletter · Free workbook</span>
   <h1 class="display">Get the free Articulation Gap <span class="red">workbook.</span></h1>
   <p class="lead">For Muslim women leaders and founders who know a lot and stay unseen. Start with 5 signature stories you already own, 30 LinkedIn post ideas and a profile checklist, so what you know becomes words people trust.</p>
   <div class="lt-card nl-join" id="join">
