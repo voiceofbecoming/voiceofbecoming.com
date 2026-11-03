@@ -95,8 +95,8 @@ def page(title, desc, body, current, rel="", path="index.html", bodycls=""):
   <div class="foot-cta">
    <div class="foot-cta-copy">
     <span class="eyebrow">4 AM · The letter</span>
-    <p class="foot-cta-line">Stories, prompts and strategy for women who carry <span class="serif">many roles at once.</span></p>
-    <p class="small">For women who build in the quiet. Join 4 AM and get the free Articulation Gap workbook.</p>
+    <p class="foot-cta-line">A weekly letter for Muslim women ready to be <span class="serif">seen for what they know.</span></p>
+    <p class="small">For Muslim women who build in the quiet. Join 4 AM and get the free Articulation Gap workbook.</p>
    </div>
    <a class="btn" href="{KIT}">Join 4 AM</a>
   </div>
@@ -279,8 +279,8 @@ def home(posts):
 <div class="wrap feat-grid">
  <div class="feat-copy">
   <span class="eyebrow">4 AM · The newsletter</span>
-  <h2 class="display">Stories for women who carry <span class="red">many roles.</span></h2>
-  <p class="lead">Executive, mother, wife, daughter. None of it is worthless. Every role you carry is part of your story. Get 4 AM, my letter on voice, worth and building a career from where you are.</p>
+  <h2 class="display">A letter for Muslim women who build <span class="red">in the quiet.</span></h2>
+  <p class="lead">You know a lot, and too few people see it yet. Get 4 AM, my weekly letter on voice and authority, so you are known for your work without losing your haya.</p>
   <div class="btns"><a class="btn" href="{KIT}">Join 4 AM</a><a class="btn ghost" href="newsletter.html">About 4 AM</a></div>
  </div>
 </div></section>
@@ -587,7 +587,7 @@ def freebies():
     <li>Start with Story 01 in 20 minutes</li>
    </ul>
    <a class="btn" href="{KIT}">Send me the workbook</a>
-   <p class="small" style="margin-top:14px">Enter your email on the next page and the workbook comes straight to your inbox. You'll also get 4 AM, my letter for women who build in the quiet. Unsubscribe any time.</p>
+   <p class="small" style="margin-top:14px">Enter your email on the next page and the workbook comes straight to your inbox. You'll also get 4 AM, my letter for Muslim women who build in the quiet. Unsubscribe any time.</p>
   </div>
  </div>
 </div></section>
@@ -604,17 +604,17 @@ def freebies():
 def newsletter():
     body = f"""
 <section class="am4 am4-nl" aria-label="4 AM, the newsletter"><span class="am4-glow" aria-hidden="true"></span>
-<span class="am4-eb">The letter · Free workbook</span>
+<span class="am4-eb">The letter for Muslim women · Free workbook</span>
 <div class="am4-stage">
  <p class="am4-word"><span class="am4-n">4</span><span class="am4-am">AM</span></p>
  <img class="am4-cut" src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen" width="872" height="1055" fetchpriority="high">
- <div class="am4-copy"><div class="l"><p class="am4-tag">For women who build in the quiet.</p></div></div>
+ <div class="am4-copy"><div class="l"><p class="am4-tag">For Muslim women who build in the quiet.</p></div></div>
 </div></section>
 <section class="hero"><div class="wrap hero-grid">
  <div class="hero-copy">
-  <span class="eyebrow">The newsletter · Free workbook</span>
+  <span class="eyebrow">For Muslim women · Free workbook</span>
   <h1 class="display">Get the free Articulation Gap <span class="red">workbook.</span></h1>
-  <p class="lead">5 signature stories you already own, 30 LinkedIn post ideas and a profile checklist, so the brilliance in your head becomes words people trust.</p>
+  <p class="lead">For Muslim women leaders and founders who know a lot and stay unseen. Start with 5 signature stories you already own, 30 LinkedIn post ideas and a profile checklist, so what you know becomes words people trust.</p>
   <div class="lt-card nl-join" id="join">
   <form id="lt-form" class="lt-form" method="POST" action="{KIT_ACTION}" data-kit="{KIT_ACTION}" novalidate>
    <label class="ap-f"><span>First name</span><input name="fields[first_name]" type="text" autocomplete="given-name" required placeholder="Your first name"></label>
@@ -639,12 +639,12 @@ def newsletter():
   <div class="lap"><div class="lap-lid"><span class="lap-cam" aria-hidden="true"></span><div class="lap-screen"><div class="mail">
    <div class="mail-bar"><i></i><i></i><i></i><span>Inbox</span></div>
    <div class="mail-head"><span class="mail-av">F</span><div class="mail-from"><b>Fathima Samreen</b><small>to you · 4:00 AM</small></div></div>
-   <p class="mail-subj">4 AM · For women who build in the quiet</p>
+   <p class="mail-subj">4 AM · For Muslim women who build in the quiet</p>
    <div class="mail-body">
     <p class="mail-mark">4 AM</p>
-    <p class="mail-h">The story you almost skipped.</p>
-    <p class="mail-p">It's 4 AM. The house is asleep, the chai is still hot, and this is the hour I write to you.</p>
-    <p class="mail-p">This week: the moment you think is too small to share is usually the one people remember.</p>
+    <p class="mail-h">Haya is not silence.</p>
+    <p class="mail-p">It's 4 AM, the quiet hour before Fajr. The house is asleep, the chai is still hot, and this is when I write to you.</p>
+    <p class="mail-p">This week: you can stay modest and still be known for what you know. Your expertise deserves a voice.</p>
     <p class="mail-sign">With love, Fathima</p>
    </div>
   </div></div></div>
@@ -654,19 +654,19 @@ def newsletter():
 <section><div class="wrap">
  <div class="section-head"><span class="eyebrow">What you'll get</span><h2 class="display">In your <span class="red">inbox.</span></h2></div>
  <div class="grid g3">
-  <div class="card"><span class="num">01</span><h3>Stories, not content</h3><p>Real moments from the many roles women carry, and the truth behind them.</p></div>
-  <div class="card"><span class="num">02</span><h3>Write-this-down prompts</h3><p>Small prompts to put your own story on paper, one line at a time.</p></div>
-  <div class="card"><span class="num">03</span><h3>From the ghostwriting desk</h3><p>What 7+ years of writing for leaders has taught me about voice and authority.</p></div>
+  <div class="card"><span class="num">01</span><h3>Seen for what you know</h3><p>How to build authority in your own voice, without shouting and without shrinking. Haya is not silence.</p></div>
+  <div class="card"><span class="num">02</span><h3>Write-this-down prompts</h3><p>Small prompts to turn what you know into posts, one line at a time, before the day takes over.</p></div>
+  <div class="card"><span class="num">03</span><h3>From the strategist's desk</h3><p>What 7+ years of writing for leaders has taught me about voice and authority. You do the work, and leave the reach to Allah.</p></div>
  </div>
 </div></section>
 <section class="sand"><div class="wrap"><div class="signup">
  <img class="cover" src="assets/img/workbook.webp" alt="Cover of The Articulation Gap workbook" width="600" height="848" loading="lazy">
  <div><span class="eyebrow">Welcome gift</span><h2 class="display">Join 4 AM and get the <span class="red">workbook.</span></h2>
- <p class="lead">5 signature stories, 30 LinkedIn post ideas and a profile checklist. It comes with your welcome email, free.</p>
+ <p class="lead">5 signature stories, 30 LinkedIn post ideas and a profile checklist, made for Muslim women ready to be seen for their work. It comes with your welcome email, free.</p>
  <a class="btn" href="#join" data-join>Send me the workbook</a></div>
 </div></div></section>
 """
-    return page("4 AM newsletter: free Articulation Gap workbook", "4 AM, the letter for women who build in the quiet, by Fathima Samreen. Join and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.", body, "newsletter.html", "", "newsletter.html")
+    return page("4 AM: the newsletter for Muslim women who build in the quiet", "4 AM, a weekly letter by Fathima Samreen for Muslim women leaders and founders who know a lot and stay unseen. Join and get the free Articulation Gap workbook: 5 signature stories, 30 LinkedIn post ideas and a profile checklist.", body, "newsletter.html", "", "newsletter.html")
 
 def letter():
     # v23: /letter/ merged into newsletter.html; kept as a redirect so old links work
