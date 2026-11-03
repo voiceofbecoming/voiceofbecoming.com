@@ -109,6 +109,7 @@ try{
 var fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
 var wide=matchMedia("(min-width:900px)");
 var hero=main.querySelector(":scope > .hero"),hdr=document.querySelector(".site-header");
+if(document.getElementById("join"))hero=null; /* v23: newsletter page keeps its hero (with the signup form) still, so #join is always reachable and clickable */
 var kids=[].slice.call(main.children);
 var panels=kids.filter(function(el){return el.tagName==="SECTION"&&el!==hero&&!el.classList.contains("page-head");});
 var overs=hero?kids.slice(kids.indexOf(hero)+1).filter(function(el){return panels.indexOf(el)<0;}):[];
