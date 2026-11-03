@@ -352,7 +352,12 @@ ONEPAGER = "assets/docs/Becoming-Authority-Ecosystem.pdf?v=2"
 
 def authority():
     rel = "../"
-    cta = f'<a class="btn btn-xl" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a><a class="btn ghost" href="{rel}{ONEPAGER}" target="_blank" rel="noopener">Download the one-pager</a>'
+    cta = f'<a class="btn btn-xl" href="#apply">Apply for one of 3 spots</a><a class="btn ghost" href="{rel}{ONEPAGER}" target="_blank" rel="noopener">Download the one-pager</a>'
+    FORM_EP = "https://formsubmit.co/236e3bcab1127516384d8fdd66449ff6"
+    pills = [("Voice", "Voice and content"), ("Book", "Book"), ("List", "Email list"), ("Community", "Community"), ("Stage", "Stage and speaking")]
+    pill_html = "".join(f'<label class="ap-pill"><input type="checkbox" name="Matters most" value="{v}"><span>{t}</span></label>' for v, t in pills)
+    def radios(name, opts):
+        return "".join(f'<label class="ap-pill"><input type="radio" name="{name}" value="{o}" required><span>{o}</span></label>' for o in opts)
     steps = [("01", "Voice", "Your expertise, in your own words."), ("02", "Book", "Your story, as proof no CV can give."),
              ("03", "List", "Readers who stay, on a list you own."), ("04", "Community", "A place where your people gather."),
              ("05", "Stage", "The invitations start finding you.")]
@@ -371,7 +376,7 @@ def authority():
  <h1 class="display">The Becoming Authority <span class="red">Ecosystem.</span></h1>
  <p class="ax-tag serif">For women who've arrived. The next becoming is being known for it.</p>
  <div class="btns">{cta}</div>
- <p class="small ax-note">Free, 20 minutes, on Topmate.</p>
+ <p class="small ax-note">About 2 minutes. Prefer to talk first? <a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a>.</p>
  <p class="lead">I help women leaders get known beyond their job title. Through their words, their book and their community, the right opportunities find them.</p>
  </div>
 </div></section>
@@ -446,16 +451,48 @@ def authority():
  </div>
 </div></section>
 
-<section><div class="wrap">
- <div class="cta-band ax-band">
-  <div><span class="eyebrow">Book a private call</span><h2 class="display">More of the right people know you, trust you and ask how to work with you.</h2>
-  <p class="lead">Start with a free 20 minute Clarity Call. Your network is your net worth.</p>
-  <div class="btns">{cta}</div></div>
-  <a href="{rel}{ONEPAGER}" target="_blank" rel="noopener" aria-label="Download the one-pager (PDF)"><img src="{rel}assets/img/authority-onepager.jpg?v=2" alt="The Becoming Authority Ecosystem one-pager" width="640" height="905" loading="lazy"></a>
+<section id="apply" class="ap-sec"><div class="wrap ap-grid">
+ <div class="ap-intro">
+  <span class="eyebrow">Apply</span>
+  <h2 class="display">Apply for one of <span class="red">3 spots.</span></h2>
+  <p class="lead">No discovery chats. Tell me about you, I'll read it personally.</p>
+  <ol class="ap-next">
+   <li><span><strong>You apply.</strong> About 2 minutes.</span></li>
+   <li><span><strong>I read it myself.</strong> Every answer, personally.</span></li>
+   <li><span><strong>If it fits,</strong> you hear from me within 3 working days with a time for one focused call.</span></li>
+  </ol>
+  <p class="small ap-alt">Prefer to talk first? <a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a> on Topmate. Or <a href="{rel}{ONEPAGER}" target="_blank" rel="noopener">download the one-pager</a>.</p>
+ </div>
+ <div class="ap-card">
+ <form class="ap-form" id="ap-form" action="{FORM_EP}" method="POST" data-ajax="{FORM_EP.replace('formsubmit.co/', 'formsubmit.co/ajax/')}">
+  <input type="hidden" name="_subject" value="New Authority application">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://voiceofbecoming.com/authority/?applied=1#apply">
+  <input type="text" name="_honey" class="ap-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="ap-row2">
+   <label class="ap-f"><span>Full name *</span><input type="text" name="Full name" autocomplete="name" required maxlength="120"></label>
+   <label class="ap-f"><span>Email *</span><input type="email" name="email" autocomplete="email" required maxlength="160"></label>
+  </div>
+  <label class="ap-f"><span>LinkedIn or website *</span><input type="text" name="LinkedIn or website" inputmode="url" placeholder="linkedin.com/in/yourname" required maxlength="300"></label>
+  <label class="ap-f"><span>Current role and industry *</span><input type="text" name="Role and industry" placeholder="e.g. Founder, fintech" required maxlength="200"></label>
+  <label class="ap-f"><span>What do you want to be known for? *</span><textarea name="Wants to be known for" rows="3" placeholder="One or two lines is plenty." required maxlength="1200"></textarea></label>
+  <fieldset class="ap-set" id="ap-matters"><legend>Which part matters most right now? *</legend><div class="ap-pills">{pill_html}</div><p class="ap-err" hidden>Pick at least one.</p></fieldset>
+  <fieldset class="ap-set"><legend>Timeline *</legend><div class="ap-pills">{radios("Timeline", ["Now", "Next 3 months", "Just exploring"])}</div></fieldset>
+  <fieldset class="ap-set"><legend>Are you ready to invest in a 6-month, done-with-you partnership? *</legend><div class="ap-pills">{radios("Ready for 6 months", ["Yes", "Want to know more first"])}</div></fieldset>
+  <label class="ap-f"><span>Anything else? <em>(optional)</em></span><textarea name="Anything else" rows="2" maxlength="2000"></textarea></label>
+  <button class="btn btn-xl ap-send" type="submit">Send my application</button>
+  <p class="ap-fail small" role="alert" hidden>That didn't go through. Please try again, or email <a href="mailto:fathima@voiceofbecoming.com">fathima@voiceofbecoming.com</a>.</p>
+ </form>
+ <div class="ap-done" id="ap-done" tabindex="-1" hidden>
+  <span class="ap-tick" aria-hidden="true"></span>
+  <p class="ap-thanks">Thank you. I read every application personally. If it looks like a fit, you'll hear from me within 3 working days with a time for one focused call.</p>
+  <p class="ap-sign serif">Fathima</p>
+ </div>
  </div>
 </div></section>
 """
-    return page("The Becoming Authority Ecosystem", "A private, boutique program for women leaders who want to be known beyond their job title. Voice, book, list, community, stage. Book a free Clarity Call.", body, "authority/", rel, "authority/")
+    return page("The Becoming Authority Ecosystem", "A private, boutique program for women leaders who want to be known beyond their job title. Voice, book, list, community, stage. Apply for one of 3 spots.", body, "authority/", rel, "authority/")
 
 def blog_index(posts):
     if posts:

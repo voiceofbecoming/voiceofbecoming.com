@@ -200,3 +200,22 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isInte
 ns.forEach(function(el){io.observe(el);});
 setTimeout(function(){ns.forEach(function(el){var r=el.getBoundingClientRect();if(r.bottom<0){io.unobserve(el);el.textContent=fmt(+el.dataset.count);}});},1500);
 }catch(e){document.querySelectorAll(".ax-res .ax-cn[data-count]").forEach(function(el){el.textContent=(+el.dataset.count).toLocaleString("en-US");});}})();
+
+/* v21: /authority/ application form */
+(function(){var f=document.getElementById("ap-form");if(!f)return;var done=document.getElementById("ap-done"),fail=f.querySelector(".ap-fail"),btn=f.querySelector(".ap-send"),set=document.getElementById("ap-matters"),err=set&&set.querySelector(".ap-err");
+function boxes(){return [].slice.call(f.querySelectorAll('input[name="Matters most"]'));}
+function showDone(){f.hidden=true;done.hidden=false;try{done.focus({preventScroll:true});}catch(e){}var s=document.getElementById("apply");if(s)s.scrollIntoView({behavior:"smooth",block:"start"});}
+if(/[?&]applied=1/.test(location.search)){showDone();}
+boxes().forEach(function(b){b.addEventListener("change",function(){if(err&&boxes().some(function(x){return x.checked;}))err.hidden=true;});});
+f.addEventListener("submit",function(ev){
+ if(!boxes().some(function(x){return x.checked;})){ev.preventDefault();if(err){err.hidden=false;}set.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(!window.fetch||!window.FormData)return;
+ ev.preventDefault();if(btn.disabled)return;fail.hidden=true;btn.disabled=true;var lbl=btn.textContent;btn.textContent="Sending...";
+ var fd=new FormData(f),data={};fd.forEach(function(v,k){v=String(v).trim();if(data[k]!==undefined){data[k]+=", "+v;}else{data[k]=v;}});
+ if(data._honey){showDone();return;}
+ data._subject="New Authority application: "+(data["Full name"]||"");data._replyto=data.email||"";if(!data["Anything else"])data["Anything else"]="-";data["Matters most"]=data["Matters most"]||"";
+ fetch(f.getAttribute("data-ajax"),{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)})
+ .then(function(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok||String(j.success)!=="true")throw new Error(j.message||r.status);});})
+ .then(function(){showDone();})
+ .catch(function(){btn.disabled=false;btn.textContent=lbl;fail.hidden=false;});
+});})();
