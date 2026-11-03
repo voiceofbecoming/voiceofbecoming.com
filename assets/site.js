@@ -244,3 +244,8 @@ f.addEventListener("submit",function(ev){
   throw new Error("kit");})
  .catch(function(){reset();fail.hidden=false;});
 });})();
+
+/* v23: buttons pointing at #join focus the newsletter form */
+(function(){var c=document.getElementById("join");if(!c)return;function go(e){var inp=c.querySelector("input");if(!inp||c.querySelector("form").hidden)return;if(e)e.preventDefault();c.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){try{inp.focus({preventScroll:true});}catch(x){}},500);}
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href");if(h==="#join"||h==="/newsletter.html#join"||h==="newsletter.html#join")go(e);});
+if(location.hash==="#join")setTimeout(function(){go();},300);})();

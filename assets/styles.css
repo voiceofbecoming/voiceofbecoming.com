@@ -643,3 +643,11 @@ main:has(.ax-head) h2.display{text-wrap:balance}
 .lt-done{outline:none}
 .lt-thanks{font-size:clamp(18px,2.3vw,21px);line-height:1.5;color:var(--cream);margin:10px 0 12px}
 @media(max-width:520px){.lt-card{border-radius:22px;margin-inline:-6px}.lt-get li{font-size:16px}}
+
+/* v23: 4 AM signup form inside newsletter.html hero (#join); /letter/ redirects here */
+.nl-join{margin-top:24px;max-width:500px;padding:clamp(20px,3vw,30px)}
+.nl-join .lt-form{gap:13px}
+.nl-join .lt-send{margin-top:2px}
+.nl-fine{margin:-2px 0 0;color:var(--cream);opacity:.85;text-align:center;line-height:1.45}
+.nl-join .lt-done .lt-ch{margin-top:8px}
+@media(max-width:959px){.nl-join{max-width:none;margin-bottom:12px}}

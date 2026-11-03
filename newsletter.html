@@ -18,7 +18,7 @@
 <link rel="preload" href="assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bric-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inst-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/styles.css?v=1b269ef5">
+<link rel="stylesheet" href="assets/styles.css?v=8381f525">
 <script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__vob)document.documentElement.classList.remove("js")},4000)</script>
 </head>
 <body>
@@ -45,8 +45,24 @@
   <span class="eyebrow">The newsletter · Free workbook</span>
   <h1 class="display">Get the free Articulation Gap <span class="red">workbook.</span></h1>
   <p class="lead">5 signature stories you already own, 30 LinkedIn post ideas and a profile checklist, so the brilliance in your head becomes words people trust.</p>
-  <div class="btns"><a class="btn btn-xl" href="/letter/">Send me the workbook <span aria-hidden="true">→</span></a></div>
-  <p class="small" style="margin-top:14px">Free. Add your email on the next page and it lands in your inbox, with 4 AM. Unsubscribe any time.</p>
+  <div class="lt-card nl-join" id="join">
+  <form id="lt-form" class="lt-form" method="POST" action="https://app.kit.com/forms/10090058/subscriptions" data-kit="https://app.kit.com/forms/10090058/subscriptions" novalidate>
+   <label class="ap-f"><span>First name</span><input name="fields[first_name]" type="text" autocomplete="given-name" required placeholder="Your first name"></label>
+   <label class="ap-f"><span>Email</span><input name="email_address" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></label>
+   <p class="ap-err lt-err" hidden>Please add your first name and a valid email.</p>
+   <button class="btn btn-xl lt-send" type="submit">Send me the workbook →</button>
+   <p class="small nl-fine">Free. Add your email and it lands in your inbox, with 4 AM. Unsubscribe any time.</p>
+   <p class="ap-fail lt-fail" hidden>That did not go through. Please try again in a moment.</p>
+   <div class="lt-guard" hidden><p class="small">One quick check to confirm you are human:</p><iframe title="Quick check" loading="eager"></iframe></div>
+  </form>
+  <div id="lt-done" class="lt-done" tabindex="-1" hidden>
+   <span class="ap-tick" aria-hidden="true"></span>
+   <h2 class="lt-ch">You're <span class="serif">in.</span></h2>
+   <p class="lt-thanks">Check your inbox now. Your Articulation Gap workbook is on its way. Tap the button in that email to download it.</p>
+   <p class="small">Can't see it? Look in Promotions or Updates, and move it to Primary so the letters find you.</p>
+   <p class="serif ap-sign">Fathima</p>
+  </div>
+  </div>
  </div>
  <div class="nl-mock" role="img" aria-label="A laptop screen showing a 4 AM letter from Fathima">
   <span class="nl-glow" aria-hidden="true"></span>
@@ -77,7 +93,7 @@
  <img class="cover" src="assets/img/workbook.webp" alt="Cover of The Articulation Gap workbook" width="600" height="848" loading="lazy">
  <div><span class="eyebrow">Welcome gift</span><h2 class="display">Join 4 AM and get the <span class="red">workbook.</span></h2>
  <p class="lead">5 signature stories, 30 LinkedIn post ideas and a profile checklist. It comes with your welcome email, free.</p>
- <a class="btn" href="/letter/">Send me the workbook</a></div>
+ <a class="btn" href="#join" data-join>Send me the workbook</a></div>
 </div></div></section>
 
 </main>
@@ -89,7 +105,7 @@
     <p class="foot-cta-line">Stories, prompts and strategy for women who carry <span class="serif">many roles at once.</span></p>
     <p class="small">For women who build in the quiet. Join 4 AM and get the free Articulation Gap workbook.</p>
    </div>
-   <a class="btn" href="/letter/">Join 4 AM</a>
+   <a class="btn" href="/newsletter.html#join">Join 4 AM</a>
   </div>
   <div class="foot-grid">
    <div class="foot-brand">
@@ -109,7 +125,7 @@
     <ul class="foot-links">
      <li><a href="mailto:fathima@voiceofbecoming.com">fathima@voiceofbecoming.com</a></li>
      <li><a href="https://topmate.io/fathima_samreen/504857" target="_blank" rel="noopener">Book a free Clarity Call</a></li>
-     <li><a href="/letter/">Join 4 AM</a></li>
+     <li><a href="/newsletter.html#join">Join 4 AM</a></li>
     </ul>
     <p class="small foot-loc">Warangal, India · working worldwide</p>
    </div>
@@ -117,6 +133,6 @@
  </div>
  <div class="foot-bottom"><div class="wrap foot-bottom-in"><span>© 2026 The Voice of Becoming Studio. All rights reserved.</span><span><a href="mailto:fathima@voiceofbecoming.com">fathima@voiceofbecoming.com</a></span></div></div>
 </footer>
-<script src="assets/site.js?v=1b269ef5" defer></script>
+<script src="assets/site.js?v=8381f525" defer></script>
 </body>
 </html>
