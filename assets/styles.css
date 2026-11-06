@@ -651,3 +651,14 @@ main:has(.ax-head) h2.display{text-wrap:balance}
 .nl-fine{margin:-2px 0 0;color:var(--cream);opacity:.85;text-align:center;line-height:1.45}
 .nl-join .lt-done .lt-ch{margin-top:8px}
 @media(max-width:959px){.nl-join{max-width:none;margin-bottom:12px}}
+
+/* v26: two offers, Work with me copy, one-page-per-job layout (words and order only; same look) */
+.offers{align-items:stretch}
+.offer{display:flex;flex-direction:column;gap:14px;border-top:3px solid var(--red)}
+.offer h3{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(30px,4vw,40px);line-height:1;margin:0}
+.offer-price{font-weight:800;color:var(--sand);margin:0;font-size:17px;line-height:1.4}
+.offer .checks{margin:0}
+.offer .btn{align-self:flex-start;margin-top:auto}
+.offer-box{display:grid;gap:14px;justify-items:start}
+.offer-box .offer-price{font-size:clamp(18px,2.4vw,22px)}
+.offer-box p{margin:0}
