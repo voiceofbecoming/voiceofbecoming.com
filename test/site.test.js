@@ -3,7 +3,8 @@ const assert = require("node:assert");
 const fs = require("node:fs");
 const path = require("node:path");
 const SITE = path.join(__dirname, "..", "site");
-const pages = ["index.html","about.html","blog.html","calendar.html","freebies.html","newsletter.html"];
+const pages = ["index.html","about.html","authority/index.html","newsletter.html"];
+const redirects = ["blog.html","calendar.html","freebies.html","letter/index.html"];
 const posts = fs.readdirSync(path.join(SITE,"blog")).filter(f=>f.endsWith(".html")).map(f=>"blog/"+f);
 const all = pages.concat(posts);
 const read = p => fs.readFileSync(path.join(SITE,p),"utf8");
@@ -17,7 +18,7 @@ test("each page has title, viewport, nav and full footer", () => {
     const h = read(p);
     assert.match(h, /<title>[^<]{5,}<\/title>/, p);
     assert.match(h, /name="viewport" content="width=device-width/, p);
-    for (const s of ["instagram.com/thediaryoffathima","instagram.com/thevoiceofbecomingstudio","linkedin.com/in/fathimasamreen","youtube.com/@thevoiceofbecomingstudio","topmate.io/fathima_samreen","mailto:fathima@voiceofbecoming.com","becoming-her-again-4.kit.com/042d6cefac","The Voice of Becoming Studio. All rights reserved"]) assert.ok(h.includes(s), p+" missing "+s);
+    for (const s of ["instagram.com/thediaryoffathima","instagram.com/thevoiceofbecomingstudio","linkedin.com/in/fathimasamreen","youtube.com/@thevoiceofbecomingstudio","mailto:fathima@voiceofbecoming.com","The Voice of Becoming Studio. All rights reserved"]) assert.ok(h.includes(s), p+" missing "+s);
   }
 });
 test("local asset references resolve", () => {
@@ -36,16 +37,20 @@ test("copy rules: no prices, no em dashes, no placeholders, no named confidentia
     const h = read(p);
     const text = h.replace(/<script[\s\S]*?<\/script>/g,"").replace(/<[^>]+>/g," ");
     assert.ok(!/[\u2014]/.test(text), p+" has an em dash");
-    assert.ok(!/(₹|\$\s?\d|€|INR|USD|\bprice\b)/i.test(text), p+" mentions a price");
+    assert.ok(!/(₹|€|INR|USD|\$(?!700\b)\s?\d|\bprice\b)/i.test(text), p+" mentions a price other than the $700 retainer");
     assert.ok(!/(lorem|ipsum|TODO|TBD|\[insert)/i.test(text), p+" has a placeholder");
-    assert.ok(!/(Bhavna|Shenomics)/i.test(h), p+" names a confidential client");
+    assert.ok(!/(Parvez|Lupin|ASCEND)/i.test(h), p+" names the anonymous client");
+    assert.ok(!/topmate\.io\/fathima_samreen\/(2368492)/.test(h), p+" links the old teardown");
+    if (p !== "authority/index.html") assert.ok(!/topmate\.io/.test(h), p+" links Topmate");
     assert.ok(!/memoir/i.test(text), p+" says memoir");
   }
 });
 test("core content", () => {
   const home = read("index.html");
   assert.ok(home.includes("Muslim women executives"));
-  assert.ok(read("about.html").includes("SIWAA") && read("about.html").includes("Executive Presence") && read("about.html").includes("What's Your Aukaath?"));
-  assert.ok(read("calendar.html").includes("Upcoming talks will be announced here"));
-  assert.ok(read("freebies.html").includes("Articulation"));
+  assert.ok(read("about.html").includes("SIWAA") && read("about.html").includes("What's Your Aukaath?"));
+  for (const r of redirects) assert.ok(read(r).includes("location.replace"), r+" redirects");
+  assert.ok(read("authority/index.html").includes("Visibility Retainer") && read("authority/index.html").includes("Complete Authority") && read("authority/index.html").includes("Why are you applying"));
+  assert.ok(read("authority/index.html").includes("formsubmit.co/236e3bcab1127516384d8fdd66449ff6"));
+  assert.ok(read("index.html").includes("Muslim women leaders: "));
 });

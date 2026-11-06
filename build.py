@@ -29,7 +29,6 @@ SOCIALS = [
     ("LinkedIn · Fathima Samreen", "https://www.linkedin.com/in/fathimasamreen", "li"),
     ("YouTube · The Voice of Becoming", "https://www.youtube.com/@thevoiceofbecomingstudio", "yt"),
     ("Substack · The Voice of Becoming", "https://thevoiceofbecoming.substack.com/", "ss"),
-    ("Topmate · book a call", TOPMATE, "tm"),
 ]
 ICONS = {
  "ig": '<path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.9a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8.1a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.1-9.4a1.2 1.2 0 1 0 0 2.3 1.2 1.2 0 0 0 0-2.3z"/>',
@@ -41,8 +40,7 @@ ICONS = {
 }
 def icon(k): return '<svg viewBox="0 0 24 24" aria-hidden="true">%s</svg>' % ICONS[k]
 
-NAV = [("Home", "index.html"), ("About us", "about.html"), ("Authority", "authority/"), ("Articles", "blog.html"),
-       ("Calendar", "calendar.html"), ("Freebies", "freebies.html"), ("Newsletter", "newsletter.html")]
+NAV = [("Home", "index.html"), ("Work with me", "authority/"), ("Newsletter", "newsletter.html"), ("About", "about.html")]
 
 def esc(s): return html.escape(s, quote=True)
 
@@ -65,7 +63,7 @@ def page(title, desc, body, current, rel="", path="index.html", bodycls="", og_i
     _pf = ("anton", "bric-400", "inst-italic")
     preloads = "\n".join('<link rel="preload" href="%sassets/fonts/%s.woff2" as="font" type="font/woff2" crossorigin>' % (rel, f) for f in _pf)
     nav = "".join('<a href="%s%s"%s>%s</a>' % (rel, h, ' aria-current="page"' if h == current else "", n) for n, h in NAV)
-    cta = '<a class="btn" href="%s" target="_blank" rel="noopener">Book a free call</a>' % TOPMATE_CALL
+    cta = '<a class="btn" href="%sauthority/#apply">Apply</a>' % rel
     socials = "".join('<li><a href="%s" target="_blank" rel="noopener">%s<span>%s</span></a></li>' % (u, icon(k), esc(n)) for n, u, k in SOCIALS)
     socials += '<li><a href="mailto:%s">%s<span>%s</span></a></li>' % (EMAIL, icon("mail"), EMAIL)
     links = "".join('<li><a href="%s%s">%s</a></li>' % (rel, h, n) for n, h in NAV)
@@ -131,7 +129,6 @@ def page(title, desc, body, current, rel="", path="index.html", bodycls="", og_i
     <h2>Contact</h2>
     <ul class="foot-links">
      <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
-     <li><a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></li>
      <li><a href="{KIT}">Join 4 AM</a></li>
     </ul>
     <p class="small foot-loc">Warangal, India · working worldwide</p>
@@ -192,12 +189,12 @@ def workbook_band(rel=""):
  <div><span class="eyebrow">Free workbook</span>
  <h2 class="display">Close your<br>articulation gap.</h2>
  <p class="lead">Five stories you already own, turned into post ideas and a profile that speaks for you while you do your job.</p>
- <div class="btns"><a class="btn" href="{KIT}">Get the free workbook</a><a class="btn ghost" href="{rel}freebies.html">What's inside</a></div></div>
+ <div class="btns"><a class="btn" href="{KIT}">Get the free workbook</a><a class="btn ghost" href="{rel}newsletter.html">What's inside</a></div></div>
  <img src="{rel}assets/img/workbook.webp" alt="Cover of The Articulation Gap workbook" width="600" height="848" loading="lazy">
 </div></div></section>"""
 
 TESTIMONIALS = [
- ("The ideas and experiences in the book were mine, but she helped me shape them into something people could truly connect with … she helped turn the book into a complete authority platform.", "Parvez Siraj", "VP, Lupin · author &amp; speaker", "parvez.jpg"),
+ ("The ideas and experiences in the book were mine, but she helped me shape them into something people could truly connect with … she helped turn the book into a complete authority platform.", "A VP at a pharma company", "Author &amp; speaker", None),
  ("We hired Fathima and her team as our marketing manager. She really helped us find our brand voice and set us up for success.", "Negar Farahmand", "CEO, AHX Partners · ex-Accenture MD", "negar.jpg"),
  ("She takes the time to carefully understand the objectives of each piece of content … She has been a true gift to our team, and our growth on social media.", "Bhavna Toor", "Founder &amp; CEO, Shenomics", "bhavna.webp"),
  ("I thank Fathima Samreen, my ghostwriter, who has done an exceptional job of framing the entire story so beautifully and deftly weaving my thoughts into words.", "Akhauri Mritunjay Kumar", "Author, <em>Rekha Dares to Dream Again</em> (from the book's acknowledgements)", None),
@@ -213,17 +210,15 @@ def testimonials(rel="", n=6):
 
 # ---------- pages ----------
 def home(posts):
-    latest = ""
-    if posts:
-        cards = "".join(f'<a class="post-card" href="blog/{p["slug"]}.html"><span class="meta"><span class="tag">{esc(p.get("tag","Article"))}</span> · {nice(p["d"])}</span><h2>{esc(p["title"])}</h2><p>{esc(p["summary"])}</p><span class="more red">Read the article →</span></a>' for p in posts[:2])
-        latest = f"""<section><div class="wrap"><div class="section-head"><span class="eyebrow">From the journal</span><h2 class="display">Latest <span class="red">articles.</span></h2></div><div class="grid g2">{cards}</div><div class="btns"><a class="btn ghost" href="blog.html">All articles</a></div></div></section>"""
+    cards = "".join(f'<a class="post-card" href="blog/{p["slug"]}.html"><span class="meta"><span class="tag">{esc(p.get("tag","Article"))}</span> · {nice(p["d"])}</span><h2>{esc(p["title"])}</h2><p>{esc(p["summary"])}</p><span class="more red">Read the article →</span></a>' for p in posts[:2])
+    read_more = f"""<section id="articles"><div class="wrap"><div class="section-head"><span class="eyebrow">Read more</span><h2 class="display">From <span class="red">the journal.</span></h2></div><div class="grid g2">{cards}</div></div></section>""" if cards else ""
     body = f"""
 <section class="hero"><div class="wrap hero-grid">
  <div class="hero-copy">
-  <span class="eyebrow">Ghostwriter for Muslim women executives</span>
-  <h1 class="display">Your title belongs to your company. <span class="red">Your voice belongs to you.</span></h1>
-  <p class="lead">I'm Fathima Samreen. I turn what you know into words people trust, so your name opens doors your title can't.</p>
-  <div class="btns"><a class="btn" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a><a class="btn ghost" href="{KIT}">Get the free workbook</a></div>
+  <span class="eyebrow">For Muslim women leaders</span>
+  <h1 class="display">Muslim women leaders: <span class="red">be known for what you know.</span></h1>
+  <p class="lead">I build your voice, your profile, your book and your audience, so the right clients find you.</p>
+  <div class="btns"><a class="btn" href="authority/#retainer">See the two offers</a><a class="btn ghost" href="newsletter.html">Get the free workbook</a></div>
   <div class="award-chip"><b>SIWAA 2025</b> Changemaker Award · South India Women Achievers</div>
  </div>
  <div class="hero-photo hero-cut"><img src="assets/img/fathima-hero-cutout.webp" alt="Fathima Samreen, founder of The Voice of Becoming Studio" width="872" height="1055" fetchpriority="high"></div>
@@ -237,8 +232,35 @@ def home(posts):
  <div role="listitem"><strong data-count="2019" data-from="2000">2019</strong><span>writing books since</span></div>
  <div role="listitem"><strong data-count="4">4</strong><span>pillars of authority</span></div>
 </div>
-<div class="marquee" aria-hidden="true"><div class="mq-row mq-co"><div class="mq-track"><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i></div></div><div class="mq-row rev"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div></div>
-<section class="statement"><span class="big-q" aria-hidden="true">&ldquo;</span><div class="wrap"><p class="statement-text">Helping Muslim women executives turn their expertise into <span class="pill">a voice people follow.</span></p></div></section>
+<div class="marquee" aria-hidden="true"><div class="mq-row mq-co"><div class="mq-track"><span><em>Pharma company</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Pharma company</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Pharma company</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i></div></div><div class="mq-row rev"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div></div>
+
+<section class="sand"><div class="wrap">
+ <div class="section-head"><span class="eyebrow">Two ways to work together</span><h2 class="display">Pick <span class="red">your level.</span></h2></div>
+ <div class="grid g2 offers">
+  <article class="card offer">
+   <span class="eyebrow">Ongoing</span>
+   <h3>The Visibility Retainer</h3>
+   <p class="offer-price">$700 a month · 3 months minimum</p>
+   <ul class="checks">
+    <li>Month 1 Foundation: positioning, messaging, LinkedIn profile, 9 content ideas</li>
+    <li>Every month: 20 pieces of content, about 5 a week</li>
+    <li>A monthly review and a plan for the next month</li>
+   </ul>
+   <a class="btn" href="authority/#retainer">See the Visibility Retainer</a>
+  </article>
+  <article class="card offer">
+   <span class="eyebrow">Fully customised</span>
+   <h3>Complete Authority</h3>
+   <p class="offer-price">Application only · 6 months to 1 year · 3 clients max</p>
+   <ul class="checks">
+    <li>Strategy, profile and brand</li>
+    <li>Monthly content, your email list and community</li>
+    <li>Your book, and your stage</li>
+   </ul>
+   <a class="btn ghost" href="authority/#authority">See Complete Authority</a>
+  </article>
+ </div>
+</div></section>
 
 <section class="feat feat-r"><div class="feat-photo" style="--fp:50% 5%"><img src="assets/img/fathima-desk.jpg" alt="Fathima Samreen writing at her desk" width="640" height="1137" loading="lazy"></div>
 <div class="wrap feat-grid">
@@ -246,7 +268,7 @@ def home(posts):
   <span class="eyebrow">Who I help</span>
   <h2 class="display">Brilliant inside. <span class="red">Invisible outside.</span></h2>
   <p class="lead">Inside her company, everyone knows what she is worth. Outside, almost nobody can see it. I call that the articulation gap. Closing it is my work.</p>
-  <p>I work with Muslim women executives, senior leaders and founders who:</p>
+  <p>I work with Muslim women leaders, senior executives and founders who:</p>
   <ul class="checks">
    <li>Have lived enough to know shortcuts don't work</li>
    <li>Don't want to sound like everyone else online</li>
@@ -255,30 +277,16 @@ def home(posts):
    <li>Want their work to outlive platforms and algorithms</li>
   </ul>
  </div>
- </div></section>
-
-<section class="sand"><div class="wrap">
- <div class="section-head"><span class="eyebrow">Services</span><h2 class="display">I don't just <span class="red">create content.</span></h2><p class="lead">I help leaders make sense of the road they have walked. Ghostwriting, brand &amp; book strategy and authority strategy. Each one starts with your story.</p></div>
- <div class="grid g3 stack">
-  <div class="card"><span class="num">01</span><h3>Books &amp; book strategy</h3><p>Books you don't rush to finish. Books you return to. I ghostwrite transformation and leadership books that feel honest and grounded, planned with you first: the idea, the structure and the audience it is for.</p></div>
-  <div class="card"><span class="num">02</span><h3>Ghostwriting &amp; personal brand</h3><p>LinkedIn thought leadership, newsletters, long-form essays and visual assets, all rooted in one clear story. A brand that sounds like you, stays consistent and never feels performative.</p></div>
-  <div class="card"><span class="num">03</span><h3>Authority strategy</h3><p>Authority comes from being understood, wherever you show up. The goal is simple: when people hear your name, they know what you stand for.</p></div>
- </div>
- <div class="grid g3" style="margin-top:22px">
-  <div class="card result"><span class="meta">Lupin</span><span class="big">Director → VP</span><p>A book, a weekly newsletter and a profile that made a leader's expertise visible. 4,500+ newsletter subscribers and 800+ community members.</p></div>
-  <div class="card result"><span class="meta">Shenomics · Bhavna Toor</span><span class="big">36K → 105K</span><p>LinkedIn followers for Bhavna, over 14 to 18 months of partnership, with the profile updated each time her offer evolved.</p></div>
-  <div class="card result"><span class="meta">AHX Partners</span><span class="big">+100</span><p>Paid members added to a founder-led community, through strategy, content, design and positioning.</p></div>
- </div>
- <div class="btns"><a class="btn" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Start with a free Clarity Call</a><a class="btn ghost" href="about.html">How I work</a></div>
 </div></section>
 
 <section><div class="wrap">
- <div class="cta-band ax-band">
-  <div><span class="eyebrow">A private, boutique program</span><h2 class="display">The Becoming Authority Ecosystem.</h2>
-  <p class="lead">For women who've arrived. The next becoming is being known for it. Voice, book, list, community, stage, one step at a time.</p>
-  <div class="btns"><a class="btn" href="authority/">See the program</a><a class="btn ghost" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></div></div>
-  <a href="authority/" aria-label="See the program"><img src="assets/img/authority-onepager.jpg?v=2" alt="The Becoming Authority Ecosystem one-pager" width="640" height="905" loading="lazy"></a>
+ <div class="section-head"><span class="eyebrow">Results</span><h2 class="display">Real leaders. <span class="red">Real results.</span></h2></div>
+ <div class="grid g3">
+  <div class="card result"><span class="meta">A pharma company</span><span class="big">Director → VP</span><p>A book, a weekly newsletter and a profile that made a leader's expertise visible. 4,500+ newsletter subscribers and 800+ community members.</p></div>
+  <div class="card result"><span class="meta">Shenomics · Bhavna Toor</span><span class="big">36K → 105K</span><p>LinkedIn followers for Bhavna, over 14 to 18 months of partnership, with the profile updated each time her offer evolved.</p></div>
+  <div class="card result"><span class="meta">AHX Partners</span><span class="big">+100</span><p>Paid members added to a founder-led community, through strategy, content, design and positioning.</p></div>
  </div>
+ <div class="btns"><a class="btn ghost" href="authority/#results">All results and the full offers</a></div>
 </div></section>
 
 <section><div class="wrap">
@@ -288,7 +296,7 @@ def home(posts):
 </div></section>
 
 {workbook_band("")}
-{latest}
+
 <section class="sand feat feat-l"><div class="feat-photo" style="--fp:50% 8%"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" loading="lazy"></div>
 <div class="wrap feat-grid">
  <div class="feat-copy">
@@ -298,133 +306,114 @@ def home(posts):
   <div class="btns"><a class="btn" href="{KIT}">Join 4 AM</a><a class="btn ghost" href="newsletter.html">About 4 AM</a></div>
  </div>
 </div></section>
+{read_more}
 """
     return page("The Voice of Becoming Studio · Fathima Samreen, Ghostwriter for Muslim Women Executives",
-                "Fathima Samreen is a ghostwriter, brand & book strategist and authority strategist helping Muslim women executives turn their expertise into a voice people follow.", body, "index.html", "", "")
+                "Fathima Samreen builds the voice, profile, book and audience of Muslim women leaders, so the right clients find them.", body, "index.html", "", "")
 
 def about():
     body = f"""
 <section class="page-head feat feat-r"><div class="feat-photo" style="--fp:50% 8%"><img src="assets/img/fathima-standing.jpg" alt="Fathima Samreen in a maroon abaya, holding a book" width="754" height="1024" fetchpriority="high"></div>
 <div class="wrap feat-grid">
- <div class="feat-copy"><span class="eyebrow">About us</span><h1 class="display">The writer behind <span class="red">the leaders' words.</span></h1>
- <p class="lead">I'm Fathima Samreen, founder of The Voice of Becoming Studio. A self-taught writer from Warangal, Telangana, running a global studio from home.</p></div>
+ <div class="feat-copy"><span class="eyebrow">About</span><h1 class="display">The writer behind <span class="red">the leaders' words.</span></h1>
+ <p class="lead">I'm Fathima Samreen, founder of The Voice of Becoming Studio. A self-taught writer from Warangal, Telangana, working with Muslim women leaders from home.</p></div>
 </div></section>
 
-<section class="feat feat-l"><div class="feat-photo" style="--fp:50% 15%"><img src="assets/img/fathima-award.jpg" alt="Fathima Samreen with her SIWAA 2025 Changemaker award" width="640" height="853" loading="lazy"></div>
-<div class="wrap feat-grid">
- <div class="prose feat-copy">
-  <span class="eyebrow">My story</span>
-  <p>Before I wrote for leaders, I trained people to speak. As a soft-skills trainer and a zonal in-charge for a chain of schools in Telangana, I helped young people and teachers speak with confidence.</p>
-  <p>Then I started writing. For more than 7 years I have ghostwritten for founders and leaders across 3 countries, and I have been writing books with leaders since 2019. LinkedIn thought leadership, books and personal brands, always in my client's own voice. All of it from my home in Warangal.</p>
-  <p>Today I work with Muslim women executives. I have sat with many brilliant women who hold teams together and make hard calls every week. Inside their companies everyone knows what they are worth. Outside, almost nobody can see it. I call that <strong>the articulation gap</strong>. Closing it is my work.</p>
-  <p>I am not a coach. I am a ghostwriter, a brand and book strategist and an authority strategist. You talk, I listen, and I write what only your life could have written. Nothing goes out without your yes.</p>
-  <p>And I'm writing my own book, <strong>What's Your Aukaath?</strong> Aukaath, to me, is knowing your worth and owning your place.</p>
- </div>
-</div></section>
-
-<section class="sand"><div class="wrap split">
- <div><span class="eyebrow">Recognition</span><h2 class="display">SIWAA Award <span class="red">2025.</span></h2>
- <p class="lead">South India Women Achievers Awards, Bangalore. Category: Changemaker.</p>
-</div>
- <div class="card"><span class="eyebrow">The mission</span>
- <h3 style="font-size:26px">To show Muslim girls and women that they can build a real career from home, and stand tall while staying rooted in their faith.</h3>
- <p style="margin-top:14px">Every role a woman carries is part of her story. Executive, mother, wife, daughter-in-law, daughter. None of it is worthless. The Voice of Becoming Studio helps women turn their lived story into a voice, a brand and their own income.</p></div>
-</div></section>
-
-<section><div class="wrap">
- <div class="section-head"><span class="eyebrow">How I think</span><h2 class="display">Four pillars of <span class="red">authority.</span></h2><p class="lead">Every book, post and profile I build stands on the same four pillars.</p></div>
- <div class="grid g4">
-  <div class="pillar"><span class="display">Strategy</span><p>What you want to be known for, who it is for, and the door it should open a year from now.</p></div>
-  <div class="pillar"><span class="display">Psychology</span><p>How your reader thinks and what builds trust, so your words land with the right people.</p></div>
-  <div class="pillar"><span class="display">Narrative</span><p>The moments that shaped your leadership, structured into a story only your life could have written.</p></div>
-  <div class="pillar"><span class="display">Executive Presence</span><p>Choosing what people get to see of you. Visible without being exposed.</p></div>
- </div>
-</div></section>
-
-<section class="sand"><div class="wrap">
- <div class="section-head"><span class="eyebrow">How I work</span><h2 class="display">The process behind <span class="red">every voice.</span></h2></div>
- <div class="grid g4">
-  <div class="card"><span class="num">01</span><h3>NDA first</h3><p>Your story stays private before we talk details.</p></div>
-  <div class="card"><span class="num">02</span><h3>Conversations first</h3><p>I listen before I write a word.</p></div>
-  <div class="card"><span class="num">03</span><h3>Your voice</h3><p>Built from your ideas and your experience.</p></div>
-  <div class="card"><span class="num">04</span><h3>Your yes</h3><p>Nothing goes out without your approval.</p></div>
- </div>
- <div class="btns"><a class="btn" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a></div>
-</div></section>
-
-<section><div class="wrap">
- <div class="section-head"><span class="eyebrow">Questions I hear most</span><h2 class="display">FAQ</h2></div>
- <details class="faq"><summary>Will it sound like me?</summary><p>Yes. Every piece is built from our conversations, your ideas and your experience. I learn how you speak before I write. If a line doesn't sound like you, it doesn't go out.</p></details>
- <details class="faq"><summary>Is my story kept private?</summary><p>Every engagement starts with an NDA, before we talk details. Many of my clients trust me with stories that aren't meant just for the internet.</p></details>
- <details class="faq"><summary>I'm busy. How much of my time does this take?</summary><p>We start with a context meeting and then regular conversations. I do the writing, design and scheduling. Your part is to talk, review and approve.</p></details>
- <details class="faq"><summary>I don't know if I'm ready for a book.</summary><p>That's OK. We can build your personal brand first, focus only on content or find your book together through your experience. The free Clarity Call is where we work out what fits.</p></details>
- <details class="faq"><summary>How do we start?</summary><p>Book the free 20 minute Clarity Call on Topmate. If you'd like to try something first, get the free workbook.</p></details>
+<section class="sand"><div class="wrap prose" style="max-width:760px">
+ <p>For more than 7 years I have ghostwritten for founders and leaders across 3 countries, and I have been writing books with leaders since 2019.</p>
+ <p>Today I work with Muslim women executives. Inside their companies everyone knows what they are worth. Outside, almost nobody can see it. I call that <strong>the articulation gap</strong>. Closing it is my work.</p>
+ <p>I am not a coach. I am a ghostwriter, a brand and book strategist and an authority strategist. Nothing goes out without your yes.</p>
+ <p>I'm also writing my own book, <strong>What's Your Aukaath?</strong> Aukaath, to me, is knowing your worth and owning your place.</p>
+ <p>SIWAA Award 2025, Changemaker category, South India Women Achievers Awards.</p>
+ <div class="btns"><a class="btn" href="authority/">See the two offers</a><a class="btn ghost" href="newsletter.html">Join 4 AM</a></div>
 </div></section>
 """
-    return page("About us", "Fathima Samreen: ghostwriter, brand & book strategist and authority strategist from Warangal. 7+ years, 3 countries, SIWAA 2025 Changemaker.", body, "about.html", "", "about.html")
-
-ONEPAGER = "assets/docs/Becoming-Authority-Ecosystem.pdf?v=2"
+    return page("About · Fathima Samreen", "About Fathima Samreen, ghostwriter, brand and book strategist for Muslim women leaders, from Warangal.", body, "about.html", "", "about.html")
 
 def authority():
     rel = "../"
-    cta = f'<a class="btn btn-xl" href="#apply">Apply for one of 3 spots</a><a class="btn ghost" href="{rel}{ONEPAGER}" target="_blank" rel="noopener">Download the one-pager</a>'
     FORM_EP = "https://formsubmit.co/236e3bcab1127516384d8fdd66449ff6"
     pills = [("Voice", "Voice and content"), ("Book", "Book"), ("List", "Email list"), ("Community", "Community"), ("Stage", "Stage and speaking")]
     pill_html = "".join(f'<label class="ap-pill"><input type="checkbox" name="Matters most" value="{v}"><span>{t}</span></label>' for v, t in pills)
-    def radios(name, opts):
-        return "".join(f'<label class="ap-pill"><input type="radio" name="{name}" value="{o}" required><span>{o}</span></label>' for o in opts)
-    steps = [("01", "Voice", "Your expertise, in your own words."), ("02", "Book", "Your story, as proof no CV can give."),
-             ("03", "List", "Readers who stay, on a list you own."), ("04", "Community", "A place where your people gather."),
-             ("05", "Stage", "The invitations start finding you.")]
-    path = "".join(f'<li class="ax-step"><span class="ax-n">{n}</span><span class="ax-w">{w}</span><p>{t}</p></li>' for n, w, t in steps)
-    gets = [("Extract", "Two voice interviews a month. I pull out your stories and expertise."),
-            ("Position", "One clear line about who you are, plus three topics you own."),
-            ("Publish", "LinkedIn posts and a newsletter, written in your voice."),
-            ("Convert", "One free guide, and a simple path from post to message to call."),
-            ("Grow", "Your book, your WhatsApp community and speaking, each when you are ready.")]
-    get = "".join(f'<li><span class="ax-gn">{i}</span><strong>{w}</strong><p>{t}</p></li>' for i, (w, t) in enumerate(gets, 1))
+    def radios(name, opts, req=True):
+        return "".join(f'<label class="ap-pill"><input type="radio" name="{name}" value="{o}"{" required" if req else ""}><span>{o}</span></label>' for o in opts)
+    def step(n, t, items):
+        return f'<article class="card"><span class="num">{n}</span><h3>{t}</h3><ul class="checks">' + "".join(f"<li>{i}</li>" for i in items) + "</ul></article>"
+    month1 = [
+        ("Positioning", ["Who you help and what you are known for", "Your 3 core topics", "Your audience, in one paragraph"]),
+        ("Messaging", ["Your promise line", "Your About section, in your voice", "Your services in plain words", "A tone guide: how you sound"]),
+        ("LinkedIn profile", ["Headline rewrite", "About, Experience and Skills cleaned up", "Custom banner and profile picture", "2 Featured cards and 3 services graphics"]),
+        ("Ideas and handover", ["9 content ideas", "A handover PDF guide", "One round of changes"]),
+    ]
+    m1 = "".join(f'<article class="card"><h3>{t}</h3><ul class="checks">' + "".join(f"<li>{i}</li>" for i in items) + "</ul></article>" for t, items in month1)
+    monthly = [
+        ("20 pieces, about 5 a week", "Carousels, videos, text and image posts. The mix depends on what is working for you. We start with 4 carousels and 4 videos, and adjust each month."),
+        ("Videos", "If you record, we edit and caption them. If you'd rather not be on camera, we create them from stock footage and design tools, in your voice."),
+        ("A monthly review", "What worked, what to change, and what comes next."),
+    ]
+    mo = "".join(f'<article class="card"><h3>{t}</h3><p>{d}</p></article>' for t, d in monthly)
+    scope = [
+        ("01", "Strategy", ["Your voice and positioning", "A 6-month plan for your book, content, list and stage", "Your proof, gathered and used"]),
+        ("02", "Profile and brand", ["LinkedIn and Instagram: headline, banner, picture and Featured", "Your brand look and template set", "A simple page with an application form"]),
+        ("03", "Content, every month", ["Weekly videos and reels, scripted in your voice", "LinkedIn posts, with comments on others' posts", "Carousels, quote cards and your newsletter"]),
+        ("04", "Book", ["Core message and outline", "Voice notes and interviews, then drafting in your voice", "Editing, proofreading, cover and layout", "Publishing route, upload and launch", "Scholar review for anything Islamic"]),
+        ("05", "List and community", ["Email setup and a welcome sequence", "A lead magnet", "An optional community"]),
+        ("06", "Stage", ["A speaker one-pager and your topics", "A pitch list of podcasts and events, which you send yourself"]),
+    ]
+    sc = "".join(f'<article class="card"><span class="num">{n}</span><h3>{t}</h3><ul class="checks">' + "".join(f"<li>{i}</li>" for i in items) + "</ul></article>" for n, t, items in scope)
     body = f"""
 <section class="page-head ax-head"><div class="wrap ax-hero">
  <div class="ax-photo"><img src="{rel}assets/img/fathima-arms-folded.webp" alt="Fathima Samreen in a maroon coat, arms folded" width="723" height="1146" fetchpriority="high" decoding="async"></div>
  <div class="ax-copy">
- <span class="eyebrow">A private, boutique program</span>
- <h1 class="display">The Becoming Authority <span class="red">Ecosystem.</span></h1>
- <p class="ax-tag serif">For women who've arrived. The next becoming is being known for it.</p>
- <div class="btns">{cta}</div>
- <p class="small ax-note">About 2 minutes. Prefer to talk first? <a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a>.</p>
- <p class="lead">I help women leaders get known beyond their job title. Through their words, their book and their community, the right opportunities find them.</p>
+ <span class="eyebrow">Work with me</span>
+ <h1 class="display">Muslim women leaders: <span class="red">be known for what you know.</span></h1>
+ <p class="lead">I build your voice, your profile, your book and your audience, so the right clients find you. Two ways to work together, depending on where you are.</p>
+ <div class="btns"><a class="btn" href="#retainer">Visibility Retainer</a><a class="btn ghost" href="#authority">Complete Authority</a></div>
+ <p class="small ax-note">Not sure which fits? <a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a short free Clarity Call</a>.</p>
  </div>
 </div></section>
 
-<section class="sand"><div class="wrap split">
- <div><span class="eyebrow">Who it's for</span><h2 class="display">Women who lead, <span class="red">and want to be known for it.</span></h2></div>
- <div><p class="lead">Muslim women founders, leaders and executives, and every woman leader building a portfolio career beyond one employer.</p>
- <ul class="checks ax-checks">
-  <li>Inside your company, everyone knows what you are worth. Outside, almost nobody can see it.</li>
-  <li>You want the right doors to open: clients, talks, a book, a seat at bigger tables.</li>
-  <li>You would rather be understood than be loud.</li>
- </ul></div>
+<section class="sand" id="retainer"><div class="wrap">
+ <span class="eyebrow">You lead with knowledge</span>
+ <h2 class="display">You've built the expertise. <span class="red">Let me build how you're seen.</span></h2>
+ <p class="lead">Your profile may be outdated, your headline unclear and your Featured section silent. Strategy, words and design, handled for Muslim women leaders.</p>
+ <div class="cta-band" style="margin:34px 0">
+  <div><span class="eyebrow">The Visibility Retainer</span>
+  <h3 class="display">You share your voice. <span class="serif">I turn it into visibility.</span></h3>
+  <p class="lead">You answer a short questionnaire. I shape your positioning, write your messaging and design your look.</p></div>
+ </div>
+ <div class="section-head"><span class="eyebrow">Month 1 · Foundation</span><h3 class="display">Done for you, <span class="red">in 7 working days.</span></h3><p class="lead">Delivered within 7 working days of your questionnaire.</p></div>
+ <div class="grid g2">{m1}</div>
+ <div class="section-head" style="margin-top:56px"><span class="eyebrow">Every month, from month 1</span><h3 class="display">Consistent <span class="red">visibility.</span></h3></div>
+ <div class="grid g3">{mo}</div>
+ <div class="card offer-box" style="margin-top:34px">
+  <p class="offer-price">$700 a month · 3 months minimum · limited spots</p>
+  <p>Month 1 includes the Foundation. Every month after that is the cycle above.</p>
+  <p class="small">Not included: book work (that's Complete Authority). We don't promise results, leads or sales.</p>
+  <a class="btn btn-xl" href="#apply">Apply for the Visibility Retainer</a>
+ </div>
 </div></section>
 
-<section><div class="wrap">
- <div class="section-head"><span class="eyebrow">The path</span><h2 class="display">One step at a time, <span class="red">as you are ready.</span></h2></div>
- <ol class="ax-path">{path}</ol>
+<section id="authority"><div class="wrap">
+ <span class="eyebrow">Fully customised</span>
+ <h2 class="display">Complete Authority, <span class="red">built around you.</span></h2>
+ <p class="lead">We plan your book and your content together. 6 months to 1 year minimum. 3 clients at a time. Application only.</p>
+ <div class="grid g3" style="margin-top:30px">{sc}</div>
+ <div class="card offer-box" style="margin-top:34px">
+  <p class="small">No result promises. We build the work; what it brings depends on you, your offer and your follow-up.</p>
+  <a class="btn btn-xl" href="#apply">Apply for Complete Authority</a>
+ </div>
 </div></section>
 
-<section class="sand"><div class="wrap">
- <div class="section-head"><span class="eyebrow">What you get</span><h2 class="display">Five things, <span class="red">built with you.</span></h2></div>
- <ol class="ax-get">{get}</ol>
-</div></section>
-
-<section id="results"><div class="wrap">
- <div class="section-head"><span class="eyebrow">Results</span><h2 class="display">Real leaders. <span class="red">Real results.</span></h2><p class="lead">Every leader starts at a different step. Here is what we built for three of them, and what it did.</p></div>
+<section class="sand" id="results"><div class="wrap">
+ <div class="section-head"><span class="eyebrow">Results</span><h2 class="display">Real leaders. <span class="red">Real results.</span></h2><p class="lead">Every leader starts at a different step. Here is what we built together, and what it did.</p></div>
  <div class="grid g3 ax-res">
   <article class="card ax-rc">
-   <div class="ax-who"><img src="{rel}assets/img/parvez.jpg" alt="Parvez Siraj" width="56" height="56" loading="lazy"><div><strong>Parvez Siraj</strong><span>VP, Lupin · author &amp; speaker</span></div></div>
+   <div class="ax-who"><div><strong>A VP at a pharma company</strong><span>Author &amp; speaker</span></div></div>
    <ol class="ax-eco" aria-label="Steps used: Voice, Book, List, Community, Stage"><li class="on">Voice</li><li class="on">Book</li><li class="on">List</li><li class="on">Community</li><li class="on">Stage</li></ol>
-   <div class="ax-nums"><div><span class="big">Director → VP</span><p>at Lupin, via Chief of Staff</p></div><div><span class="big"><span class="ax-cn" data-count="4500">4,500</span>+</span><p>subscribers to his ASCEND newsletter</p></div><div><span class="big"><span class="ax-cn" data-count="800">800</span>+</span><p>members in his WhatsApp community</p></div></div><p class="ax-extra">And his second book launched to a ready audience.</p>
+   <div class="ax-nums"><div><span class="big">Director → VP</span><p>promoted, with a leader's expertise now visible</p></div><div><span class="big"><span class="ax-cn" data-count="4500">4,500</span>+</span><p>subscribers to his weekly newsletter</p></div><div><span class="big"><span class="ax-cn" data-count="800">800</span>+</span><p>members in his WhatsApp community</p></div></div><p class="ax-extra">And his second book launched to a ready audience.</p>
    <h3 class="ax-did">What we did</h3>
-   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>LinkedIn content and profile optimisation</li><li><span class="ax-tag-s">Book</span>His first book, written together</li><li><span class="ax-tag-s">List</span>The weekly ASCEND newsletter, written and designed</li><li><span class="ax-tag-s">Community</span>Starting his WhatsApp community</li><li><span class="ax-tag-s">Stage</span>Talks at IITs and IIMs, and paid speaking</li></ul>
+   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>LinkedIn content and profile optimisation</li><li><span class="ax-tag-s">Book</span>His first book, written together</li><li><span class="ax-tag-s">List</span>The weekly newsletter, written and designed</li><li><span class="ax-tag-s">Community</span>Starting his WhatsApp community</li><li><span class="ax-tag-s">Stage</span>Talks and paid speaking</li></ul>
    <blockquote class="ax-rq">“She helped turn the book into a complete authority platform.”</blockquote>
   </article>
   <article class="card ax-rc">
@@ -444,39 +433,29 @@ def authority():
    <blockquote class="ax-rq">“She really helped us find our brand voice and set us up for success.”</blockquote>
   </article>
  </div>
+ <div style="margin-top:56px">{testimonials("../", 6)}</div>
 </div></section>
 
-<section class="sand"><div class="wrap split">
+<section><div class="wrap split">
  <div><span class="eyebrow">How we work</span><h2 class="display">Boutique, <span class="red">on purpose.</span></h2>
- <p class="lead">An honest note: I don't promise a set number of clients or a full waitlist. Your offer and follow-up matter too. I build the trust that brings the right people to you.</p></div>
+ <p class="lead">I don't promise a set number of clients or a full waitlist. Your offer and follow-up matter too. I build the trust that brings the right people to you.</p></div>
  <dl class="ax-how">
-  <div><dt>3</dt><dd>Only 3 clients at a time.</dd></div>
-  <div><dt>6 mo</dt><dd>We work together for at least 6 months, because being known takes time.</dd></div>
-  <div><dt>Me</dt><dd>Strategy, ideas and voice come from me.</dd></div>
+  <div><dt>3</dt><dd>Complete Authority: 3 clients at a time.</dd></div>
+  <div><dt>3 mo</dt><dd>Visibility Retainer: 3 months minimum. Complete Authority: 6 months to 1 year.</dd></div>
+  <div><dt>Me</dt><dd>Strategy, ideas and voice come from me. Nothing goes out without your yes.</dd></div>
  </dl>
-</div></section>
-
-<section class="feat feat-l"><div class="feat-photo" style="--fp:50% 15%"><img src="{rel}assets/img/fathima-award.jpg" alt="Fathima Samreen with her SIWAA 2025 Changemaker award" width="640" height="853" loading="lazy"></div>
-<div class="wrap feat-grid">
- <div class="feat-copy">
-  <span class="eyebrow">Who you work with</span>
-  <h2 class="display">I see your next door <span class="red">before you do.</span></h2>
-  <p class="lead">And I walk you through it. I'm Fathima Samreen: 7+ years writing for leaders in 3 countries, books since 2019, SIWAA Award 2025, Changemaker.</p>
-  <blockquote class="ax-quote"><p class="serif">I tell you the truth, even when it is hard.</p><p>One client left upset at my honest feedback. Three months later she came back, ready to build.</p></blockquote>
- </div>
 </div></section>
 
 <section id="apply" class="ap-sec"><div class="wrap ap-grid">
  <div class="ap-intro">
   <span class="eyebrow">Apply</span>
-  <h2 class="display">Apply for one of <span class="red">3 spots.</span></h2>
-  <p class="lead">No discovery chats. Tell me about you, I'll read it personally.</p>
+  <h2 class="display">Tell me about <span class="red">you.</span></h2>
+  <p class="lead">Pick the offer that fits, and tell me why you're applying. I read every application myself.</p>
   <ol class="ap-next">
    <li><span><strong>You apply.</strong> About 2 minutes.</span></li>
    <li><span><strong>I read it myself.</strong> Every answer, personally.</span></li>
    <li><span><strong>If it fits,</strong> you hear from me within 3 working days with a time for one focused call.</span></li>
   </ol>
-  <p class="small ap-alt">Prefer to talk first? <a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a free Clarity Call</a> on Topmate. Or <a href="{rel}{ONEPAGER}" target="_blank" rel="noopener">download the one-pager</a>.</p>
  </div>
  <div class="ap-card">
  <form class="ap-form" id="ap-form" action="{FORM_EP}" method="POST" data-ajax="{FORM_EP.replace('formsubmit.co/', 'formsubmit.co/ajax/')}">
@@ -491,10 +470,12 @@ def authority():
   </div>
   <label class="ap-f"><span>LinkedIn or website *</span><input type="text" name="LinkedIn or website" inputmode="url" placeholder="linkedin.com/in/yourname" required maxlength="300"></label>
   <label class="ap-f"><span>Current role and industry *</span><input type="text" name="Role and industry" placeholder="e.g. Founder, fintech" required maxlength="200"></label>
+  <fieldset class="ap-set"><legend>Which offer are you applying for? *</legend><div class="ap-pills">{radios("Offer", ["Visibility Retainer", "Complete Authority", "Not sure yet"])}</div></fieldset>
+  <label class="ap-f"><span>Why are you applying? *</span><textarea name="Why are you applying" rows="3" placeholder="A line or two is plenty." required maxlength="1200"></textarea></label>
   <label class="ap-f"><span>What do you want to be known for? *</span><textarea name="Wants to be known for" rows="3" placeholder="One or two lines is plenty." required maxlength="1200"></textarea></label>
   <fieldset class="ap-set" id="ap-matters"><legend>Which part matters most right now? *</legend><div class="ap-pills">{pill_html}</div><p class="ap-err" hidden>Pick at least one.</p></fieldset>
   <fieldset class="ap-set"><legend>Timeline *</legend><div class="ap-pills">{radios("Timeline", ["Now", "Next 3 months", "Just exploring"])}</div></fieldset>
-  <fieldset class="ap-set"><legend>Are you ready to invest in a 6-month, done-with-you partnership? *</legend><div class="ap-pills">{radios("Ready for 6 months", ["Yes", "Want to know more first"])}</div></fieldset>
+  <fieldset class="ap-set"><legend>Are you ready for the minimum term of that offer? *</legend><div class="ap-pills">{radios("Ready for 6 months", ["Yes", "Want to know more first"])}</div></fieldset>
   <label class="ap-f"><span>Anything else? <em>(optional)</em></span><textarea name="Anything else" rows="2" maxlength="2000"></textarea></label>
   <button class="btn btn-xl ap-send" type="submit">Send my application</button>
   <p class="ap-fail small" role="alert" hidden>That didn't go through. Please try again, or email <a href="mailto:fathima@voiceofbecoming.com">fathima@voiceofbecoming.com</a>.</p>
@@ -507,21 +488,28 @@ def authority():
  </div>
 </div></section>
 """
-    return page("The Becoming Authority Ecosystem", "A private, boutique program for women leaders who want to be known beyond their job title. Voice, book, list, community, stage. Apply for one of 3 spots.", body, "authority/", rel, "authority/")
+    return page("Work with me · Visibility Retainer and Complete Authority", "Work with Fathima Samreen: the Visibility Retainer, from $700 a month, and Complete Authority, a custom program for Muslim women leaders. Apply here.", body, "authority/", rel, "authority/")
+
+def stub(target, title):
+    # v26: removed pages stay as redirects so old links land on a live page
+    t = SITE_URL + "/" + target
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{esc(title)} | Fathima Samreen</title>
+<meta name="robots" content="noindex"><link rel="canonical" href="{t}">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="0; url={t}">
+<script>location.replace("{t}");</script>
+<style>body{{background:#141414;color:#F3E9DD;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0}}a{{color:#F3E9DD}}</style></head>
+<body><p>Taking you to <a href="{t}">the right page</a>.</p></body></html>
+"""
 
 def blog_index(posts):
-    if posts:
-        items = "".join(f'<a class="post-card" href="blog/{p["slug"]}.html"><span class="meta"><span class="tag">{esc(p.get("tag","Article"))}</span> · {nice(p["d"])} · {read_mins(p["body"])} min read</span><h2>{esc(p["title"])}</h2><p>{esc(p["summary"])}</p><span class="more red">Read the article →</span></a>' for p in posts)
-        content = f'<div class="post-list">{items}</div>'
-    else:
-        content = '<div class="empty"><h2>First articles coming soon</h2><p>Join 4 AM and you will get them first.</p></div>'
-    body = f"""
-<section class="page-head"><div class="wrap"><span class="eyebrow">Articles</span><h1 class="display">Notes from the <span class="red">ghostwriting desk.</span></h1>
-<p class="lead">On voice, authority, books and the stories women keep for later. Written for leaders who think deeply.</p></div></section>
-<section><div class="wrap" style="max-width:860px">{content}</div></section>
-{workbook_band("")}
-"""
-    return page("Articles", "Articles by Fathima Samreen on voice, authority, books and the articulation gap.", body, "blog.html", "", "blog.html")
+    return stub("index.html#articles", "Articles")
+
+def calendar(events=None):
+    return stub("index.html", "Calendar")
+
+def freebies():
+    return stub("newsletter.html#join", "Freebies")
 
 def article(p, posts):
     others = [o for o in posts if o["slug"] != p["slug"]][:2]
@@ -531,7 +519,7 @@ def article(p, posts):
             f'<a class="post-card" href="{o["slug"]}.html"><span class="meta">{nice(o["d"])}</span><h2>{esc(o["title"])}</h2><p>{esc(o["summary"])}</p></a>' for o in others)
     body = f"""
 <article><section><div class="wrap article">
- <a href="../blog.html" class="meta" style="text-decoration:none">← All articles</a>
+ <a href="../index.html" class="meta" style="text-decoration:none">← Home</a>
  <p class="meta" style="margin-top:22px"><span class="tag">{esc(p.get("tag","Article"))}</span> · {nice(p["d"])} · {read_mins(p["body"])} min read</p>
  <h1>{esc(p["title"])}</h1>
  <p class="lead" style="margin-bottom:34px">{esc(p["summary"])}</p>
@@ -544,76 +532,7 @@ def article(p, posts):
 </div></section></article>
 {more}
 """
-    return page(p["title"], p["summary"], body, "blog.html", "../", "blog/%s.html" % p["slug"])
-
-MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
-def event_html(e, past=False):
-    d = datetime.date.fromisoformat(e["date"])
-    link = ('<p style="margin:10px 0 0"><a class="more" href="%s" target="_blank" rel="noopener">%s →</a></p>' % (esc(e["link"]), esc(e.get("link_label") or "Details"))) if e.get("link") else ""
-    bits = " · ".join(esc(x) for x in [e.get("format",""), e.get("time",""), e.get("place","")] if x)
-    desc = "<p style='margin:8px 0 0'>%s</p>" % esc(e["description"]) if e.get("description") else ""
-    return f'<div class="event{" past" if past else ""}" data-date="{e["date"]}"><div class="date-box"><b>{d.day}</b><span>{MONTHS[d.month-1]} {d.year}</span></div><div><h3>{esc(e["title"])}</h3><p class="meta" style="margin:0">{bits}</p>{desc}{link}</div></div>'
-
-def calendar(events):
-    events = sorted(events, key=lambda e: e["date"])
-    up = [e for e in events if datetime.date.fromisoformat(e["date"]) >= TODAY]
-    past = [e for e in events if datetime.date.fromisoformat(e["date"]) < TODAY][::-1]
-    empty = '<div class="empty" id="no-upcoming"%s><h2>Upcoming talks will be announced here</h2><p>Fathima speaks at colleges, women\'s groups and organisations. Want her at yours? Send a speaking enquiry below.</p></div>'
-    up_html = "".join(event_html(e) for e in up) + (empty % ("" if not up else " hidden"))
-    past_html = ('<h2 style="margin-top:50px;font-size:22px;font-weight:800">Past talks</h2><div class="grid">%s</div>' % "".join(event_html(e, True) for e in past)) if past else ""
-    subject = "Speaking enquiry for Fathima Samreen"
-    mail = "mailto:%s?subject=%s" % (EMAIL, subject.replace(" ", "%20"))
-    body = f"""
-<section class="page-head"><div class="wrap"><span class="eyebrow">Calendar</span><h1 class="display">Talks &amp; <span class="red">events.</span></h1>
-<p class="lead">Where to hear Fathima speak, in person and online.</p></div></section>
-<section><div class="wrap" style="max-width:860px">
- <h2 style="font-size:22px;font-weight:800">Upcoming</h2>
- <div class="grid" id="upcoming">{up_html}</div>
- {past_html}
-</div></section>
-<section class="sand"><div class="wrap">
- <div class="section-head"><span class="eyebrow">Invite Fathima to speak</span><h2 class="display">Talks &amp; <span class="red">workshops.</span></h2>
- <p class="lead">A real woman from Warangal who built a career from home, and who can teach your audience to find their voice. Each talk runs as a 20, 45 or 90 minute session or workshop.</p></div>
- <div class="grid g3">
-  <div class="card"><span class="num">01</span><h3>Rooted and Rising: Building a Career From Home</h3><p>Your home, your town and your values are not your limits. A real career can start from exactly where you are.</p><p class="small">Best for girls' colleges, women's clubs and community groups.</p></div>
-  <div class="card"><span class="num">02</span><h3>The Articulation Gap: Say What You Know So People Follow</h3><p>You are smarter than your words. Learn to put what you know into clear, simple sentences people remember. It is about clarity, not accent.</p><p class="small">Best for universities, MBA and placement cells.</p></div>
-  <div class="card"><span class="num">03</span><h3>Your Name Is a Brand: Personal Branding for Young Women</h3><p>Before your first job, let your name stand for something, online and offline, while keeping your values and your privacy.</p><p class="small">Best for final-year students and management departments.</p></div>
- </div>
- <div class="btns"><a class="btn" href="{mail}">Send a speaking enquiry</a><a class="btn ghost" href="{TOPMATE}" target="_blank" rel="noopener">Message on Topmate</a></div>
-</div></section>
-"""
-    return page("Calendar: talks & events", "Upcoming talks and workshops by Fathima Samreen, and how to invite her to speak.", body, "calendar.html", "", "calendar.html")
-
-def freebies():
-    body = f"""
-<section class="page-head"><div class="wrap"><span class="eyebrow">Freebies</span><h1 class="display">Free tools to find <span class="red">your voice.</span></h1>
-<p class="lead">Start here. Free resources from The Voice of Becoming Studio.</p></div></section>
-<section><div class="wrap">
- <div class="signup" id="workbook">
-  <img class="cover" src="assets/img/workbook.webp" alt="Cover of The Articulation Gap workbook" width="600" height="848">
-  <div>
-   <span class="eyebrow">Free workbook</span>
-   <h2 class="display">The Articulation <span class="red">Gap.</span></h2>
-   <p class="lead">The distance between the brilliance in your head and the words the world can see. This workbook helps you close it.</p>
-   <ul class="checks" style="margin:22px 0">
-    <li>Five stories you already own, turned into post ideas</li>
-    <li>A profile that speaks for you while you do your job</li>
-    <li>Start with Story 01 in 20 minutes</li>
-   </ul>
-   <a class="btn" href="{KIT}">Send me the workbook</a>
-   <p class="small" style="margin-top:14px">Enter your email on the next page and the workbook comes straight to your inbox. You'll also get 4 AM, my letter for Muslim women who build in the quiet. Unsubscribe any time.</p>
-  </div>
- </div>
-</div></section>
-<section class="sand"><div class="wrap">
- <div class="section-head"><span class="eyebrow">More ways to start</span><h2 class="display">Free, <span class="red">and personal.</span></h2></div>
- <div class="grid g2">
-  <div class="card"><span class="num">20 min</span><h3>Book &amp; Authority Clarity Call</h3><p>Bring your story and your goal. We work out whether a book, your LinkedIn or your brand comes first.</p><a class="more" href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book the call →</a></div>
-  <div class="card"><span class="num">3 fixes</span><h3>LinkedIn Profile Teardown</h3><p>Send me your profile. I send back 3 written fixes so it builds trust.</p><a class="more" href="https://topmate.io/fathima_samreen/2368492" target="_blank" rel="noopener">Ask for a teardown →</a></div>
- </div>
-</div></section>
-"""
-    return page("Freebies: The Articulation Gap workbook", "Get the free Articulation Gap workbook by Fathima Samreen: five stories you already own, turned into post ideas and a profile that speaks for you.", body, "freebies.html", "", "freebies.html")
+    return page(p["title"], p["summary"], body, "", "../", "blog/%s.html" % p["slug"])
 
 def newsletter():
     body = f"""
@@ -702,9 +621,7 @@ def letter():
 
 def main():
     posts = load_posts()
-    events = json.load(open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8")).get("events", [])
-    out = {"index.html": home(posts), "about.html": about(), "blog.html": blog_index(posts),
-           "calendar.html": calendar(events), "freebies.html": freebies(), "newsletter.html": newsletter(), "authority/index.html": authority()}
+    out = {"index.html": home(posts), "about.html": about(), "authority/index.html": authority(), "newsletter.html": newsletter()}
     os.makedirs(os.path.join(SITE, "authority"), exist_ok=True)
     os.makedirs(os.path.join(SITE, "letter"), exist_ok=True)
     os.makedirs(os.path.join(SITE, "blog"), exist_ok=True)
@@ -712,11 +629,15 @@ def main():
     for p in posts: out["blog/%s.html" % p["slug"]] = article(p, posts)
     for name, h in out.items():
         open(os.path.join(SITE, name), "w", encoding="utf-8").write(h)
+    # removed pages: stubs that redirect to the right new place
     open(os.path.join(SITE, "letter", "index.html"), "w", encoding="utf-8").write(letter())
+    open(os.path.join(SITE, "blog.html"), "w", encoding="utf-8").write(blog_index(posts))
+    open(os.path.join(SITE, "calendar.html"), "w", encoding="utf-8").write(calendar([]))
+    open(os.path.join(SITE, "freebies.html"), "w", encoding="utf-8").write(freebies())
     urls = "".join("<url><loc>%s/%s</loc></url>" % (SITE_URL, n.replace("index.html", "")) for n in out)
     open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">%s</urlset>' % urls)
     open(os.path.join(SITE, "robots.txt"), "w").write("User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % SITE_URL)
-    print("built %d pages (%d articles, %d events)" % (len(out), len(posts), len(events)))
+    print("built %d pages (%d articles)" % (len(out), len(posts)))
 
 if __name__ == "__main__":
     main()

@@ -31,4 +31,4 @@ The writing is the easy part after this hour.
 
 Try them on yourself tonight. Take your time with number 3.
 
-Which one would stop you? If you want to think it through together, [book a free Clarity Call](https://topmate.io/fathima_samreen/504857).
+Which one would stop you? If you want to think it through together, [see how we work together](https://voiceofbecoming.com/authority/).
