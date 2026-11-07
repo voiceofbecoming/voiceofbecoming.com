@@ -22,4 +22,3 @@ Tests: `node --test test/site.test.js` (footer links, no prices, no em dashes, n
 
 ## Key links used
 Kit signup (workbook + newsletter): https://becoming-her-again-4.kit.com/042d6cefac
-Clarity Call: https://topmate.io/fathima_samreen/504857 · Teardown: https://topmate.io/fathima_samreen/2368492

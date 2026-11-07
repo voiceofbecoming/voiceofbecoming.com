@@ -39,9 +39,10 @@ test("copy rules: no prices, no em dashes, no placeholders, no named confidentia
     assert.ok(!/[\u2014]/.test(text), p+" has an em dash");
     assert.ok(!/(₹|€|INR|USD|\$(?!700\b)\s?\d|\bprice\b)/i.test(text), p+" mentions a price other than the $700 retainer");
     assert.ok(!/(lorem|ipsum|TODO|TBD|\[insert)/i.test(text), p+" has a placeholder");
-    assert.ok(!/(Parvez|Lupin|ASCEND)/i.test(h), p+" names the anonymous client");
+    if (p === "index.html" || p === "authority/index.html") assert.ok(/Parvez Siraj/.test(h) && /parvez\.jpg/.test(h), p+" lacks Parvez name and photo");
     assert.ok(!/topmate\.io\/fathima_samreen\/(2368492)/.test(h), p+" links the old teardown");
-    if (p !== "authority/index.html") assert.ok(!/topmate\.io/.test(h), p+" links Topmate");
+    assert.ok(!/topmate\.io/.test(h), p+" links Topmate");
+    assert.ok(!/clarity call/i.test(h), p+" offers a clarity call");
     assert.ok(!/memoir/i.test(text), p+" says memoir");
   }
 });

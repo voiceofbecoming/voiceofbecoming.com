@@ -194,7 +194,7 @@ def workbook_band(rel=""):
 </div></div></section>"""
 
 TESTIMONIALS = [
- ("The ideas and experiences in the book were mine, but she helped me shape them into something people could truly connect with … she helped turn the book into a complete authority platform.", "A VP at a pharma company", "Author &amp; speaker", None),
+ ("The ideas and experiences in the book were mine, but she helped me shape them into something people could truly connect with … she helped turn the book into a complete authority platform.", "Parvez Siraj", "VP, Lupin · author &amp; speaker", "parvez.jpg"),
  ("We hired Fathima and her team as our marketing manager. She really helped us find our brand voice and set us up for success.", "Negar Farahmand", "CEO, AHX Partners · ex-Accenture MD", "negar.jpg"),
  ("She takes the time to carefully understand the objectives of each piece of content … She has been a true gift to our team, and our growth on social media.", "Bhavna Toor", "Founder &amp; CEO, Shenomics", "bhavna.webp"),
  ("I thank Fathima Samreen, my ghostwriter, who has done an exceptional job of framing the entire story so beautifully and deftly weaving my thoughts into words.", "Akhauri Mritunjay Kumar", "Author, <em>Rekha Dares to Dream Again</em> (from the book's acknowledgements)", None),
@@ -232,7 +232,7 @@ def home(posts):
  <div role="listitem"><strong data-count="2019" data-from="2000">2019</strong><span>writing books since</span></div>
  <div role="listitem"><strong data-count="4">4</strong><span>pillars of authority</span></div>
 </div>
-<div class="marquee" aria-hidden="true"><div class="mq-row mq-co"><div class="mq-track"><span><em>Pharma company</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Pharma company</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Pharma company</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i></div></div><div class="mq-row rev"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div></div>
+<div class="marquee" aria-hidden="true"><div class="mq-row mq-co"><div class="mq-track"><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i><span><em>Lupin</em> <b>&middot;</b> Director <b class="ar">&rarr;</b> VP</span><i>✦</i><span><em>Shenomics</em> <b>&middot;</b> 36K <b class="ar">&rarr;</b> 105K followers</span><i>✦</i><span><em>AHX Partners</em> <b>&middot;</b> +100 paid members</span><i>✦</i></div></div><div class="mq-row rev"><div class="mq-track"><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i><span>Strategy</span><i>✦</i><span>Psychology</span><i>✦</i><span>Narrative</span><i>✦</i><span>Executive Presence</span><i>✦</i></div></div></div>
 
 <section class="sand"><div class="wrap">
  <div class="section-head"><span class="eyebrow">Two ways to work together</span><h2 class="display">Pick <span class="red">your level.</span></h2></div>
@@ -282,7 +282,7 @@ def home(posts):
 <section><div class="wrap">
  <div class="section-head"><span class="eyebrow">Results</span><h2 class="display">Real leaders. <span class="red">Real results.</span></h2></div>
  <div class="grid g3">
-  <div class="card result"><span class="meta">A pharma company</span><span class="big">Director → VP</span><p>A book, a weekly newsletter and a profile that made a leader's expertise visible. 4,500+ newsletter subscribers and 800+ community members.</p></div>
+  <div class="card result"><span class="meta">Lupin</span><span class="big">Director → VP</span><p>A book, a weekly newsletter and a profile that made a leader's expertise visible. 4,500+ newsletter subscribers and 800+ community members.</p></div>
   <div class="card result"><span class="meta">Shenomics · Bhavna Toor</span><span class="big">36K → 105K</span><p>LinkedIn followers for Bhavna, over 14 to 18 months of partnership, with the profile updated each time her offer evolved.</p></div>
   <div class="card result"><span class="meta">AHX Partners</span><span class="big">+100</span><p>Paid members added to a founder-led community, through strategy, content, design and positioning.</p></div>
  </div>
@@ -369,7 +369,6 @@ def authority():
  <h1 class="display">Muslim women leaders: <span class="red">be known for what you know.</span></h1>
  <p class="lead">I build your voice, your profile, your book and your audience, so the right clients find you. Two ways to work together, depending on where you are.</p>
  <div class="btns"><a class="btn" href="#retainer">Visibility Retainer</a><a class="btn ghost" href="#authority">Complete Authority</a></div>
- <p class="small ax-note">Not sure which fits? <a href="{TOPMATE_CALL}" target="_blank" rel="noopener">Book a short free Clarity Call</a>.</p>
  </div>
 </div></section>
 
@@ -409,11 +408,11 @@ def authority():
  <div class="section-head"><span class="eyebrow">Results</span><h2 class="display">Real leaders. <span class="red">Real results.</span></h2><p class="lead">Every leader starts at a different step. Here is what we built together, and what it did.</p></div>
  <div class="grid g3 ax-res">
   <article class="card ax-rc">
-   <div class="ax-who"><div><strong>A VP at a pharma company</strong><span>Author &amp; speaker</span></div></div>
+   <div class="ax-who"><img src="{rel}assets/img/parvez.jpg" alt="Parvez Siraj" width="56" height="56" loading="lazy"><div><strong>Parvez Siraj</strong><span>VP, Lupin · author &amp; speaker</span></div></div>
    <ol class="ax-eco" aria-label="Steps used: Voice, Book, List, Community, Stage"><li class="on">Voice</li><li class="on">Book</li><li class="on">List</li><li class="on">Community</li><li class="on">Stage</li></ol>
-   <div class="ax-nums"><div><span class="big">Director → VP</span><p>promoted, with a leader's expertise now visible</p></div><div><span class="big"><span class="ax-cn" data-count="4500">4,500</span>+</span><p>subscribers to his weekly newsletter</p></div><div><span class="big"><span class="ax-cn" data-count="800">800</span>+</span><p>members in his WhatsApp community</p></div></div><p class="ax-extra">And his second book launched to a ready audience.</p>
+   <div class="ax-nums"><div><span class="big">Director → VP</span><p>at Lupin, via Chief of Staff</p></div><div><span class="big"><span class="ax-cn" data-count="4500">4,500</span>+</span><p>subscribers to his ASCEND newsletter</p></div><div><span class="big"><span class="ax-cn" data-count="800">800</span>+</span><p>members in his WhatsApp community</p></div></div><p class="ax-extra">And his second book launched to a ready audience.</p>
    <h3 class="ax-did">What we did</h3>
-   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>LinkedIn content and profile optimisation</li><li><span class="ax-tag-s">Book</span>His first book, written together</li><li><span class="ax-tag-s">List</span>The weekly newsletter, written and designed</li><li><span class="ax-tag-s">Community</span>Starting his WhatsApp community</li><li><span class="ax-tag-s">Stage</span>Talks and paid speaking</li></ul>
+   <ul class="ax-tactics"><li><span class="ax-tag-s">Voice</span>LinkedIn content and profile optimisation</li><li><span class="ax-tag-s">Book</span>His first book, written together</li><li><span class="ax-tag-s">List</span>The weekly ASCEND newsletter, written and designed</li><li><span class="ax-tag-s">Community</span>Starting his WhatsApp community</li><li><span class="ax-tag-s">Stage</span>Talks and paid speaking</li></ul>
    <blockquote class="ax-rq">“She helped turn the book into a complete authority platform.”</blockquote>
   </article>
   <article class="card ax-rc">
